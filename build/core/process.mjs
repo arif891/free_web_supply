@@ -19,7 +19,7 @@ async function process() {
     await writeFile(path.join(config.directories.out.markdown, `item-${uid}.md`), content);
     const info = await processInfo(content);
     itemInfo = {...itemInfo, ...info};
-    itemInfo.timestamp = new Date().now();
+    itemInfo.timestamp = performance.now();
     itemInfo.date = new Date().toLocaleDateString("en-US", {year: "numeric",month: "long",day: "numeric"});
     mainInfo.inventory.push(itemInfo);
     await writeFile(infoPath, JSON.stringify(mainInfo, null, 4));
