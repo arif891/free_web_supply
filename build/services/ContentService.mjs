@@ -44,6 +44,10 @@ class ContentService {
         }
         const mainInfo = extractMainInfo(content);
 
+        if (!mainInfo.heading) {
+            throw new Error('At least one heading with # is required');
+        }
+
         if (!mainInfo.thumbnail) {
             mainInfo.thumbnail = config.files.default.thumbnail;
         }

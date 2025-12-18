@@ -21,7 +21,7 @@ async function process() {
             date: new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }),
             url: `${config.directories.out.html}${slug}/`
         };
-
+ 
         await inventoryService.addItem(finalItemInfo);
         await contentService.saveHtml(slug, html);
         await contentService.resetInput();
