@@ -20,7 +20,7 @@ async function process() {
             timestamp: Date.now(),
             slug,
             date: new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }),
-            url: `${config.directories.out.html}${slug}/`
+            url: `/${config.directories.out.html}${slug}/`
         };
  
         await inventoryService.addItem(finalItemInfo);
