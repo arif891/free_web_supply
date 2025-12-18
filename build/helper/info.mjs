@@ -6,8 +6,10 @@ function parseInfo(input, splits = { tags: ' ' }) {
         .filter(line => line.trim())
         .reduce((acc, line) => {
             let [key, value] = line.split(':').map(s => s.trim());
-            if (key) {
-                acc[key] = splits[key] ? value.split(splits[key]) : value;
+            
+            if (key && value) {
+                const cleanValue = value.replace(/\s+/g, ' ');
+                acc[key] = splits[key] ? cleanValue.split(splits[key]) : cleanValue;
             }
             return acc;
         }, {});
