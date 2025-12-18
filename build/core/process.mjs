@@ -5,9 +5,12 @@ import { parseInfo, extractInfo, removeInfo, extractMainInfo, removeMainInfo} fr
 import { genDefault, genRoot } from '../helper/template.mjs';
 import {marked} from '../lib/marked/marked.mjs';
 
+
+export {process};
+
+
 const infoPath = path.join(config.directories.info, config.files.info.build);
 let mainInfo = await readFile(infoPath).catch(() => '{}').then(JSON.parse);
-
 
 async function process() {
     const {uid = mainInfo.inventory.length + 1} = mainInfo;
