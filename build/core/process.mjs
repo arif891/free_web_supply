@@ -1,5 +1,6 @@
 import { inventoryService } from '../services/InventoryService.mjs';
 import { contentService } from '../services/ContentService.mjs';
+import { config } from '../config/index.mjs';
 
 async function process() {
     try {
