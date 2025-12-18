@@ -43,6 +43,11 @@ class ContentService {
             info = parseInfo(infoBlock);
         }
         const mainInfo = extractMainInfo(content);
+
+        if (!mainInfo.thumbnail) {
+            mainInfo.thumbnail = config.files.default.thumbnail;
+        }
+
         return { ...mainInfo, ...info };
     }
 
