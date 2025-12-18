@@ -25,8 +25,8 @@ async function process() {
     await writeFile(infoPath, JSON.stringify(mainInfo, null, 4));
     const updatedContent = await removeInfoContent(content);
     const htmlContent = await marked.parse(updatedContent);
-    const finalHtml = genRoot(itemInfo.title, htmlContent);
-    await writeFile(path.join(config.directories.out.html, itemInfo.title, '/index.html'), finalHtml);
+    const finalHtml = genRoot(itemInfo.heading, htmlContent);
+    await writeFile(path.join(config.directories.out.html, itemInfo.heading, '/index.html'), finalHtml);
     await writeFile(path.join(config.files.in.markdown), genDefault());
     console.log(`Processed item with UID: ${uid}`);
 }
