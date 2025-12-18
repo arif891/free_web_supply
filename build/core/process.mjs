@@ -1,5 +1,6 @@
 import path from 'node:path';
 import {readFile, writeFile, copyFile, moveFile, deleteFile} from '../helper/fs.mjs';
+import {createSlug} from '../helper/helper.mjs';
 import {config} from './vars.mjs';
 import { parseInfo, extractInfo, removeInfo, extractMainInfo, removeMainInfo} from '../helper/info.mjs';
 import { genDefault, genRoot } from '../helper/template.mjs';
@@ -26,7 +27,7 @@ async function process() {
     const updatedContent = await removeInfoContent(content);
     const htmlContent = await marked.parse(updatedContent);
     const finalHtml = genRoot(itemInfo.heading, htmlContent);
-    await writeFile(path.join(config.directories.out.html, itemInfo.heading.replaceAll(' ', '-').toLowerCase(), '/index.html'), finalHtml);
+    await writeFile(path.join(config.directories.out.html, createSlug(itemInfo.heading), '/index.html'), finalHtml);
     await writeFile(path.join(config.files.in.markdown), genDefault());
     console.log(`Processed item with UID: ${uid}`);
 }

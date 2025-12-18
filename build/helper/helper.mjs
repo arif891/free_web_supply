@@ -1,7 +1,7 @@
 import path from 'node:path';
 import fs from "node:fs/promises";
 
-export {getFilesWithExtension, replaceURLs};
+export {getFilesWithExtension, replaceURLs, createSlug};
 
 async function getFilesWithExtension(directory, extension, subDir = false, exclude = ['layx', 'setup']) {
     const entries = await fs.readdir(directory, { withFileTypes: true });
@@ -42,4 +42,19 @@ function replaceURLs(input, from = '/pages/', to = '/', where = 'start') {
     }
 
     return input.replace(regex, `$1${to}$2`);
+}
+
+function createSlug(text) {
+  return text
+    .toString()
+    .replace(/&/g, 'and')           
+    .replace(/\+/g, 'plus')        
+    .normalize('NFD')             
+    .replace(/[\u0300-\u036f]/g, '') 
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-_]/g, '')  
+    .replace(/[\s_]+/g, '-')        
+    .replace(/-+/g, '-')          
+    .replace(/^-+|-+$/g, '');
 }
