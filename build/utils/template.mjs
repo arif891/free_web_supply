@@ -1,14 +1,13 @@
 export { genDefault, genRoot };
 
 function genDefault() {
-    return `
-<!-- default template -->
+  return `<!-- default template -->
+
 <info>
 category: tutorial;
 author: admin;
 tags: html css  js;
-</info>
-`
+</info>`
 }
 
 function genRoot(title, main, meta = '') {
