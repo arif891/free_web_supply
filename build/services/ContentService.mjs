@@ -50,6 +50,7 @@ class ContentService {
 
         if (!mainInfo.thumbnail) {
             mainInfo.thumbnail = config.files.default.thumbnail;
+            console.log('Thumbnail not found, using default thumbnail');
         }
 
         return { ...mainInfo, ...info };
