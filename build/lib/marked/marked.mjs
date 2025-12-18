@@ -1,15 +1,15 @@
-import { _Lexer } from "./Lexer.js";
-import { _Parser } from "./Parser.js";
-import { _Tokenizer } from "./Tokenizer.js";
-import { _Renderer } from "./Renderer.js";
-import { _TextRenderer } from "./TextRenderer.js";
-import { _Hooks } from "./Hooks.js";
-import { Marked } from "./Instance.js";
+import { _Lexer } from "./Lexer.mjs";
+import { _Parser } from "./Parser.mjs";
+import { _Tokenizer } from "./Tokenizer.mjs";
+import { _Renderer } from "./Renderer.mjs";
+import { _TextRenderer } from "./TextRenderer.mjs";
+import { _Hooks } from "./Hooks.mjs";
+import { Marked } from "./Instance.mjs";
 import {
   _getDefaults,
   changeDefaults,
   _defaults
-} from "./defaults.js";
+} from "./defaults.mjs";
 const markedInstance = new Marked();
 function marked(src, opt) {
   return markedInstance.parse(src, opt);
@@ -49,14 +49,14 @@ const parseInline = marked.parseInline;
 const parse = marked;
 const parser = _Parser.parse;
 const lexer = _Lexer.lex;
-import { _defaults as _defaults2, _getDefaults as _getDefaults2 } from "./defaults.js";
-import { _Lexer as _Lexer2 } from "./Lexer.js";
-import { _Parser as _Parser2 } from "./Parser.js";
-import { _Tokenizer as _Tokenizer2 } from "./Tokenizer.js";
-import { _Renderer as _Renderer2 } from "./Renderer.js";
-import { _TextRenderer as _TextRenderer2 } from "./TextRenderer.js";
-import { _Hooks as _Hooks2 } from "./Hooks.js";
-import { Marked as Marked2 } from "./Instance.js";
+import { _defaults as _defaults2, _getDefaults as _getDefaults2 } from "./defaults.mjs";
+import { _Lexer as _Lexer2 } from "./Lexer.mjs";
+import { _Parser as _Parser2 } from "./Parser.mjs";
+import { _Tokenizer as _Tokenizer2 } from "./Tokenizer.mjs";
+import { _Renderer as _Renderer2 } from "./Renderer.mjs";
+import { _TextRenderer as _TextRenderer2 } from "./TextRenderer.mjs";
+import { _Hooks as _Hooks2 } from "./Hooks.mjs";
+import { Marked as Marked2 } from "./Instance.mjs";
 export {
   _Hooks2 as Hooks,
   _Lexer2 as Lexer,

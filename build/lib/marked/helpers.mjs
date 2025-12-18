@@ -1,4 +1,4 @@
-import { other } from "./rules.js";
+import { other } from "./rules.mjs";
 const escapeReplacements = {
   "&": "&amp;",
   "<": "&lt;",

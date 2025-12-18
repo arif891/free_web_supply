@@ -1,6 +1,6 @@
 function _getDefaults() {
   return {
-    async: false,
+    async: true,
     breaks: false,
     extensions: null,
     gfm: true,

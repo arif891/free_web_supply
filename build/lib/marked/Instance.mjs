@@ -1,11 +1,11 @@
-import { _getDefaults } from "./defaults.js";
-import { _Lexer } from "./Lexer.js";
-import { _Parser } from "./Parser.js";
-import { _Hooks } from "./Hooks.js";
-import { _Renderer } from "./Renderer.js";
-import { _Tokenizer } from "./Tokenizer.js";
-import { _TextRenderer } from "./TextRenderer.js";
-import { escape } from "./helpers.js";
+import { _getDefaults } from "./defaults.mjs";
+import { _Lexer } from "./Lexer.mjs";
+import { _Parser } from "./Parser.mjs";
+import { _Hooks } from "./Hooks.mjs";
+import { _Renderer } from "./Renderer.mjs";
+import { _Tokenizer } from "./Tokenizer.mjs";
+import { _TextRenderer } from "./TextRenderer.mjs";
+import { escape } from "./helpers.mjs";
 class Marked {
   defaults = _getDefaults();
   options = this.setOptions;

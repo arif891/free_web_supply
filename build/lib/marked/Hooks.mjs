@@ -1,6 +1,6 @@
-import { _defaults } from "./defaults.js";
-import { _Lexer } from "./Lexer.js";
-import { _Parser } from "./Parser.js";
+import { _defaults } from "./defaults.mjs";
+import { _Lexer } from "./Lexer.mjs";
+import { _Parser } from "./Parser.mjs";
 class _Hooks {
   options;
   block;

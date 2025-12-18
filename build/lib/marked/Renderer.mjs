@@ -1,9 +1,9 @@
-import { _defaults } from "./defaults.js";
+import { _defaults } from "./defaults.mjs";
 import {
   cleanUrl,
   escape
-} from "./helpers.js";
-import { other } from "./rules.js";
+} from "./helpers.mjs";
+import { other } from "./rules.mjs";
 class _Renderer {
   options;
   parser;

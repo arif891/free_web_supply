@@ -1,9 +1,9 @@
-import { _defaults } from "./defaults.js";
+import { _defaults } from "./defaults.mjs";
 import {
   rtrim,
   splitCells,
   findClosingBracket
-} from "./helpers.js";
+} from "./helpers.mjs";
 function outputLink(cap, link, raw, lexer, rules) {
   const href = link.href;
   const title = link.title || null;

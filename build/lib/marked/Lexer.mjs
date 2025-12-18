@@ -1,6 +1,6 @@
-import { _Tokenizer } from "./Tokenizer.js";
-import { _defaults } from "./defaults.js";
-import { other, block, inline } from "./rules.js";
+import { _Tokenizer } from "./Tokenizer.mjs";
+import { _defaults } from "./defaults.mjs";
+import { other, block, inline } from "./rules.mjs";
 class _Lexer {
   tokens;
   options;

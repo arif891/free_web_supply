@@ -1,6 +1,6 @@
-import { _Renderer } from "./Renderer.js";
-import { _TextRenderer } from "./TextRenderer.js";
-import { _defaults } from "./defaults.js";
+import { _Renderer } from "./Renderer.mjs";
+import { _TextRenderer } from "./TextRenderer.mjs";
+import { _defaults } from "./defaults.mjs";
 class _Parser {
   options;
   renderer;
