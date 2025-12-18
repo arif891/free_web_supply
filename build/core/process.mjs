@@ -32,6 +32,7 @@ async function process() {
 }
 
 async function processInfo(content) {
+    let info;
     const infoBlock = extractInfo(content);
     if (infoBlock) {
         info = parseInfo(infoBlock);
