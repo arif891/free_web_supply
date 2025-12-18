@@ -16,7 +16,8 @@ async function process() {
         const finalItemInfo = {
             ...info,
             id: uid,
-            timestamp: performance.now(),
+            timestamp: Date.now(),
+            slug,
             date: new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })
         };
 
