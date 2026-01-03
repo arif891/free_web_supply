@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 100 100">
+  <style>.t,.l,.r,.b,.c {fill: currentColor;}</style>
+  <path class="t" d="M78.6 15H57.4L50 7.6 42.6 15H21.4l15-15h27.2l15 15Z"/>
+  <path class="r" d="M100 36.4v27.2l-15 15V57.4l7.4-7.4-7.4-7.4V21.4l15 15Z"/>
+  <path class="b" d="m50 92.4 7.4-7.4h21.2l-15 15H36.4l-15-15h21.2l7.4 7.4Z"/>
+  <path class="l" d="M15 42.6 7.6 50l7.4 7.4v21.2l-15-15V36.4l15-15v21.2Z"/>
+  <rect class="c" width="35" height="35" x="32.5" y="32.5" />
+</svg>
