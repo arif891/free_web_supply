@@ -13,9 +13,67 @@
 
     <!--Font file should be preloaded-->
     <link rel="preload" href="/assets/font/Red_Hat_Display_variable.woff2" as="font" crossorigin>
+
+    <style>
+      body {
+        height: 200vh;
+      }
+    </style>
   </head>
 
   <body>
+    <navbar id="main-navbar">
+      <div class="main-wrapper">
+        <div class="main">
+          <div class="start">
+            <button class="search-btn">
+              <svg class="icon search-icon">
+                <use href="/assets/image/svg/icons.svg#search" />
+              </svg>
+            </button>
+            <input class="search-input" type="text">
+          </div>
+          <div class="center">
+            <a href="/">
+              <svg class="logo" id="nav-logo">
+                <use href="/assets/brand/logo.svg" />
+              </svg>
+            </a>
+          </div>
+          <div class="end">
+            <nav class="link__wrapper">
+              <a class="link dec_bra dec_link" href="#">INVENTORY</a>
+              <a class="link dec_bra dec_link" href="#">MANIFEST</a>
+              <a class="link dec_bra dec_link" href="#">SYSTEM</a>
+            </nav>
+            <button class="menu-btn" id="menu-btn"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu" id="menu">
+        <div class="left">
+          <nav class="link__wrapper">
+            <a class="link" href="#">INVENTORY</a>
+            <a class="link" href="#">MANIFEST</a>
+            <a class="link" href="#">PERSONNEL</a>
+            <a class="link" href="#">SYSTEM</a>
+          </nav>
+        </div>
+        <div class="right">
+          <svg class="dec__logo">
+            <use href="/assets/brand/logo.svg" />
+          </svg>
+        </div>
+        <div class="bottom">
+          <span class="dec_meta">ROOT_ACCESS: ENABLED</span>
+          <a class="dec_meta dec_bra dec_link" href="#">GITHUB</a>
+        </div>
+      </div>
+    </navbar>
+
+
+    <backdrop></backdrop>
 
     <script src="/layx/layx.js" type="module"></script>
 

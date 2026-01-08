@@ -12,9 +12,13 @@
 @import url(helpers/layout/layout_helper.css);
 
 /* Components */
+@import url(components/button/button.css);
+@import url(components/form/form.css);
+@import url(components/navbar/navbar.css);
 
 
 /* Utilities */
 
 
 /* Other */
+@import url(others/icon/icon.css);

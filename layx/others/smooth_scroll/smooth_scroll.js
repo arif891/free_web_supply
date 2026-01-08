@@ -10,13 +10,19 @@ class SmoothScroll {
 
   /* ---------- ctor -------------------------------------------------- */
   constructor(opts = {}) {
+    if (window.__smoothScrollInstance) {
+      console.warn('Smooth Scroll already initialized.'); return window.__smoothScrollInstance;
+    }
+
     this.ease = opts.ease ?? document.documentElement.dataset.ease ?? 0.015;
     this.threshold = opts.threshold ?? document.documentElement.dataset.threshold ?? .1;   // px under which we snap
     this.easing = this._validateEasing(opts.easing ?? document.documentElement.dataset.easing ?? 'easeOutCubic');
     this.preventWithKeys = opts.preventWithKeys ?? true;
+    this.preventWithAttribute = opts.preventWithAttribute ?? false;
 
     this.target = window.scrollY;           // where we want to be
     this.current = window.scrollY;          // where we are
+    this.scrollLocked = false;
     this.isRunning = false;
     this.raf = 0;
 
@@ -26,10 +32,6 @@ class SmoothScroll {
     this._native = this._native.bind(this);
     this._keys = this._keys.bind(this);
     this._tick = this._tick.bind(this);
-
-    if (window.__smoothScrollInstance) {
-      console.warn('Smooth Scroll already initialized.'); return
-    }
 
     this._addListeners();
     window.__smoothScrollInstance = this;   // keep singleton reachable
@@ -87,7 +89,10 @@ class SmoothScroll {
     if (this.preventWithKeys) {
       if (e.shiftKey || e.altKey || e.ctrlKey || e.metaKey) return;
     }
-    if (e.target.dataset.smoothScroll === 'prevent') { if (this.isRunning) this.emit('interrupt'); this._stop(); return }
+    if (this.preventWithAttribute && e.target.closest('[data-smooth-scroll="prevent"]')) {
+      if (this.isRunning) this.emit('interrupt'); this._stop(); return
+    }
+    if (this.scrollLocked) return;
     e.preventDefault();
     this.target = this._clamp(this.target + e.deltaY);
     this._start();
@@ -101,12 +106,13 @@ class SmoothScroll {
     const map = {
       PageUp: -window.innerHeight,
       PageDown: window.innerHeight,
-      Home: 0,                                    
-      End: document.documentElement.scrollHeight, 
+      Home: 0,
+      End: document.documentElement.scrollHeight,
       ArrowUp: -50,
       ArrowDown: 50,
-      ' ': window.innerHeight                   
+      ' ': window.innerHeight
     };
+    if (this.scrollLocked) return;
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) return;
     if (map[e.key] == null) return;
     e.preventDefault();

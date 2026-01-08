@@ -22,7 +22,8 @@ class ScrollState {
         this.rafId = null;
 
         // Config
-        this.updateVelocity = options.updateVelocity ?? document.documentElement.dataset.scrollVelocity === 'false' ? false : true;
+        this.updateVelocity = options.updateVelocity ?? false;
+        this.updateCSS = options.updateCSS ?? false;
         this.topThreshold = options.topThreshold ?? window.innerHeight / 4;
         this.velocitySmoothing = options.velocitySmoothing ?? 0.1;
         this.velocityDamping = options.velocityDamping ?? 0.9;
@@ -73,7 +74,7 @@ class ScrollState {
     }
 
     _measureScroll(scrollY) {
- 
+
         this.previousScroll = this.currentScroll;
         this.currentScroll = scrollY;
         const deltaY = this.currentScroll - this.previousScroll;
@@ -81,7 +82,7 @@ class ScrollState {
         if (deltaY > 0) this.direction = 1;
         else if (deltaY < 0) this.direction = -1;
 
-        
+
         if (this.updateVelocity) {
             const now = performance.now();
             const deltaTime = now - this.lastUpdateTime || 16;
@@ -139,10 +140,13 @@ class ScrollState {
     _updateCSS() {
         const root = document.documentElement;
         const maxScroll = root.scrollHeight - window.innerHeight;
-        const scrollPct = maxScroll > 0 ? (this.currentScroll / maxScroll) * 100 : 0;
 
-        root.style.setProperty('--scroll-position', scrollPct.toFixed(2));
-        root.style.setProperty('--scroll-direction', this.direction);
+        if (this.updateCSS) {
+            const scrollPct = maxScroll > 0 ? this.currentScroll / maxScroll : 0;
+             
+            root.style.setProperty('--scroll-position', scrollPct.toFixed(2));
+            root.style.setProperty('--scroll-direction', this.direction);
+        }
 
         if (this.updateVelocity) {
             root.style.setProperty('--scroll-velocity', this.velocity.toFixed(3));

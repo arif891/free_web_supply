@@ -65,7 +65,6 @@ label:not(.default) {
 :is(input, textarea, select):not(.default) {
     display: block;
     min-width: 0;
-    width: 100%;
     max-width: 100%;
     padding: var(--padding-y, 0) var(--padding-x, 0);
     margin: unset;

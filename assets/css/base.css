@@ -1,0 +1,47 @@
+:root {
+    scrollbar-gutter: stable;
+}
+
+.dec_bra {
+    &::before,
+    &::after {
+        display: inline-block;
+        white-space: pre;
+        transition: .3s;
+    }
+
+    &::before {
+        --_dir: -1;
+        content: '[ ';
+    }
+
+    &::after {
+        --_dir: 1;
+        content: ' ]';
+    }
+}
+
+.dec_meta {
+    line-height: 1;
+    font-family: 'DM Mono', monospace;
+}
+
+.dec_link {
+    color: inherit;
+
+    &::before,
+    &::after {
+        opacity: .6;
+    }
+
+    &:hover {
+        text-decoration: none;
+        opacity: 1;
+
+        &::before,
+        &::after {
+            opacity: 1;
+            translate: calc(var(--_dir) * .5rem) 0;
+        }
+    }
+}
