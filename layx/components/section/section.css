@@ -1,38 +1,40 @@
-section, .section {
+section,
+.section {
     body>& {
+        --edge-offset-x: 1rem;
         --padding-y: clamp(1rem, 5vh, 3rem);
+        padding: var(--padding-y, var(--padding, 0)) var(--padding-x, var(--padding, 0));
+
+        @media (width >=768px) {
+            --edge-offset-x: 2rem;
+        }
+
+        @media (width >=1200px) {
+            --edge-offset-x: 3rem;
+        }
+
+        @media (width >=1400px) {
+            --edge-offset-x: 4rem;
+        }
 
         &:not(.default) {
             layout {
-                padding: var(--padding-y, var(--padding, 0)) var(--padding-x, var(--padding, 0));
-                margin-inline: 1rem;
+                margin-inline: var(--edge-offset-x);
+            }
 
-                @media (width >=768px) {
-                    margin-inline: 2rem;
+            .info__wrapper {
+                display: flex;
+                justify-content: space-between;
+                font-family: var(--ff-monospace);
+
+                &:not(:last-child) {
+                    margin-bottom: 2rem;
                 }
 
-                @media (width >=1200px) {
-                    margin-inline: 3rem;
+                &:not(:first-child) {
+                    margin-top: 2rem;
                 }
 
-                @media (width >=1400px) {
-                    margin-inline: 4rem;
-                }
-
-                >.info__wrapper {
-                    display: flex;
-                    justify-content: space-between;
-                    font-family: var(--ff-monospace);
-
-                    &:not(:last-child) {
-                        margin-bottom: 2rem;
-                    }
-
-                    &:not(:first-child) {
-                        margin-top: 2rem;
-                    }
-
-                }
             }
         }
     }

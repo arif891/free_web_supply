@@ -1,7 +1,7 @@
 .hero__section {
     min-height: 100svh;
     align-content: center;
-    padding-inline: 5%;
+    padding-inline: 5% !important;
 
     .top_txt {
         display: block;
@@ -82,6 +82,7 @@
     }
 }
 
+
 .vision__section {
 
     .vision__layout {
@@ -141,6 +142,7 @@
     }
 }
 
+
 .inventory__section {
 
     .inventory__layout {
@@ -195,16 +197,99 @@
                     }
                 }
 
-               .action__wrapper {
-                  padding: var(--padding);
+                .action__wrapper {
+                    padding: var(--padding);
 
-                  .action__btn {
-                    --padding-y: 1.5rem;
+                    .action__btn {
+                        --padding-y: 1.5rem;
+                        display: block;
+                        font-family: var(--ff-monospace);
+                        background-color: var(--surface-color);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.pricing__section {
+    --padding-x: var(--edge-offset-x);
+    margin-bottom: 125px;
+
+    > span {
+        display: block;
+        text-align: center;
+
+        &.dec_meta {
+            margin-bottom: 2rem;
+        }
+
+        &.h4 {
+            margin-bottom: 5rem;
+        }
+    }
+
+    .plan__wrapper {
+        position: relative;
+        min-height: calc(100% + 500px);
+
+        .plan__card {
+            position: absolute;
+            min-height: 500px;
+            inset: 0;
+            padding: 2rem;
+            container-type: inline-size;
+
+            &.main {
+                width: min(95%, 1000px);
+                margin-inline: auto;
+                background-color: var(--surface-color);
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .top {
+                    .h2 {
+                        font-family: var(--ff-sans);
+                        line-height: .8;
+                    }
+                }
+
+                p {
+                    max-width: 50ch;
+                }
+            }
+
+            &.left, &.right {
+                width: min(45%, 500px);
+                background-color: var(--surface-color-2);
+                z-index: -1;
+                translate: 0 25%;
+
+                &::after {
+                    content: 'NULL';
+                    line-height: .75;
+                    font-size: 27.5cqw;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    opacity: .25;
+                }
+            }
+
+            &.right {
+                margin-left: auto;
+
+                &::after {
+                    left: auto;
+                    right: 0;
+                }
+
+                .dec_meta {
                     display: block;
-                    font-family: var(--ff-monospace);
-                    background-color: var(--surface-color);
-                  }
-               }
+                    text-align: end;
+                }
             }
         }
     }
