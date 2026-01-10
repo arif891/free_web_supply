@@ -42,7 +42,7 @@ navbar {
                 position: absolute;
                 inset: 0;
                 z-index: -1;
-                background-color: rgb(35, 35, 35);
+                background-color: var(--surface-color);
                 opacity: 0;
                 transition: opacity var(--transition-dur);
             }
