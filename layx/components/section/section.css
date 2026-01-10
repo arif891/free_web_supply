@@ -1,10 +1,40 @@
-section, .section {
-    --padding-y: clamp(1rem, 5vh, 3rem);
-    background: var(--section-bg);
+section,
+.section {
+    body>& {
+        --padding-y: clamp(1rem, 5vh, 3rem);
 
-    &:not(.default) {
-        layout {
-            padding: var(--padding-y, var(--padding, 0)) var(--padding-x, var(--padding, 0));
+        &:not(.default) {
+            layout {
+                padding: var(--padding-y, var(--padding, 0)) var(--padding-x, var(--padding, 0));
+                margin-inline: 1rem;
+
+                @media (width >=768px) {
+                    margin-inline: 2rem;
+                }
+
+                @media (width >=1200px) {
+                    margin-inline: 3rem;
+                }
+
+                @media (width >=1400px) {
+                    margin-inline: 4rem;
+                }
+
+                >.info__wrapper {
+                    display: flex;
+                    justify-content: space-between;
+                    font-family: var(--ff-monospace);
+
+                    &:not(:last-child) {
+                        margin-bottom: 2rem;
+                    }
+
+                    &:not(:first-child) {
+                        margin-top: 2rem;
+                    }
+
+                }
+            }
         }
     }
 }

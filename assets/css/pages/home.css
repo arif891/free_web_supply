@@ -1,1 +1,142 @@
-/* Here you can write your page specific css code. */
+.hero__section {
+    min-height: 100svh;
+    align-content: center;
+    padding-inline: 5%;
+
+    .top_txt {
+        display: block;
+        margin-bottom: 1.5rem;
+    }
+
+    .main__wrap {
+        container-type: inline-size;
+
+        .heading {
+            font-size: 9.5cqw;
+            line-height: .8;
+            margin: 0;
+
+            span {
+                display: block;
+            }
+
+            .first {}
+
+            .second {
+                text-align: right;
+                margin-top: 1rem;
+            }
+        }
+
+        .pra {
+            margin-top: 1rem;
+            max-width: 36ch;
+
+            span {
+                opacity: .6;
+            }
+        }
+
+        .link__wrapper {
+            background: rgb(51, 51, 51);
+            align-self: end;
+            width: fit-content;
+            margin-top: 1rem;
+
+            .link {
+                display: inline-block;
+                padding: 1rem .75rem;
+                transition: opacity .3s;
+            }
+
+            span {
+                opacity: .3;
+            }
+
+            @media (hover: hover) {
+                &:has(.link:hover) .link:not(:hover) {
+                    opacity: .6;
+                }
+            }
+        }
+
+        @media (width >=1200px) {
+            display: grid;
+
+            &>* {
+                grid-column: 1 / 1;
+                grid-row: 1 / 1;
+            }
+
+            .heading {
+                font-size: 6cqw;
+            }
+
+            .pra {
+                justify-self: end;
+                max-width: min(32.5%, 36ch);
+                margin: 0;
+                margin-top: -.25lh;
+            }
+        }
+    }
+}
+
+.vision__section {
+
+    .vision__layout {
+
+        .main__pra {
+            margin-bottom: 2.5rem;
+        }
+
+        .wrapper {
+            display: contents;
+        }
+
+        .info__block {
+            position: relative;
+            container-type: inline-size;
+
+            &:not(:last-child) {
+                padding-bottom: 2rem;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    inset: auto 0 0;
+                    height: 1px;
+                    background-color: currentColor;
+                }
+            }
+
+            .heading {
+                font-size: 7.5cqw;
+            }
+        }
+
+        @media (width >=992px) {
+            min-height: 100svh;
+            grid-template-rows: max-content max-content 1fr max-content;
+
+            .main__pra {
+                margin-bottom: 5rem;
+            }
+
+            .info__block {
+                margin-bottom: 2rem;
+
+                &:not(:last-child) {
+                    padding-right: 1rem;
+
+                    &::after {
+                        height: 100%;
+                        width: 1px;
+                        inset: 0 0 0 calc(100% + var(--gap-x) / 2);
+                    }
+                }
+            }
+
+        }
+    }
+}

@@ -23,7 +23,7 @@
 
 .dec_meta {
     line-height: 1;
-    font-family: 'DM Mono', monospace;
+    font-family: var(--ff-monospace);
 }
 
 .dec_link {
