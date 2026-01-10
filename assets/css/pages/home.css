@@ -140,3 +140,72 @@
         }
     }
 }
+
+.inventory__section {
+
+    .inventory__layout {
+
+        .header__wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: var(--space-2) var(--space-4);
+
+            .sec__heading {
+                margin: 0;
+            }
+
+            p {
+                max-width: 45ch;
+            }
+
+            margin-bottom: var(--space-2);
+        }
+
+        .item__wrapper {
+
+            .item {
+                --padding: .75rem;
+                border: 1px solid;
+
+                .img {
+                    aspect-ratio: 16 / 9;
+                    object-fit: cover;
+                }
+
+                .title {
+                    margin: 0;
+                    padding: var(--padding);
+                }
+
+                .tag__wrapper {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: var(--space);
+                    border-block: 1px solid;
+                    padding: var(--padding);
+
+                    a {
+                        display: block;
+                        color: inherit;
+                        font-family: var(--ff-monospace);
+                        font-size: .9rem;
+                        padding: .5rem 1rem;
+                        background-color: var(--surface-color-2);
+                    }
+                }
+
+               .action__wrapper {
+                  padding: var(--padding);
+
+                  .action__btn {
+                    --padding-y: 1.5rem;
+                    display: block;
+                    font-family: var(--ff-monospace);
+                    background-color: var(--surface-color);
+                  }
+               }
+            }
+        }
+    }
+}

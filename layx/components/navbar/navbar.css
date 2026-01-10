@@ -90,7 +90,7 @@ navbar {
                     background: unset;
                     height: 32px;
                     width: 32px;
-                    border: 1px solid currentColor;
+                    border: 1px solid;
                     display: grid;
                     place-content: center;
                     transition: calc(var(--transition-dur) / 2);
@@ -121,7 +121,7 @@ navbar {
                     min-width: 7.5rem;
                     height: 32px;
                     background: unset;
-                    border: 1px solid currentColor;
+                    border: 1px solid;
                     transition: opacity calc(var(--transition-dur) / 2);
 
                     .scrolled & {

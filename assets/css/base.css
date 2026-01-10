@@ -47,5 +47,5 @@
 }
 
 backdrop {
-    --blur: calc(1vh + 1.5vw);
+    --blur: calc(1.5vh + 2vw);
 }
