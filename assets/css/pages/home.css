@@ -38,7 +38,7 @@
         }
 
         .link__wrapper {
-            background: rgb(51, 51, 51);
+            background: var(--surface-color);
             align-self: end;
             width: fit-content;
             margin-top: 1rem;

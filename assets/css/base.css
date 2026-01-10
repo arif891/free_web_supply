@@ -45,3 +45,7 @@
         }
     }
 }
+
+backdrop {
+    --blur: calc(1vh + 1.5vw);
+}
