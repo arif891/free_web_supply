@@ -3,6 +3,7 @@
 }
 
 .dec_bra {
+
     &::before,
     &::after {
         display: inline-block;
@@ -48,4 +49,17 @@
 
 backdrop {
     --blur: calc(1.5vh + 2vw);
+}
+
+
+@media (width < 768px) {
+
+    .dec_meta,
+    .info__wrapper {
+        font-size: .8rem;
+    }
+
+    .d-md {
+        display: none !important;
+    }
 }

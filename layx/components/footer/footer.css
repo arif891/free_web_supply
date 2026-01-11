@@ -1,59 +1,49 @@
-.footer__section {
-    --padding-x: 1rem;
-    --padding-y: 1.5rem;
-    --bg: var(--surface-color, rgb(250, 250, 250));
+footer {
+    background-color: var(--surface-color);
 
-    padding: var(--padding-y) var(--padding-x);
-    background-color: var(--bg);
+    .footer__layout {
 
-    .footer__container {
 
-        .footer__layout {
+        .brand__space {
+            padding-bottom: 2.5rem;
+        }
 
-            .footer__start {
-               display: none;
+        .divider {
+            &::after {
+                content: '';
+                display: block;
+                margin-inline: auto;
+                border-left: 1px solid;
+                width: 1px;
+                height: 100%;
             }
+        }
 
-            .footer__middle {
-                row-gap: var(--gap-y);
+        .link__block_wrapper {
+            display: flex;
+            justify-content: space-between;
+            flex-grow: 1;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding-block: 2.5rem;
+            border-top: 1px solid;
 
-                .link__block {
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: space-between;
-                    gap: .5rem;
-
-                    .link__wrapper {
-                        display: flex;
-                        flex-direction: column;
-                        gap: .25rem;
-
-                        .link__hading {
-                           opacity: .6; 
-                        }
-
-                        .link {
-                            text-decoration: none;
-                            color: inherit;
-                        }
-                    }
-                }
-            }
-
-            .footer__end {
+            .link__block {
                 display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
+                flex-direction: column;
                 gap: .5rem;
 
-                .legal {
-                    display: flex;
-                    gap: .5rem;
+                .link {
+                    color: inherit;
+                    font-size: min(1.2rem + .9vw, 2.5rem);
 
-                    a {
-                        text-decoration: none;
-                        color: inherit;
+                    &::before {
+                        content: '> ';
                     }
+                }
+
+                span {
+                    opacity: .6;
                 }
             }
         }

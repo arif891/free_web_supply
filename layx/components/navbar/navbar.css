@@ -98,6 +98,7 @@ navbar {
                     .scrolled & {
                         border-color: transparent;
                         scale: 1.5;
+                        translate: -10% 0;
                     }
 
                     .open & {
@@ -107,7 +108,8 @@ navbar {
 
                     @media (width < 576px) {
                         border-color: transparent !important;
-                        scale: 1.5 !important;
+                        scale: 1.4 !important;
+                        translate: -10% 0;
                     }
                 }
 
@@ -222,7 +224,7 @@ navbar {
 
                         &::before,
                         &::after {
-                            scale: 1;
+                            scale: .9;
                             rotate: calc(45deg * var(--_dir));
                             translate: 0 calc(7px * var(--_dir));
                         }
