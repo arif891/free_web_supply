@@ -219,13 +219,13 @@
 
 
 .pricing__section {
-     --card-height: 300px;
+    --card-height: 300px;
     --padding-x: var(--edge-offset-x);
     margin-bottom: calc(var(--card-height) / 4);
 
-     @media (width >=576px) {
-            --card-height: 500px;
-        }
+    @media (width >=576px) {
+        --card-height: 500px;
+    }
 
     >span {
         display: block;
@@ -240,7 +240,7 @@
         }
     }
 
-    .plan__wrapper {  
+    .plan__wrapper {
         position: relative;
         min-height: calc(100% + var(--card-height));
 
@@ -310,6 +310,10 @@
 
     .mainfest__layout {
 
+        @media (width < 1400px) {
+            column-gap: 5%;
+        }
+
         .divider {
             &::after {
                 content: '';
@@ -318,6 +322,10 @@
                 border-left: 1px solid;
                 width: 1px;
                 height: 100%;
+            }
+
+            @media (width < 1400px) {
+                display: none;
             }
         }
 
@@ -347,6 +355,21 @@
                 flex-direction: column;
                 justify-content: space-between;
             }
+
+            .info__wrapper {
+                margin-block: 1rem 0 !important;
+            }
+
+            @media (width < 1400px) {
+                padding-bottom: 4rem;
+            }
+        }
+
+        .left,
+        .right {
+            @media (width < 1400px) {
+                display: contents;
+            }
         }
 
         .left {
@@ -357,10 +380,10 @@
 
         .right {
             .item {
-                padding-block: 1.5rem;
 
                 @media (width >=1400px) {
                     flex-direction: row;
+                    padding-block: 1.5rem;
 
                     border-top: 1px solid;
 
@@ -371,10 +394,6 @@
                     .img {
                         max-height: 150px;
                     }
-                }
-
-                .info__wrapper {
-                    margin-block: 1rem 0;
                 }
             }
         }
@@ -387,6 +406,7 @@
     position: relative;
     padding-block: 0 !important;
     margin-block: var(--padding-y, var(--padding, 0));
+    overflow: clip;
 
     &::before {
         content: 'TEAM';
@@ -398,6 +418,7 @@
         line-height: .72;
         overflow: clip;
         z-index: -1;
+        transform-origin: bottom center;
     }
 
     &::after {
@@ -413,8 +434,8 @@
         .person__wrapper {
             display: flex;
             align-items: end;
-            padding-inline: 10%;
-            padding-top: max(8%, 5rem);
+            margin-inline: calc(var(--edge-offset-x) * -1);
+            padding-top: max(8%, 10rem);
             overflow: clip;
 
             .person {
@@ -431,20 +452,56 @@
                 }
 
                 &.main {
-                    scale: 1.2;
+                    scale: 1.5;
                 }
 
                 &.left,
                 &.right {
                     z-index: -1;
+                    scale: 1.35;
                 }
             }
+
+            @media (width >=576px) {
+                margin-inline: 0;
+                padding-inline: 10%;
+
+                .person {
+                    &.main {
+                        scale: 1.2;
+                    }
+
+                    &.left,
+                    &.right {
+                        scale: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    .action__wrapper {
+        position: absolute;
+        inset: auto 0 0;
+        z-index: 2;
+        margin-inline: var(--edge-offset-x);
+        display: flex;
+        justify-content: center;
+        gap: 21%;
+        padding-right: 3%;
+        padding-bottom: 2rem;
+
+        .action__block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .5rem;
         }
     }
 }
 
 .team__helper_section {
-    padding-block: 5rem;
+    --padding-y: 10vh !important;
 
     >* {
         display: block;
@@ -459,9 +516,5 @@
     .pra {
         max-width: 51ch;
         margin-bottom: 2rem;
-    }
-
-    .dec_link {
-        font-size: 1.15rem;
     }
 }

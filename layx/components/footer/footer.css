@@ -39,6 +39,13 @@ footer {
 
                     &::before {
                         content: '> ';
+                        transition: opacity .3s;
+                    }
+
+                    &:hover {
+                        &::before {
+                            opacity: .5;
+                        }
                     }
                 }
 
