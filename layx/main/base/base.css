@@ -107,7 +107,7 @@ a {
 backdrop, ::backdrop {
     position: fixed;
     inset: 0;
-    display: none;
+    visibility: hidden;
     opacity: 0;
     z-index: 2;
     background: var(--backdrop-bg, rgb(from var(--color, #000) r g b / .3));
@@ -119,7 +119,7 @@ backdrop, ::backdrop {
     }
 
     &[open], &.open, [open] & {
-        display: block;
+        visibility: visible;
         opacity: 1;
     }
 }
