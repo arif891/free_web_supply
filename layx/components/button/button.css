@@ -1,4 +1,4 @@
-button:not(.default), .btn {
+button, .btn {
     --padding-x: 1em;
     --padding-y: .6em;
     --radius: 0;

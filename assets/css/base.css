@@ -63,3 +63,8 @@ backdrop {
         display: none !important;
     }
 }
+
+.smt_bg {
+    background-color: rgb(from var(--surface-color-2) r g b / .6);
+    backdrop-filter: blur(1rem);
+}

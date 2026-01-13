@@ -342,12 +342,18 @@ navbar {
             align-self: end;
             display: flex;
             justify-content: space-between;
+            align-items: end;
             padding-bottom: 2rem;
-            padding-right: calc(var(--edge-offset-x) + var(--padding));
+            padding-right: var(--edge-offset-x);
 
             .scrolled & {
                 padding-bottom: var(--padding);
                 padding-right: var(--padding);
+            }
+
+            #pre-btn  {
+                padding: 0;
+                background: unset;
             }
         }
     }

@@ -341,6 +341,12 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
+            color: inherit;
+            pointer-events: none;
+
+            .img, .title, .dec_link {
+             pointer-events: initial;
+            }
 
             .img {
                 aspect-ratio: 16 / 9;
