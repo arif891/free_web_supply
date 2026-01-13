@@ -1,3 +1,7 @@
+:root {
+    color-scheme: dark !important;
+}
+
 .hero__section {
     min-height: 100svh;
     align-content: center;
