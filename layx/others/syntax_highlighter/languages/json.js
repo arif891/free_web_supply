@@ -1,7 +1,7 @@
 export default [
 	{
 		type: 'var',
-		match: /("|')?[a-zA-Z]\w*\1(?=\s*:)/g
+		match: /(("|')((?!\2)[^\r\n\\]|\\[^])*\2|[a-zA-Z]\w*)(?=\s*:)/g
 	},
 	{
 		expand: 'str'
@@ -10,7 +10,7 @@ export default [
 		expand: 'num'
 	},
 	{
-		type: 'num',
+		type: 'func',
 		match: /\bnull\b/g
 	},
 	{

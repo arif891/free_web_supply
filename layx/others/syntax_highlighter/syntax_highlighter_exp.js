@@ -1,4 +1,4 @@
-class SyntaxHighlighter {
+export class SyntaxHighlighter {
   constructor() {
     this._langs = {};
     this._escapeRx = /[&<>]/g;
@@ -84,16 +84,9 @@ class SyntaxHighlighter {
     return '<div></div>'.repeat(count);
   }
 
-  async highlightText(src, lang, multiline = true, opt = {}) {
-    let html = '';
-    await this.tokenize(src, lang, (text, type) =>
-      html += type
-        ? `<span class="${type}">${text.replace(this._escapeRx, this._escaper)}</span>`
-        : text.replace(this._escapeRx, this._escaper)
-    );
-
+  _getUI(html, lang, multiline, opt = {}) {
     const lineNums = multiline && opt.lineNumbers
-      ? `<div class="numbers">${this._getLineNumbers((src.match(/\n/g) || []).length + 1)}</div>`
+      ? `<div class="numbers">${this._getLineNumbers((html.match(/\n/g) || []).length + 1)}</div>`
       : '';
 
     const header = multiline
@@ -107,21 +100,54 @@ class SyntaxHighlighter {
       + `<button class="copy" title="Copy Code" aria-label="Copy"></button>`;
   }
 
+  async _getCode(src, lang) {
+    let html = '';
+    await this.tokenize(src, lang, (text, type) =>
+      html += type
+        ? `<span class="${type}">${text.replace(this._escapeRx, this._escaper)}</span>`
+        : text.replace(this._escapeRx, this._escaper)
+    );
+    return html;
+  }
+
   /* ---------- DOM injector ---------- */
-  async highlightElement(el, lang = el.dataset.codeLang, mode, opt) {
+  async highlightElement(el, lang = el.dataset.codeLang, mode, options) {
+    const opt = { complete: true, ...options };
     const txt = el.textContent.trim();
     mode ??= txt.includes('\n') ? 'multiline' : 'oneline';
-    el.classList.add('code-block', lang, mode, 'highlighted');
-    el.innerHTML = await this.highlightText(txt, lang, mode === 'multiline', opt);
+    el.dataset.mode = mode;
 
-    const btn = el.querySelector('.copy');
-    if (btn) {
-      btn.addEventListener('click', () => this._copy(btn, el.querySelector('.code')));
+    if (!el.dataset.rendered || mode !== el.dataset.mode) {
+      const code = await this._getCode(txt, lang);
+      el.innerHTML = this._getUI(code, lang, mode === 'multiline', opt);
+      el.dataset.rendered = true;
+    } else {
+      const codeEle = el.querySelector('.code');
+      const code = await this._getCode(txt, lang);
+      codeEle.innerHTML = code;
+      if (mode === 'multiline' && opt.lineNumbers) {
+        el.querySelector('.numbers').innerHTML = this._getLineNumbers((txt.match(/\n/g) || []).length + 1);
+      }
+    }
+
+    if (!opt.complete) {
+      if (this._lastEle && this._lastEle !== el) {
+        this._lastEle.classList.add('highlighted');
+      }
+      this._lastEle = el;
+    }
+
+    if (opt.complete && !el.classList.contains('highlighted')) {
+      el.classList.add('code-block', lang, mode, 'highlighted');
+      const btn = el.querySelector('.copy');
+      if (btn) {
+        btn.addEventListener('click', () => this._copy(btn, el.querySelector('.code')));
+      }
     }
   }
 
   /* ---------- batch processing ---------- */
-  async highlightAll(opt = { lineNumbers: true }) {
+  async highlightAll(opt) {
     return Promise.all(
       [...document.querySelectorAll('[data-code-lang]:not(.highlighted)')]
         .map(el => this.highlightElement(el, undefined, undefined, opt))
@@ -160,4 +186,4 @@ class SyntaxHighlighter {
   }
 }
 
-export default new SyntaxHighlighter();
+new SyntaxHighlighter();
