@@ -104,6 +104,12 @@ a {
     color: var(--link-color);
 }
 
+[popover] {
+    border: initial;
+    color: inherit;
+    background-color: inherit;
+}
+
 backdrop, ::backdrop {
     position: fixed;
     inset: 0;

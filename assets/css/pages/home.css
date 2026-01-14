@@ -259,7 +259,7 @@
 
     .plan__wrapper {
         position: relative;
-        min-height: calc(100% + var(--card-height));
+        min-height:  var(--card-height);
 
         .plan__card {
             position: absolute;

@@ -62,7 +62,7 @@
         </div>
         <div class="bottom">
           <span class="dec_meta">ROOT<span class="d-md">_ACCESS</span>: ENABLED</span>
-          <button class="dec_meta dec_bra dec_link" id="pre-btn">PREFERENCES</button>
+          <button class="dec_meta dec_bra dec_link" id="pre-btn" popovertarget="preference-menu">PREFERENCES</button>
         </div>
       </div>
     </navbar>
@@ -394,6 +394,16 @@
       </layout>
 
     </footer>
+
+    <div class="preference-menu" id="preference-menu" popover>
+     <div class="header">
+      <h3 class="heading">PREFERENCES</h3>
+      <button class="dec_meta dec_bra dec_link close-btn" commandfor="preference-menu" command="hide-popover">CLOSE</button>
+     </div>
+     <div class="scroller">
+
+     </div>
+    </div>
 
     <backdrop></backdrop>
 

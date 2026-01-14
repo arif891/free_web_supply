@@ -1,5 +1,7 @@
 :root {
     scrollbar-gutter: stable;
+    --smt-bg: rgb(from var(--surface-color) r g b / .6);
+    --ef-menu: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .dec_bra {
@@ -8,7 +10,7 @@
     &::after {
         display: inline-block;
         white-space: pre;
-        transition: .3s;
+        transition: opacity .3s, translate .3s;
     }
 
     &::before {
@@ -35,7 +37,8 @@
         opacity: .6;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
         text-decoration: none;
         opacity: 1;
 
@@ -64,7 +67,67 @@ backdrop {
     }
 }
 
-.smt_bg {
-    background-color: rgb(from var(--surface-color-2) r g b / .6);
-    backdrop-filter: blur(1rem);
+.preference-menu {
+    display: grid;
+    grid-template-rows: max-content 1fr;
+    visibility: hidden;
+    inset: auto 0 0;
+    height: auto;
+    width: auto;
+    min-width: clamp(250px, 100%, 600px);
+    max-height: 80dvh;
+    padding: 1rem;
+    overflow: clip;
+    translate: 0 100%;
+    transition: .6s allow-discrete;
+    transition-property: translate, visibility, overlay;
+    transition-timing-function: var(--ef-menu);
+    background-color: var(--smt-bg);
+    backdrop-filter: blur(calc(2vh + .75vw));
+
+    @media (width >=768px) {
+        margin: .5rem;
+        padding: 2rem;
+        inset: 0 0 0 auto;
+        translate: 110% 0;
+        max-height: initial;
+
+        &:popover-open {
+            @starting-style {
+                translate: 110% 0;
+            }
+        }
+    }
+
+    &:popover-open {
+        translate: 0;
+        visibility: visible;
+
+        @starting-style {
+            translate:  0 100%;
+        }
+    }
+
+    .header {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+
+        .heading {
+            line-height: .8;
+        }
+
+        .close-btn {
+            padding: 0;
+            background: unset;
+        }
+    }
+
+    .scroller {
+        max-height: 100%;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+    }
 }
