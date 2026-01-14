@@ -36,7 +36,6 @@ navbar {
             transition-property: translate, flex-grow;
             transition-duration: var(--transition-dur);
             translate: 0 .5rem;
-            overflow: clip;
 
             &::after {
                 content: '';
