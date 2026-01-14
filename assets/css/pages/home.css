@@ -218,6 +218,19 @@
                 }
             }
         }
+
+        .info__wrapper {
+            &:last-child {
+                @media (width >=768px) {
+                    display: grid !important;
+                    grid-template-columns: 1fr max-content 1fr;
+
+                    > :last-child {
+                        justify-self: end;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -344,8 +357,10 @@
             color: inherit;
             pointer-events: none;
 
-            .img, .title, .dec_link {
-             pointer-events: initial;
+            .img,
+            .title,
+            .dec_link {
+                pointer-events: initial;
             }
 
             .img {

@@ -105,6 +105,7 @@ navbar {
                     .open & {
                         border-color: currentColor;
                         scale: 1;
+                        translate: 0;
                     }
 
                     @media (width < 576px) {
@@ -330,6 +331,7 @@ navbar {
                 opacity: .75;
                 width: 35%;
                 aspect-ratio: 1;
+                color: #fff;
             }
 
             @media (width < 768px) {
