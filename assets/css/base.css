@@ -37,8 +37,7 @@
         opacity: .6;
     }
 
-    &:hover,
-    &:focus {
+    &:hover {
         text-decoration: none;
         opacity: 1;
 
@@ -67,7 +66,8 @@ backdrop {
     }
 }
 
-.preference-menu {
+.preference-menu,
+.search-menu {
     display: grid;
     grid-template-rows: max-content 1fr;
     visibility: hidden;
@@ -76,7 +76,7 @@ backdrop {
     width: auto;
     min-width: clamp(250px, 100%, 600px);
     max-height: 80dvh;
-    padding: 1rem;
+    padding: 1.5rem 1rem;
     overflow: clip;
     translate: 0 100%;
     transition: .6s allow-discrete;
@@ -85,12 +85,21 @@ backdrop {
     background-color: var(--smt-bg);
     backdrop-filter: blur(calc(2vh + .75vw));
 
+    &.search-menu {
+        max-width: 800px;
+        margin-inline: auto;
+        height: 75svh;
+    }
+
     @media (width >=768px) {
-        margin: .5rem;
         padding: 2rem;
-        inset: 0 0 0 auto;
-        translate: 110% 0;
-        max-height: initial;
+
+        &.preference-menu {
+            margin: .5rem;
+            inset: 0 0 0 auto;
+            translate: 110% 0;
+            max-height: initial;
+        }
 
         &:popover-open {
             @starting-style {
@@ -104,23 +113,30 @@ backdrop {
         visibility: visible;
 
         @starting-style {
-            translate:  0 100%;
+            translate: 0 100%;
         }
     }
 
     .header {
-        display: flex;
-        align-items: start;
-        justify-content: space-between;
         margin-bottom: 2rem;
 
-        .heading {
-            line-height: .8;
+        .wrapper {
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+
+            .heading {
+                line-height: .8;
+            }
+
+            .close-btn {
+                padding: 0;
+                background: unset;
+            }
         }
 
-        .close-btn {
-            padding: 0;
-            background: unset;
+        .input__wrapper {
+            margin-top: .5rem;
         }
     }
 

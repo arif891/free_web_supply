@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#000">
     <title>FWS / SUPPLY — Award-Winning Web Components. Stripped to the Source.</title>
 
@@ -21,7 +21,7 @@
       <div class="main-wrapper">
         <div class="main">
           <div class="start">
-            <button class="search-btn">
+            <button class="search-btn" popovertarget="search-menu">
               <svg class="icon search-icon">
                 <use href="/assets/image/svg/icons.svg#search" />
               </svg>
@@ -396,13 +396,31 @@
     </footer>
 
     <div class="preference-menu" id="preference-menu" popover>
-     <div class="header">
-      <h3 class="heading">PREFERENCES</h3>
-      <button class="dec_meta dec_bra dec_link close-btn" commandfor="preference-menu" command="hide-popover">CLOSE</button>
-     </div>
-     <div class="scroller">
+      <div class="header">
+        <div class="wrapper">
+          <h3 class="heading">PREFERENCES</h3>
+          <button class="dec_meta dec_bra dec_link close-btn" commandfor="preference-menu"
+            command="hide-popover">CLOSE</button>
+        </div>
+      </div>
+      <div class="scroller">
 
-     </div>
+      </div>
+    </div>
+
+    <div class="search-menu" id="search-menu" popover>
+      <div class="header">
+        <div class="wrapper">
+          <h3 class="heading">SEARCH</h3>
+          <button class="dec_meta dec_bra dec_link close-btn" commandfor="search-menu"
+            command="hide-popover">CLOSE</button>
+        </div>
+        <div class="input__wrapper">
+        </div>
+      </div>
+      <div class="scroller">
+
+      </div>
     </div>
 
     <backdrop></backdrop>

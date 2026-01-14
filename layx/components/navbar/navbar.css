@@ -110,7 +110,7 @@ navbar {
                     @media (width < 576px) {
                         border-color: transparent !important;
                         scale: 1.4 !important;
-                        translate: -10% 0;
+                        translate: -10% 0 !important;
                     }
                 }
 
