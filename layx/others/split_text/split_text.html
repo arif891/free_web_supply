@@ -29,10 +29,10 @@
 
             }
 
-            .letter {
+            .char {
                 display: inline-block;
                 translate: 0 100%;
-                animation: in .6s forwards calc(1s / var(--letters) * var(--letter-index)) ;
+                animation: in .6s forwards calc(1s / var(--chars) * var(--char-index)) ;
             }
         }
 
@@ -46,8 +46,8 @@
 </head>
 <body>
     <div class="wrapper">
-        <h1 data-split-text>Split Text Start</h1>
         <h1 data-split-text data-split-from="center">Split Text Center</h1>
+        <h1 data-split-text>Split Text Start</h1>
         <h1 data-split-text data-split-from="end">Split Text End</h1>
     </div>
     <script src="split_text.js" type="module"></script>
