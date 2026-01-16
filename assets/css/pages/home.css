@@ -451,7 +451,7 @@
         position: absolute;
         inset: auto 0 0;
         height: 30%;
-        background: linear-gradient(#0044ff00, #0337c576 40%, #000);
+        background: linear-gradient(#0044ff00, #0337c576 40%, var(--bg-color));
     }
 
     .team__layout {
@@ -472,7 +472,7 @@
                     position: absolute;
                     inset: 0 0 auto;
                     height: 45%;
-                    background: linear-gradient(#000, #00000000);
+                    background: linear-gradient(var(--bg-color), rgb(from var(--bg-color) r g b / 0));
                     filter: blur(calc(1vw + 1vh));
                 }
 
