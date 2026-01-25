@@ -136,7 +136,12 @@ backdrop {
         }
 
         .input__wrapper {
-            margin-top: .5rem;
+            margin-top: 1rem;
+
+            .search-input {
+                --padding-y: 1.25rem;
+                width: 100%;
+            }
         }
     }
 
