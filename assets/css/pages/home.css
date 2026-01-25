@@ -44,7 +44,7 @@
 
     &.ivp {
         &::before {
-            animation: heroBG infinite both 28s 4s;
+            animation: heroBG infinite both 28s 3s;
             background-image: url(/assets/image/pages/home/hero_bg.avif);
         }
     }
