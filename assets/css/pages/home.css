@@ -84,10 +84,11 @@
         }
 
         .link__wrapper {
-            background: var(--surface-color);
+            background: rgb(from var(--surface-color-2) r g b / .6);
             align-self: end;
             width: fit-content;
             margin-top: 1rem;
+            backdrop-filter: blur(25px);
 
             .link {
                 display: inline-block;
