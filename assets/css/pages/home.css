@@ -36,12 +36,17 @@
         inset: 0 auto auto 0;
         width: var(--size);
         aspect-ratio: 5 / 8;
-        background-image: url(/assets/image/pages/home/hero_bg.avif);
         background-repeat: no-repeat;
         background-size: contain;
         z-index: -1;
         opacity: 0;
-        animation: heroBG infinite both 28s 4s;
+    }
+
+    &.ivp {
+        &::before {
+            animation: heroBG infinite both 28s 4s;
+            background-image: url(/assets/image/pages/home/hero_bg.avif);
+        }
     }
 
     .top_txt {
@@ -129,21 +134,21 @@
         transform: translate(-75%, 0) rotate(-25deg) scale(1);
         filter: hue-rotate(0deg);
     }
-    
+
     25% {
         opacity: 1;
         transform: translate(calc(100vw - 0%), calc(100vh - 100%)) rotate(50deg) scale(.5);
         filter: hue-rotate(45deg);
     }
-    
+
     50% {
         opacity: 0;
         transform: translate(calc(100vw - 125%), -10vh) rotate(-10deg) scale(.6);
         filter: hue-rotate(120deg);
     }
-    
+
     75% {
-        opacity: 0.75;
+        opacity: 1;
         transform: translate(-5vw, 20vh) rotate(90deg) scale(.75);
         filter: hue-rotate(250deg);
     }
@@ -689,7 +694,7 @@
                     }
 
                     &.right {
-                         --d: 1;
+                        --d: 1;
                     }
                 }
             }
