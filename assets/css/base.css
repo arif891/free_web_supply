@@ -150,5 +150,50 @@ backdrop {
         overflow: auto;
         display: flex;
         flex-direction: column;
+        gap: .5rem;
+
+        .preference-menu & {
+            justify-content: end;
+
+            .item__wrapper {
+                display: flex;
+                justify-content: space-between;
+                padding: 1rem;
+                background-color: var(--smt-bg);
+
+                h5 {
+                    margin: 0;
+                    line-height: .8;
+                    text-box: trim-both cap alphabetic;
+                    padding-block: .5rem;
+                }
+
+                input {
+                    height: 100%;
+                    width: auto;
+                    aspect-ratio: 2 / 1;
+                    padding: .25rem;
+                    transition: background-color .3s;
+
+                    &::before {
+                        display: block;
+                        content: '';
+                        height: 100%;
+                        width: 50%;
+                        background-color: currentColor;
+                        transition: translate .3s;
+                    }
+
+                    &:checked {
+                        background-image: none;
+
+                        &::before {
+                            translate: 100% 0;
+                        }
+                    }
+                }
+            }
+
+        }
     }
 }
