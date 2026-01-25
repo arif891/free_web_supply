@@ -132,25 +132,25 @@
 @keyframes heroBG {
     0%, 100% {
         opacity: 0;
-        transform: translate(-75%, 0) rotate(-25deg) scale(1);
+        transform: translate(-75%, -5%) rotate(-35deg) scale(2.5, 1.5);
         filter: hue-rotate(0deg);
     }
 
     25% {
         opacity: 1;
-        transform: translate(calc(100vw - 0%), calc(100vh - 100%)) rotate(50deg) scale(.5);
+        transform: translate(calc(100vw - 0%), calc(100vh - 100%)) rotate(35deg) scale(1.5, .5);
         filter: hue-rotate(45deg);
     }
 
     50% {
         opacity: 0;
-        transform: translate(calc(100vw - 125%), -10vh) rotate(-10deg) scale(.6);
+        transform: translate(calc(100vw - 125%), -5vh) rotate(-35deg) scale(1.5, .5);
         filter: hue-rotate(120deg);
     }
 
     75% {
         opacity: 1;
-        transform: translate(-5vw, 20vh) rotate(90deg) scale(.75);
+        transform: translate(0, 20vh) rotate(65deg) scale(.75,  1);
         filter: hue-rotate(250deg);
     }
 }
