@@ -163,14 +163,20 @@ backdrop {
                 padding: 1rem;
                 background-color: var(--smt-bg);
 
-                h5 {
+            &.smooth-scroll {
+                @media (pointer: coarse) {
+                    display: none;
+                }
+            }    
+
+                .title {
                     margin: 0;
                     line-height: .8;
                     text-box: trim-both cap alphabetic;
                     padding-block: .5rem;
                 }
 
-                input {
+                .switch {
                     height: 100%;
                     width: auto;
                     aspect-ratio: 2 / 1;
@@ -243,5 +249,23 @@ backdrop {
                 }
             }
         }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+[data-pref-motion="false"] {
+    *,
+    ::before,
+    ::after {
+        animation: none !important;
+        transition: none !important;
     }
 }

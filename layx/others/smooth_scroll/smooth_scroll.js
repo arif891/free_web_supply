@@ -1,7 +1,7 @@
 /*********************************************************************
  *  SmoothScroll – zero-dependency, no-touch, minimal API surface
  *********************************************************************/
-class SmoothScroll {
+export class SmoothScroll {
   /* ---------- static ------------------------------------------------ */
   static EASING = {
     linear: t => t,
@@ -152,5 +152,3 @@ class SmoothScroll {
     this.raf = requestAnimationFrame(this._tick);
   }
 }
-
-export default new SmoothScroll();

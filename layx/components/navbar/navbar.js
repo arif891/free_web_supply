@@ -21,7 +21,9 @@ class Navbar {
     toggle() {
         this.isOpened = this.element.classList.toggle('open');
 
-        window.__smoothScrollInstance.scrollLocked = this.isOpened;
+        if (window.__smoothScrollInstance) {
+            window.__smoothScrollInstance.scrollLocked = this.isOpened;
+        }
 
         if (document.documentElement.classList.contains('scrolled')) {
             this.backdrop.classList.toggle('open');
@@ -45,7 +47,9 @@ class Navbar {
     close() {
         this.element.classList.remove('open');
         this.backdrop.classList.remove('open');
-        window.__smoothScrollInstance.scrollLocked = false;
+        if (window.__smoothScrollInstance) {
+            window.__smoothScrollInstance.scrollLocked = false;
+        }
         this.isOpened = false;
     }
 }

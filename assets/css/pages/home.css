@@ -2,26 +2,6 @@
     color-scheme: dark !important;
 }
 
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    ::before,
-    ::after {
-        animation: none !important;
-        transition: none !important;
-    }
-}
-
-._no-motion {
-
-    *,
-    ::before,
-    ::after {
-        animation: none !important;
-        transition: none !important;
-    }
-}
-
 .hero__section {
     min-height: 100svh;
     align-content: center;
@@ -150,7 +130,7 @@
 
     75% {
         opacity: 1;
-        transform: translate(-10%, 17vh) rotate(65deg) scale(.75,  1);
+        transform: translate(-10%, 17vh) rotate(65deg) scale(.75, 1);
         filter: hue-rotate(250deg);
     }
 }
@@ -426,8 +406,7 @@
                 }
             }
 
-            &.left,
-            &.right {
+            &.left, &.right {
                 width: min(45%, 500px);
                 background-color: var(--surface-color-2);
                 z-index: -1;
@@ -511,9 +490,7 @@
             color: inherit;
             pointer-events: none;
 
-            .img,
-            .title,
-            .dec_link {
+            .img, .title, .dec_link {
                 pointer-events: initial;
             }
 
@@ -544,8 +521,7 @@
             }
         }
 
-        .left,
-        .right {
+        .left, .right {
             @media (width < 1400px) {
                 display: contents;
             }
@@ -664,8 +640,7 @@
                     scale: 1.5;
                 }
 
-                &.left,
-                &.right {
+                &.left, &.right {
                     z-index: -1;
                     scale: 1.35;
                 }
@@ -687,8 +662,7 @@
                         translate: 0 25%;
                     }
 
-                    &.left,
-                    &.right {
+                    &.left, &.right {
                         --d: -1;
                         scale: 1;
                         translate: calc(50% * var(--d)) 25%;
@@ -696,6 +670,16 @@
 
                     &.right {
                         --d: 1;
+                    }
+
+                    &.main, &.left, &.right {
+                        @media (prefers-reduced-motion: reduce) {
+                            translate: 0;
+                        }
+
+                        [data-pref-motion="false"] & {
+                            translate: 0;
+                        }
                     }
                 }
             }
