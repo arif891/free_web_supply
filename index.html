@@ -17,345 +17,352 @@
   </head>
 
   <body>
-    <navbar id="main-navbar">
-      <div class="main-wrapper">
-        <div class="main">
-          <div class="start">
-            <button class="search-btn" popovertarget="search-menu">
-              <svg class="icon search-icon">
-                <use href="/assets/image/svg/icons.svg#search" />
-              </svg>
-            </button>
-            <input class="search-input" type="search" id="nav-search-input">
+    <header>
+      <navbar id="main-navbar" data-component="navbar">
+        <div class="main-wrapper">
+          <div class="main">
+            <div class="start">
+              <button class="search-btn" popovertarget="search-menu">
+                <svg class="icon search-icon">
+                  <use href="/assets/image/svg/icons.svg#search" />
+                </svg>
+              </button>
+              <input class="search-input" type="search" id="nav-search-input">
+            </div>
+            <div class="center">
+              <a href="/">
+                <svg class="logo" id="nav-logo">
+                  <use href="/assets/brand/logo.svg" />
+                </svg>
+              </a>
+            </div>
+            <div class="end">
+              <nav class="link__wrapper">
+                <a class="link dec_bra dec_link" href="#">INVENTORY</a>
+                <a class="link dec_bra dec_link" href="#">MANIFEST</a>
+                <a class="link dec_bra dec_link" href="#">SYSTEM</a>
+              </nav>
+              <button class="menu-btn" id="menu-btn"></button>
+            </div>
           </div>
-          <div class="center">
-            <a href="/">
-              <svg class="logo" id="nav-logo">
-                <use href="/assets/brand/logo.svg" />
-              </svg>
+        </div>
+
+        <div class="menu" id="menu">
+          <div class="left">
+            <nav class="link__wrapper">
+              <a class="link" href="#">INVENTORY</a>
+              <a class="link" href="#">MANIFEST</a>
+              <a class="link" href="#">PERSONNEL</a>
+              <a class="link" href="#">SYSTEM</a>
+            </nav>
+          </div>
+          <div class="right">
+            <svg class="dec__logo">
+              <use href="/assets/brand/logo.svg" />
+            </svg>
+          </div>
+          <div class="bottom">
+            <span class="dec_meta">ROOT<span class="d-md">_ACCESS</span>: ENABLED</span>
+            <button class="dec_meta dec_bra dec_link" id="pre-btn" popovertarget="preference-menu">PREFERENCES</button>
+          </div>
+        </div>
+      </navbar>
+    </header>
+
+    <main>
+      <section class="hero__section" data-vpt="toggle" data-vpt-threshold="0.2">
+        <div class="wrapper">
+          <span class="top_txt dec_meta dec_bra">FWS_SUPPLY / ARCHIVE_01</span>
+          <div class="main__wrap">
+            <h1 class="heading"><span class="first">REDEFINING THE</span><span class="second">VANILLA STANDARD</span>
+            </h1>
+            <p class="pra">A curated supply of raw web logic. <span>Stripped of bloat. Engineered for
+                performance.</span>
+            </p>
+            <div class="link__wrapper">
+              <a class="link dec_meta dec_link" href="">VIEW_INVENTORY</a>
+              <span>/</span>
+              <a class="link dec_meta dec_link" href="">SYSTEM_MANIFEST</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="vision__section">
+        <layout class="gap-3 vision__layout">
+          <div class="x-12 info__wrapper">
+            <span class="dec_bra">SYSTEM_PHILOSOPHY</span> <span class="d-md">STATUS: OPERATIONAL</span>
+          </div>
+          <h2 class="x-12 h3 main__pra" data-vpt>Modern design has become a graveyard of unnecessary complexity. At FWS
+            /
+            Supply,
+            we reject the <span class="sp">'decorative'</span> in favor of the <span class="sp">'structural.'</span> We
+            believe that true luxury in the digital age is
+            found in raw logic and the absence of bloat.</h2>
+          <div class="wrapper">
+            <div class="x-12 x-lg-4 info__block" data-vpt>
+              <h3 class="heading"><span>I.</span> VANILLA<span>_</span>INTEGRITY</h3>
+              <p>We prioritize native web standards. No heavy frameworks, no unnecessary abstractions. Just pure,
+                high-performance logic.</p>
+            </div>
+            <div class="x-12 x-lg-4 info__block" data-vpt>
+              <h3 class="heading"><span>II.</span> GEOMETRIC<span>_</span>PRECISION</h3>
+              <p>Our aesthetic is a byproduct of order. 0-radius geometry reflects a refusal to round off the edges of
+                digital reality.</p>
+            </div>
+            <div class="x-12 x-lg-4 info__block" data-vpt>
+              <h3 class="heading"><span>III.</span> ARCHIVE<span>_</span>PURPOSE</h3>
+              <p>We don't just create; we curate. Every 'Supply' unit in our archive is engineered for a specific, vital
+                function within a larger system.</p>
+            </div>
+          </div>
+          <div class="x-12 info__wrapper d-md">
+            <span>ORIGIN: RAW_WEB_LOGIC</span><span>VERSION: 2025.01</span>
+          </div>
+        </layout>
+      </section>
+
+      <section class="inventory__section">
+        <layout class="gap-2 inventory__layout">
+
+          <div class="x-12 info__wrapper">
+            <span class="dec_bra">RAW_INVENTORY</span> <span class="d-md">COUNT: 12_UNITS</span>
+          </div>
+
+          <div class="x-12 header__wrapper">
+            <h2 class="h4 sec__heading">INVENTORY_ITEMS</h2>
+            <p>Audited units from the FWS core. Engineered to zero-radius standards for high-performance systems. The
+              vanilla baseline starts here.</p>
+          </div>
+
+          <div class="x-12 sub-x gap-y-4 item__wrapper">
+
+            <div class="x-12 x-md-6 x-xl-4 item">
+              <img class="img" src="/assets/image/base/nav_left.webp" alt="">
+              <h3 class="h4 title">DEMO ITEM NAME</h3>
+              <div class="tag__wrapper">
+                <a href="">CSS_ANIMATION</a>
+                <a href="">JS</a>
+                <a href="">SCROLL</a>
+              </div>
+              <div class="action__wrapper">
+                <a class="btn dec_meta dec_bra dec_link action__btn" href="">VIEW</a>
+              </div>
+            </div>
+
+            <div class="x-12 x-md-6 x-xl-4 item sp">
+              <img class="img" src="/assets/image/base/nav_left.webp" alt="">
+              <h3 class="h4 title">DEMO ITEM NAME</h3>
+              <div class="tag__wrapper">
+                <a href="">CSS_ANIMATION</a>
+                <a href="">JS</a>
+                <a href="">SCROLL</a>
+              </div>
+              <div class="action__wrapper">
+                <a class="btn dec_meta dec_bra dec_link action__btn" href="">VIEW</a>
+              </div>
+            </div>
+
+            <div class="x-12 x-md-6 x-xl-4 item">
+              <img class="img" src="/assets/image/base/nav_left.webp" alt="">
+              <h3 class="h4 title">DEMO ITEM NAME</h3>
+              <div class="tag__wrapper">
+                <a href="">CSS_ANIMATION</a>
+                <a href="">JS</a>
+                <a href="">SCROLL</a>
+              </div>
+              <div class="action__wrapper">
+                <a class="btn dec_meta dec_bra dec_link action__btn" href="">VIEW</a>
+              </div>
+            </div>
+
+            <div class="x-12 x-md-6 x-xl-4 item">
+              <img class="img" src="/assets/image/base/nav_left.webp" alt="">
+              <h3 class="h4 title">DEMO ITEM NAME</h3>
+              <div class="tag__wrapper">
+                <a href="">CSS_ANIMATION</a>
+                <a href="">JS</a>
+                <a href="">SCROLL</a>
+              </div>
+              <div class="action__wrapper">
+                <a class="btn dec_meta dec_bra dec_link action__btn" href="">VIEW</a>
+              </div>
+            </div>
+
+            <div class="x-12 x-md-6 x-xl-4 item sp">
+              <img class="img" src="/assets/image/base/nav_left.webp" alt="">
+              <h3 class="h4 title">DEMO ITEM NAME</h3>
+              <div class="tag__wrapper">
+                <a href="">CSS_ANIMATION</a>
+                <a href="">JS</a>
+                <a href="">SCROLL</a>
+              </div>
+              <div class="action__wrapper">
+                <a class="btn dec_meta dec_bra dec_link action__btn" href="">VIEW</a>
+              </div>
+            </div>
+
+            <div class="x-12 x-md-6 x-xl-4 item">
+              <img class="img" src="/assets/image/base/nav_left.webp" alt="">
+              <h3 class="h4 title">DEMO ITEM NAME</h3>
+              <div class="tag__wrapper">
+                <a href="">CSS_ANIMATION</a>
+                <a href="">JS</a>
+                <a href="">SCROLL</a>
+              </div>
+              <div class="action__wrapper">
+                <a class="btn dec_meta dec_bra dec_link action__btn" href="">VIEW</a>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="x-12 info__wrapper c-md">
+            <span class="d-md">STATUS: VERIFIED</span>
+            <a class="dec_bra dec_link" href="">VIEW_ALL</a>
+            <span class="d-md">LAST_SYNC: 21.12.2025</span>
+          </div>
+
+        </layout>
+      </section>
+
+      <section class="pricing__section">
+        <span class="dec_meta dec_bra">ALLOCATION_MODEL</span>
+        <span class="h4">OPEN_SOURCE_LICENSE</span>
+        <div class="plan__wrapper">
+          <div class="plan__card left">
+            <span class="dec_meta">INTEGRITY</span>
+          </div>
+          <div class="plan__card main">
+            <div>
+              <div class="info__wrapper top">
+                <span class="h2">UNDEFINED</span>
+                <span><span class="d-md">Value: </span>0.00_USD</span>
+              </div>
+              <p>Full read/write access to all raw logic units. Designed for individual engineers and community
+                architects.</p>
+            </div>
+            <div class="info__wrapper bottom">
+              <span>STATUS: <span class="d-md"> ACCESS_</span>GRANTED</span>
+              <span>AUTH: OPEN<span class="d-md">_PROTOCOL</span>
+            </div>
+          </div>
+          <div class="plan__card right">
+            <span class="dec_meta">DISTRIBUTION</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="manifest__section">
+        <layout class="manifest__layout" data-vpt>
+          <div class="x-12 info__wrapper">
+            <span class="dec_bra">SYSTEM_MANIFEST</span><span class="d-md">RECORDS_FOUND: 04</span>
+          </div>
+          <div class="x-12 header__wrapper">
+            <h2 class="h4 sec__heading">DOCUMENTATION</h2>
+          </div>
+
+          <div class="x-12 x-xxl-4 left ">
+            <a href="" class="x-12 x-xl-6 item">
+              <img class="img" src="/assets/image/base/nav_left.webp" alt="">
+              <div class="wrapper">
+                <h3 class="h4 title">LOGIC OF 0 RADIUS ARCHITECTURE DEMO TITLE</h3>
+                <div class="info__wrapper">
+                  <span class="date">DATE: 1_DEC_2025</span>
+                  <span class="dec_bra dec_link" href="">DECRYPT</span>
+                </div>
+              </div>
             </a>
           </div>
-          <div class="end">
-            <nav class="link__wrapper">
-              <a class="link dec_bra dec_link" href="#">INVENTORY</a>
-              <a class="link dec_bra dec_link" href="#">MANIFEST</a>
-              <a class="link dec_bra dec_link" href="#">SYSTEM</a>
-            </nav>
-            <button class="menu-btn" id="menu-btn"></button>
-          </div>
-        </div>
-      </div>
 
-      <div class="menu" id="menu">
-        <div class="left">
-          <nav class="link__wrapper">
-            <a class="link" href="#">INVENTORY</a>
-            <a class="link" href="#">MANIFEST</a>
-            <a class="link" href="#">PERSONNEL</a>
-            <a class="link" href="#">SYSTEM</a>
-          </nav>
-        </div>
-        <div class="right">
-          <svg class="dec__logo">
-            <use href="/assets/brand/logo.svg" />
-          </svg>
-        </div>
-        <div class="bottom">
-          <span class="dec_meta">ROOT<span class="d-md">_ACCESS</span>: ENABLED</span>
-          <button class="dec_meta dec_bra dec_link" id="pre-btn" popovertarget="preference-menu">PREFERENCES</button>
-        </div>
-      </div>
-    </navbar>
+          <div class="x-12 x-xxl-1 divider"></div>
 
-    <section class="hero__section" data-vpt="toggle" data-vpt-threshold="0.2">
-      <div class="wrapper">
-        <span class="top_txt dec_meta dec_bra">FWS_SUPPLY / ARCHIVE_01</span>
-        <div class="main__wrap">
-          <h1 class="heading"><span class="first">REDEFINING THE</span><span class="second">VANILLA STANDARD</span></h1>
-          <p class="pra">A curated supply of raw web logic. <span>Stripped of bloat. Engineered for performance.</span>
-          </p>
-          <div class="link__wrapper">
-            <a class="link dec_meta dec_link" href="">VIEW_INVENTORY</a>
-            <span>/</span>
-            <a class="link dec_meta dec_link" href="">SYSTEM_MANIFEST</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="vision__section">
-      <layout class="gap-3 vision__layout">
-        <div class="x-12 info__wrapper">
-          <span class="dec_bra">SYSTEM_PHILOSOPHY</span> <span class="d-md">STATUS: OPERATIONAL</span>
-        </div>
-        <h2 class="x-12 h3 main__pra" data-vpt>Modern design has become a graveyard of unnecessary complexity. At FWS /
-          Supply,
-          we reject the <span class="sp">'decorative'</span> in favor of the <span class="sp">'structural.'</span> We
-          believe that true luxury in the digital age is
-          found in raw logic and the absence of bloat.</h2>
-        <div class="wrapper">
-          <div class="x-12 x-lg-4 info__block" data-vpt>
-            <h3 class="heading"><span>I.</span> VANILLA<span>_</span>INTEGRITY</h3>
-            <p>We prioritize native web standards. No heavy frameworks, no unnecessary abstractions. Just pure,
-              high-performance logic.</p>
-          </div>
-          <div class="x-12 x-lg-4 info__block" data-vpt>
-            <h3 class="heading"><span>II.</span> GEOMETRIC<span>_</span>PRECISION</h3>
-            <p>Our aesthetic is a byproduct of order. 0-radius geometry reflects a refusal to round off the edges of
-              digital reality.</p>
-          </div>
-          <div class="x-12 x-lg-4 info__block" data-vpt>
-            <h3 class="heading"><span>III.</span> ARCHIVE<span>_</span>PURPOSE</h3>
-            <p>We don't just create; we curate. Every 'Supply' unit in our archive is engineered for a specific, vital
-              function within a larger system.</p>
-          </div>
-        </div>
-        <div class="x-12 info__wrapper d-md">
-          <span>ORIGIN: RAW_WEB_LOGIC</span><span>VERSION: 2025.01</span>
-        </div>
-      </layout>
-    </section>
-
-    <section class="inventory__section">
-      <layout class="gap-2 inventory__layout">
-
-        <div class="x-12 info__wrapper">
-          <span class="dec_bra">RAW_INVENTORY</span> <span class="d-md">COUNT: 12_UNITS</span>
-        </div>
-
-        <div class="x-12 header__wrapper">
-          <h2 class="h4 sec__heading">INVENTORY_ITEMS</h2>
-          <p>Audited units from the FWS core. Engineered to zero-radius standards for high-performance systems. The
-            vanilla baseline starts here.</p>
-        </div>
-
-        <div class="x-12 sub-x gap-y-4 item__wrapper">
-
-          <div class="x-12 x-md-6 x-xl-4 item">
-            <img class="img" src="/assets/image/base/nav_left.webp" alt="">
-            <h3 class="h4 title">DEMO ITEM NAME</h3>
-            <div class="tag__wrapper">
-              <a href="">CSS_ANIMATION</a>
-              <a href="">JS</a>
-              <a href="">SCROLL</a>
-            </div>
-            <div class="action__wrapper">
-              <a class="btn dec_meta dec_bra dec_link action__btn" href="">VIEW</a>
-            </div>
-          </div>
-
-          <div class="x-12 x-md-6 x-xl-4 item sp">
-            <img class="img" src="/assets/image/base/nav_left.webp" alt="">
-            <h3 class="h4 title">DEMO ITEM NAME</h3>
-            <div class="tag__wrapper">
-              <a href="">CSS_ANIMATION</a>
-              <a href="">JS</a>
-              <a href="">SCROLL</a>
-            </div>
-            <div class="action__wrapper">
-              <a class="btn dec_meta dec_bra dec_link action__btn" href="">VIEW</a>
-            </div>
-          </div>
-
-          <div class="x-12 x-md-6 x-xl-4 item">
-            <img class="img" src="/assets/image/base/nav_left.webp" alt="">
-            <h3 class="h4 title">DEMO ITEM NAME</h3>
-            <div class="tag__wrapper">
-              <a href="">CSS_ANIMATION</a>
-              <a href="">JS</a>
-              <a href="">SCROLL</a>
-            </div>
-            <div class="action__wrapper">
-              <a class="btn dec_meta dec_bra dec_link action__btn" href="">VIEW</a>
-            </div>
-          </div>
-
-          <div class="x-12 x-md-6 x-xl-4 item">
-            <img class="img" src="/assets/image/base/nav_left.webp" alt="">
-            <h3 class="h4 title">DEMO ITEM NAME</h3>
-            <div class="tag__wrapper">
-              <a href="">CSS_ANIMATION</a>
-              <a href="">JS</a>
-              <a href="">SCROLL</a>
-            </div>
-            <div class="action__wrapper">
-              <a class="btn dec_meta dec_bra dec_link action__btn" href="">VIEW</a>
-            </div>
-          </div>
-
-          <div class="x-12 x-md-6 x-xl-4 item sp">
-            <img class="img" src="/assets/image/base/nav_left.webp" alt="">
-            <h3 class="h4 title">DEMO ITEM NAME</h3>
-            <div class="tag__wrapper">
-              <a href="">CSS_ANIMATION</a>
-              <a href="">JS</a>
-              <a href="">SCROLL</a>
-            </div>
-            <div class="action__wrapper">
-              <a class="btn dec_meta dec_bra dec_link action__btn" href="">VIEW</a>
-            </div>
-          </div>
-
-          <div class="x-12 x-md-6 x-xl-4 item">
-            <img class="img" src="/assets/image/base/nav_left.webp" alt="">
-            <h3 class="h4 title">DEMO ITEM NAME</h3>
-            <div class="tag__wrapper">
-              <a href="">CSS_ANIMATION</a>
-              <a href="">JS</a>
-              <a href="">SCROLL</a>
-            </div>
-            <div class="action__wrapper">
-              <a class="btn dec_meta dec_bra dec_link action__btn" href="">VIEW</a>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="x-12 info__wrapper c-md">
-          <span class="d-md">STATUS: VERIFIED</span>
-          <a class="dec_bra dec_link" href="">VIEW_ALL</a>
-          <span class="d-md">LAST_SYNC: 21.12.2025</span>
-        </div>
-
-      </layout>
-    </section>
-
-    <section class="pricing__section">
-      <span class="dec_meta dec_bra">ALLOCATION_MODEL</span>
-      <span class="h4">OPEN_SOURCE_LICENSE</span>
-      <div class="plan__wrapper">
-        <div class="plan__card left">
-          <span class="dec_meta">INTEGRITY</span>
-        </div>
-        <div class="plan__card main">
-          <div>
-            <div class="info__wrapper top">
-              <span class="h2">UNDEFINED</span>
-              <span><span class="d-md">Value: </span>0.00_USD</span>
-            </div>
-            <p>Full read/write access to all raw logic units. Designed for individual engineers and community
-              architects.</p>
-          </div>
-          <div class="info__wrapper bottom">
-            <span>STATUS: <span class="d-md"> ACCESS_</span>GRANTED</span>
-            <span>AUTH: OPEN<span class="d-md">_PROTOCOL</span>
-          </div>
-        </div>
-        <div class="plan__card right">
-          <span class="dec_meta">DISTRIBUTION</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="manifest__section">
-      <layout class="manifest__layout" data-vpt>
-        <div class="x-12 info__wrapper">
-          <span class="dec_bra">SYSTEM_MANIFEST</span><span class="d-md">RECORDS_FOUND: 04</span>
-        </div>
-        <div class="x-12 header__wrapper">
-          <h2 class="h4 sec__heading">DOCUMENTATION</h2>
-        </div>
-
-        <div class="x-12 x-xxl-4 left ">
-          <a href="" class="x-12 x-xl-6 item">
-            <img class="img" src="/assets/image/base/nav_left.webp" alt="">
-            <div class="wrapper">
-              <h3 class="h4 title">LOGIC OF 0 RADIUS ARCHITECTURE DEMO TITLE</h3>
-              <div class="info__wrapper">
-                <span class="date">DATE: 1_DEC_2025</span>
-                <span class="dec_bra dec_link" href="">DECRYPT</span>
+          <div class="x-12 x-xxl-7 right">
+            <a href="" class="x-12 x-md-6 item">
+              <img class="img" src="/assets/image/base/nav_left.webp" alt="">
+              <div class="wrapper">
+                <h3 class="h4 title">LOGIC OF 0 RADIUS ARCHITECTURE DEMO TITLE</h3>
+                <div class="info__wrapper">
+                  <span class="date">DATE: 1_DEC_2025</span>
+                  <span class="dec_bra dec_link" href="">DECRYPT</span>
+                </div>
               </div>
-            </div>
-          </a>
-        </div>
-
-        <div class="x-12 x-xxl-1 divider"></div>
-
-        <div class="x-12 x-xxl-7 right">
-          <a href="" class="x-12 x-md-6 item">
-            <img class="img" src="/assets/image/base/nav_left.webp" alt="">
-            <div class="wrapper">
-              <h3 class="h4 title">LOGIC OF 0 RADIUS ARCHITECTURE DEMO TITLE</h3>
-              <div class="info__wrapper">
-                <span class="date">DATE: 1_DEC_2025</span>
-                <span class="dec_bra dec_link" href="">DECRYPT</span>
+            </a>
+            <a href="" class="x-12 x-md-6 item">
+              <img class="img" src="/assets/image/base/nav_left.webp" alt="">
+              <div class="wrapper">
+                <h3 class="h4 title">LOGIC OF 0 RADIUS ARCHITECTURE DEMO TITLE</h3>
+                <div class="info__wrapper">
+                  <span class="date">DATE: 1_DEC_2025</span>
+                  <span class="dec_bra dec_link" href="">DECRYPT</span>
+                </div>
               </div>
-            </div>
-          </a>
-          <a href="" class="x-12 x-md-6 item">
-            <img class="img" src="/assets/image/base/nav_left.webp" alt="">
-            <div class="wrapper">
-              <h3 class="h4 title">LOGIC OF 0 RADIUS ARCHITECTURE DEMO TITLE</h3>
-              <div class="info__wrapper">
-                <span class="date">DATE: 1_DEC_2025</span>
-                <span class="dec_bra dec_link" href="">DECRYPT</span>
+            </a>
+            <a href="" class="x-12 x-md-6 item">
+              <img class="img" src="/assets/image/base/nav_left.webp" alt="">
+              <div class="wrapper">
+                <h3 class="h4 title">LOGIC OF 0 RADIUS ARCHITECTURE DEMO TITLE</h3>
+                <div class="info__wrapper">
+                  <span class="date">DATE: 1_DEC_2025</span>
+                  <span class="dec_bra dec_link" href="">DECRYPT</span>
+                </div>
               </div>
+            </a>
+          </div>
+        </layout>
+      </section>
+
+      <section class="team__section" data-vpt>
+        <layout class="team__layout">
+
+          <div class="x-12 info__wrapper">
+            <span class="dec_bra">SYSTEM_ARCHITECTS</span>
+            <span class="d-md">CONTRIBUTORS: 00</span>
+          </div>
+
+          <div class="x-12 header__wrapper">
+            <h2 class="h4 sec__heading">PERSONNEL_LOG</h2>
+          </div>
+
+          <div class="x-12 person__wrapper">
+            <div class="person left">
+              <img src="/assets/image/pages/home/team_woman.png" alt="">
             </div>
-          </a>
-          <a href="" class="x-12 x-md-6 item">
-            <img class="img" src="/assets/image/base/nav_left.webp" alt="">
-            <div class="wrapper">
-              <h3 class="h4 title">LOGIC OF 0 RADIUS ARCHITECTURE DEMO TITLE</h3>
-              <div class="info__wrapper">
-                <span class="date">DATE: 1_DEC_2025</span>
-                <span class="dec_bra dec_link" href="">DECRYPT</span>
-              </div>
+            <div class="person main">
+              <img src="/assets/image/pages/home/team_man_c.png" alt="">
             </div>
-          </a>
-        </div>
-      </layout>
-    </section>
-
-    <section class="team__section" data-vpt>
-      <layout class="team__layout">
-
-        <div class="x-12 info__wrapper">
-          <span class="dec_bra">SYSTEM_ARCHITECTS</span>
-          <span class="d-md">CONTRIBUTORS: 00</span>
-        </div>
-
-        <div class="x-12 header__wrapper">
-          <h2 class="h4 sec__heading">PERSONNEL_LOG</h2>
-        </div>
-
-        <div class="x-12 person__wrapper">
-          <div class="person left">
-            <img src="/assets/image/pages/home/team_woman.png" alt="">
+            <div class="person right">
+              <img src="/assets/image/pages/home/team_man.png" alt="">
+            </div>
           </div>
-          <div class="person main">
-            <img src="/assets/image/pages/home/team_man_c.png" alt="">
+        </layout>
+        <div class="action__wrapper">
+          <div class="action__block d-md">
+            <span class="h6">WAITING </span>
+            <a class="dec_meta dec_bra dec_link" href="">ASSIGN</a>
           </div>
-          <div class="person right">
-            <img src="/assets/image/pages/home/team_man.png" alt="">
+          <div class="action__block center">
+            <span class="h5">UNDEFINED</span>
+            <a class="dec_meta dec_bra dec_link" href="">VIEW_ALL</a>
+          </div>
+          <div class="action__block d-md">
+            <span class="h6">WAITING </span>
+            <a class="dec_meta dec_bra dec_link" href="">ASSIGN</a>
           </div>
         </div>
-      </layout>
-      <div class="action__wrapper">
-        <div class="action__block d-md">
-          <span class="h6">WAITING </span>
-          <a class="dec_meta dec_bra dec_link" href="">ASSIGN</a>
-        </div>
-        <div class="action__block center">
-          <span class="h5">UNDEFINED</span>
-          <a class="dec_meta dec_bra dec_link" href="">VIEW_ALL</a>
-        </div>
-        <div class="action__block d-md">
-          <span class="h6">WAITING </span>
-          <a class="dec_meta dec_bra dec_link" href="">ASSIGN</a>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="team__helper_section">
-      <span class="dec_meta dec_bra">OPEN_WEB_UPLINK</span>
-      <h2 class="h4">CONTRIBUTION_REQUIRED</h2>
-      <p class="pra">The FWS / Supply archive is an open node. We require architects to fortify the
-        vanilla standard. Submit your logic to the core.
-      </p>
-      <a class="dec_link dec_meta dec_bra" href="">CONTRIBUTE</a>
-    </section>
+      <section class="team__helper_section">
+        <span class="dec_meta dec_bra">OPEN_WEB_UPLINK</span>
+        <h2 class="h4">CONTRIBUTION_REQUIRED</h2>
+        <p class="pra">The FWS / Supply archive is an open node. We require architects to fortify the
+          vanilla standard. Submit your logic to the core.
+        </p>
+        <a class="dec_link dec_meta dec_bra" href="">CONTRIBUTE</a>
+      </section>
+    </main>
 
-    <footer class="section">
+    <footer class="section" data-component="footer">
       <layout class="footer__layout">
         <div class="x-12 info__wrapper">
           <span class="dec_bra">FWS / SUPPLY</span>
