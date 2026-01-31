@@ -7,7 +7,7 @@ class PreferencesManager {
     constructor() {
         this.preferences = {};
         this.preferenceMenu = document.getElementById('preference-menu');
-        this.inputs = this.preferenceMenu.querySelectorAll('input[data-preference]');
+        this.inputs = this.preferenceMenu.querySelectorAll('input.switch');
         this.init();
     }
 
@@ -17,7 +17,7 @@ class PreferencesManager {
         if (this.inputs) {
             this.inputs.forEach(input => {
                 input.addEventListener('change', (e) => {
-                    const key = e.target.getAttribute('data-preference');
+                    const key = e.target.name;
                     const value = e.target.checked;
                     this.setPreference(key, value);
                     window.dispatchEvent(new Event('preferencesChanged'));
@@ -39,7 +39,7 @@ class PreferencesManager {
 
     updateUI() {
         this.inputs.forEach(input => {
-            const key = input.dataset.preference;
+            const key = input.name;
             if (this.preferences.hasOwnProperty(key)) {
                 input.checked = this.preferences[key];
             }
@@ -55,7 +55,7 @@ class PreferencesManager {
     getPreference(key) {
         if (!(key in this.preferences)) {
             this.inputs.forEach(input => {
-                if (input.dataset.preference === key) {
+                if (input.name === key) {
                     this.preferences[key] = input.checked;
                 }
             });
