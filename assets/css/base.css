@@ -258,6 +258,7 @@ backdrop {
     ::after {
         animation: none !important;
         transition: none !important;
+        scroll-behavior: auto !important;
     }
 }
 
@@ -267,5 +268,6 @@ backdrop {
     ::after {
         animation: none !important;
         transition: none !important;
+        scroll-behavior: auto !important;
     }
 }
