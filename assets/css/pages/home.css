@@ -517,7 +517,9 @@
             }
 
             @media (width < 1400px) {
-                padding-bottom: 4rem;
+                &:not(:last-child) {
+                    padding-bottom: 4rem;
+                }
             }
         }
 
@@ -573,6 +575,12 @@
                     }
                 }
             }
+        }
+
+        .bottom__wrapper {
+            display: flex;
+            justify-content: center;
+            padding-block: 3.75rem 2.5rem;
         }
     }
 }
