@@ -1,0 +1,103 @@
+main {
+    padding-top: 10vh;
+}
+
+.inventory__section {
+
+    .inventory__layout {
+
+        div {
+            /* background-color: aliceblue; */
+        }
+
+        .left, .right {
+            height: fit-content;
+            position: sticky;
+            top: 1rem;
+        }
+
+        .left {
+            @media (width < 1400px) {
+                display: none;
+            }
+
+            .detail__wrapper {
+                padding: 1rem;
+                background-color: var(--surface-color);
+
+                .header__wrapper {
+                    border-bottom: 1px solid;
+                    padding-bottom: 1rem;
+                    margin-bottom: 1.5rem;
+
+                    .title {
+                        line-height: .8;
+                    }
+                }
+
+                .text__block_wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    border-bottom: 1px solid;
+                    padding-bottom: 1.5rem;
+
+                    .text__block {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                }
+
+                .tag__wrapper {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: .5rem;
+                    padding-top: 1rem;
+
+                    a {
+                        display: block;
+                        color: inherit;
+                        font-family: var(--ff-monospace);
+                        font-size: .8rem;
+                        padding: .25rem .5rem;
+                        background-color: var(--surface-color-2);
+                    }
+                }
+            }
+        }
+
+        .main {
+            --paragraph-line-height: 1.6;
+            margin-bottom: 2rem;
+
+            .thumbnail {
+                aspect-ratio: 16 / 9;
+                object-fit: cover;
+                margin-bottom: 1.5rem;
+            }
+
+            .heading {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .right {
+            .action__wrapper {
+                display: flex;
+                flex-direction: column;
+
+                .action__btn {
+                    --padding-y: 1.5rem;
+
+                    &.preview {
+                        background-color: var(--color);
+                        color: var(--bg-color);
+                    }
+
+                }
+
+            }
+        }
+
+    }
+}
