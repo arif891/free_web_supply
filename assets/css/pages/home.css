@@ -659,6 +659,6 @@
 
 .preference-menu {
     .item__wrapper.smooth-scroll {
-        display: flex;
+        display: flex !important;
     }
 }
