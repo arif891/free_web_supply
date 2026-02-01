@@ -258,94 +258,16 @@
 
 .inventory__section {
 
-    .inventory__layout {
+    /* partial in base.css */
+    .item__wrapper {
+        view-timeline: --in-sec;
 
-        .header__wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: var(--space-2) var(--space-4);
-
-            .sec__heading {
-                margin: 0;
-            }
-
-            p {
-                max-width: 45ch;
-            }
-
-            margin-bottom: var(--space-2);
-        }
-
-        .item__wrapper {
-            grid-template-rows: repeat(4, max-content);
-            view-timeline: --in-sec;
-
-            .item {
-                --padding: .75rem;
-                border: 1px solid;
-                grid-row: span 4;
-                display: grid;
-                grid-template-rows: subgrid;
-                gap: 0;
-
-                .img {
-                    aspect-ratio: 16 / 9;
-                    object-fit: cover;
-                }
-
-                .title {
-                    margin: 0;
-                    padding: var(--padding);
-                }
-
-                .tag__wrapper {
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: var(--space);
-                    border-block: 1px solid;
-                    padding: var(--padding);
-
-                    a {
-                        display: block;
-                        color: inherit;
-                        font-family: var(--ff-monospace);
-                        font-size: .8rem;
-                        padding: .25rem .5rem;
-                        background-color: var(--surface-color-2);
-                    }
-                }
-
-                .action__wrapper {
-                    padding: var(--padding);
-
-                    .action__btn {
-                        --padding-y: 1.5rem;
-                        display: block;
-                        font-family: var(--ff-monospace);
-                        background-color: var(--surface-color);
-                    }
-                }
-
-                @media (width >=1800px) {
-                    &.sp {
-                        --_t: 0 -25vh;
-                        animation: _translate both;
-                        animation-timeline: --in-sec;
-                    }
-                }
-            }
-        }
-
-        .info__wrapper {
-            &:last-child {
-                @media (width >=768px) {
-                    display: grid !important;
-                    grid-template-columns: 1fr max-content 1fr;
-
-                    > :last-child {
-                        justify-self: end;
-                    }
+        .item {
+            @media (width >=1800px) {
+                &.sp {
+                    --_t: 0 -25vh;
+                    animation: _translate both;
+                    animation-timeline: --in-sec;
                 }
             }
         }
@@ -517,7 +439,7 @@
             }
 
             @media (width < 1400px) {
-                &:not(:last-child) {
+                &:not(:last-child), &:only-child {
                     padding-bottom: 4rem;
                 }
             }
@@ -730,5 +652,13 @@
     .pra {
         max-width: 51ch;
         margin-bottom: 2rem;
+    }
+}
+
+
+
+.preference-menu {
+    .item__wrapper.smooth-scroll {
+        display: flex;
     }
 }
