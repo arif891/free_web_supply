@@ -140,8 +140,8 @@ function genRoot(main, left = '', right = '', other = {}) {
 
 
         <main>
-            <section class="inventory__section">
-                <layout class="gap-2 inventory__layout">
+            <section class="${def.type}__section">
+                <layout class="gap-2 ${def.type}__layout">
                     <div class="x-3 left">
                         ${left}
                     </div>
