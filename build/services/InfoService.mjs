@@ -2,7 +2,7 @@ import path from 'node:path';
 import { readFile, writeFile } from '../utils/fs.mjs';
 import { config } from '../config/index.mjs';
 
-class InventoryService {
+class InfoService {
     constructor() {
         this.infoPath = path.join(config.directories.info, config.files.info.build);
         this.mainInfo = null;
@@ -43,4 +43,4 @@ class InventoryService {
     }
 }
 
-export const inventoryService = new InventoryService();
+export const infoService = new InfoService();

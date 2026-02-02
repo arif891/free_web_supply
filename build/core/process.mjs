@@ -1,4 +1,4 @@
-import { inventoryService } from '../services/InventoryService.mjs';
+import { infoService } from '../services/InfoService.mjs';
 import { contentService } from '../services/ContentService.mjs';
 import { config } from '../config/index.mjs';
 
@@ -9,7 +9,7 @@ async function process() {
 
         const type = info.type || 'manifest';
 
-        const uid = await inventoryService.generateUid(type);
+        const uid = await infoService.generateUid(type);
         console.log(`Processing item with UID: ${uid} (Type: ${type})`);
 
         await contentService.saveMarkdown(uid, content);
@@ -25,7 +25,7 @@ async function process() {
             url: `/${outDir}${slug}/`
         };
 
-        await inventoryService.addItem(finalItemInfo, type);
+        await infoService.addItem(finalItemInfo, type);
         await contentService.saveHtml(slug, html, type);
         await contentService.resetInput();
 
