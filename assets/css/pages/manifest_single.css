@@ -1,3 +1,181 @@
 main {
-    padding-top: 7.5rem;
+    padding-top: 10vh;
+}
+
+.manifest__section {
+
+    .manifest__layout {
+
+        .left, .right {
+            height: fit-content;
+            position: sticky;
+            top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .left {
+            @media (width < 1400px) {
+                display: none;
+            }
+
+            .toc__wrapper {
+                padding: 1rem;
+                background-color: var(--surface-color);
+
+                .header__wrapper {
+                    display: flex;
+                    justify-content: space-between;
+                    border-bottom: 1px solid;
+                    padding-bottom: 1rem;
+
+                    .title {
+                        line-height: .8;
+                    }
+                }
+
+                .toc {
+                    display: flex;
+                    flex-direction: column;
+                    gap: .25rem;
+                    margin-top: 1rem;
+                    scroll-target-group: auto;
+                    padding-left: 1rem;
+                    border-left: 1px solid;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        background-color: var(--link-color);
+                        width: 1px;
+                        position-anchor: --toc-active;
+                        left: 1rem;
+                        top: anchor(top);
+                        bottom: anchor(bottom);
+                        transition: .3s;
+                    }
+
+                    .block {
+
+                        .block & {
+                            margin-left: 1rem;
+                        }
+
+                        &:has(.block .link:target-current) {
+                            > .link {
+                                color: var(--link-color);
+                            }
+                        }
+
+                        .link {
+                            display: block;
+                            color: inherit;
+                            padding-block: .5rem;
+                            transition: color .3s;
+
+                            &:target-current {
+                                color: var(--link-color);
+                                anchor-name: --toc-active;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .main {
+            --paragraph-line-height: 1.6;
+            margin-bottom: 2rem;
+
+            .thumbnail {
+                aspect-ratio: 16 / 9;
+                object-fit: cover;
+                margin-bottom: 1.5rem;
+            }
+
+            .heading {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .right {
+
+            .action__wrapper {
+                display: flex;
+                flex-direction: column;
+
+                .action__btn {
+                    --padding-y: 1.5rem;
+
+                    &.preview {
+                        background-color: var(--color);
+                        color: var(--bg-color);
+                    }
+
+                }
+
+            }
+
+            .author__wrapper {
+                display: none;
+                gap: .5rem;
+                background-color: var(--surface-color);
+
+                .img {
+                    height: 7rem;
+                    aspect-ratio: 1;
+                    background-color: black;
+                }
+
+                .content__wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    padding: .5rem;
+
+                    .text__wrapper, .social__wrapper {
+                        display: flex;
+                        flex-wrap: wrap;
+                    }
+
+                    .text__wrapper {
+                        flex-direction: column;
+                    }
+
+                    .social__wrapper {
+                        gap: .25rem;
+
+                        .link {
+                            color: inherit;
+                            padding: .5rem;
+                            opacity: .6;
+                            transition: opacity .3s;
+
+                            &:first-child {
+                                padding-left: 0;
+                            }
+
+                            &:hover {
+                                opacity: .9;
+                            }
+
+                        }
+                    }
+
+                    .name {
+                        color: inherit;
+                        font-size: 1.5rem;
+                        margin-left: -.1rem;
+                    }
+
+                    .role {
+                        font-size: .75rem;
+                        opacity: .6;
+                    }
+                }
+            }
+        }
+
+    }
 }

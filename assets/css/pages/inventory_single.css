@@ -6,14 +6,13 @@ main {
 
     .inventory__layout {
 
-        div {
-            /* background-color: aliceblue; */
-        }
-
         .left, .right {
             height: fit-content;
             position: sticky;
             top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
 
         .left {
@@ -82,6 +81,7 @@ main {
         }
 
         .right {
+
             .action__wrapper {
                 display: flex;
                 flex-direction: column;
@@ -96,6 +96,65 @@ main {
 
                 }
 
+            }
+
+            .author__wrapper {
+                display: none;
+                gap: .5rem;
+                background-color: var(--surface-color);
+
+                .img {
+                    height: 7rem;
+                    aspect-ratio: 1;
+                    background-color: black;
+                }
+
+                .content__wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    padding: .5rem;
+
+                    .text__wrapper, .social__wrapper {
+                        display: flex;
+                        flex-wrap: wrap;
+                    }
+
+                    .text__wrapper {
+                        flex-direction: column;
+                    }
+
+                    .social__wrapper {
+                        gap: .25rem;
+
+                        .link {
+                            color: inherit;
+                            padding: .5rem;
+                            opacity: .6;
+                            transition: opacity .3s;
+
+                            &:first-child {
+                                padding-left: 0;
+                            }
+
+                            &:hover {
+                              opacity: .9;
+                            }
+
+                        }
+                    }
+
+                    .name {
+                        color: inherit;
+                        font-size: 1.5rem;
+                        margin-left: -.1rem;
+                    }
+
+                    .role {
+                        font-size: .75rem;
+                        opacity: .6;
+                    }
+                }
             }
         }
 
