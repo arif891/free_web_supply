@@ -3,7 +3,10 @@ export const config = {
 
         out: {
             markdown: 'markdown/',
-            html: 'pages/inventory/'
+            html: {
+                inventory: 'pages/inventory/',
+                manifest: 'pages/manifest/'
+            }
         },
         info: 'build/info/'
     },
