@@ -1,3 +1,3 @@
-import {process} from './core/process.mjs';
+import { process } from './core/process.mjs';
 
 process();

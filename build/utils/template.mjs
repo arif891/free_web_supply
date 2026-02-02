@@ -58,7 +58,7 @@ function genWidget(name, info = {}) {
 
 function genRoot(main, left = '', right = '', other = {}) {
     const def = {
-        title: '',
+        heading: '',
         thumbnail: '/assets/image/base/default.avif',
         meta: '',
         type: 'manifest',
@@ -71,7 +71,7 @@ function genRoot(main, left = '', right = '', other = {}) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>${def.title}</title>
+        <title>${def.heading}</title>
 
         ${def.meta}
 
@@ -144,7 +144,7 @@ function genRoot(main, left = '', right = '', other = {}) {
                     </div>
                     <div class="x-12 x-lg-8 x-xxl-6 main">
                         <img class="thumbnail" src="${def.thumbnail}" alt="">
-                        <h1 class="h2 heading">${def.title}</h1>
+                        <h1 class="h2 heading">${def.heading}</h1>
                         <div class="content__wrapper">
 ${main} 
                         </div>

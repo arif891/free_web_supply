@@ -21,22 +21,20 @@ class InventoryService {
         }
     }
 
-    async generateUid() {
+    async generateUid(type = 'manifest') {
         await this.load();
-        // Assuming inventory is an array in mainInfo
-        // If mainInfo is empty object, inventory might be undefined. Handle that.
-        if (!this.mainInfo.inventory) {
-            this.mainInfo.inventory = [];
+        if (!this.mainInfo[type]) {
+            this.mainInfo[type] = [];
         }
-        return this.mainInfo.inventory.length + 1;
+        return this.mainInfo[type].length + 1;
     }
 
-    async addItem(item) {
+    async addItem(item, type = 'manifest') {
         await this.load();
-        if (!this.mainInfo.inventory) {
-            this.mainInfo.inventory = [];
+        if (!this.mainInfo[type]) {
+            this.mainInfo[type] = [];
         }
-        this.mainInfo.inventory.push(item);
+        this.mainInfo[type].push(item);
         await this.save();
     }
 

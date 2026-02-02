@@ -19,7 +19,7 @@ class ContentService {
         const itemInfo = await this.extractMetadata(content);
         const cleanedContent = await this.cleanContent(content);
         const htmlFragment = await marked.parse(cleanedContent);
-        const fullHtml = genRoot(itemInfo.heading, htmlFragment);
+        const fullHtml = genRoot(htmlFragment, undefined, undefined, itemInfo);
 
         return {
             html: fullHtml,
@@ -32,8 +32,9 @@ class ContentService {
         await writeFile(path.join(config.directories.out.markdown, `item-${uid}.md`), content);
     }
 
-    async saveHtml(slug, html) {
-        await writeFile(path.join(config.directories.out.html, slug, '/index.html'), html);
+    async saveHtml(slug, html, type = 'manifest') {
+        const outDir = config.directories.out.html[type];
+        await writeFile(path.join(outDir, slug, '/index.html'), html);
     }
 
     async extractMetadata(content) {

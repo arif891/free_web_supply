@@ -4,27 +4,29 @@ import { config } from '../config/index.mjs';
 
 async function process() {
     try {
-        const uid = await inventoryService.generateUid();
-        console.log(`Processing item with UID: ${uid}`);
-
         const content = await contentService.readInput();
+        const { html, info, slug } = await contentService.processContent(content);
+
+        const type = info.type || 'manifest';
+
+        const uid = await inventoryService.generateUid(type);
+        console.log(`Processing item with UID: ${uid} (Type: ${type})`);
 
         await contentService.saveMarkdown(uid, content);
 
-        const { html, info, slug } = await contentService.processContent(content);
-
         // Enhance info with build time data
+        const outDir = config.directories.out.html[type] || config.directories.out.html.inventory;
         const finalItemInfo = {
             ...info,
             id: uid,
             timestamp: Date.now(),
             slug,
             date: new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }),
-            url: `/${config.directories.out.html}${slug}/`
+            url: `/${outDir}${slug}/`
         };
- 
-        await inventoryService.addItem(finalItemInfo);
-        await contentService.saveHtml(slug, html);
+
+        await inventoryService.addItem(finalItemInfo, type);
+        await contentService.saveHtml(slug, html, type);
         await contentService.resetInput();
 
         console.log(`Successfully processed item: ${info.heading} (UID: ${uid})`);
