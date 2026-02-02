@@ -78,6 +78,13 @@ main {
             .heading {
                 margin-bottom: 1.5rem;
             }
+
+            .content__wrapper {
+
+                h6, h5, h4, h3, h2, h1 {
+                    --typography-base-scale: .75;
+                }
+            }
         }
 
         .right {
@@ -138,7 +145,7 @@ main {
                             }
 
                             &:hover {
-                              opacity: .9;
+                                opacity: .9;
                             }
 
                         }

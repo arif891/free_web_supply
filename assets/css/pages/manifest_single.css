@@ -97,6 +97,13 @@ main {
             .heading {
                 margin-bottom: 1.5rem;
             }
+
+            .content__wrapper {
+
+                h6,h5,h4,h3,h2,h1  {
+                  --typography-base-scale: .75;
+                }
+            }
         }
 
         .right {
@@ -118,7 +125,7 @@ main {
             }
 
             .author__wrapper {
-                display: none;
+                display: flex;
                 gap: .5rem;
                 background-color: var(--surface-color);
 
