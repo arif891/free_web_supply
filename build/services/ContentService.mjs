@@ -2,7 +2,7 @@ import path from 'node:path';
 import { readFile, writeFile } from '../utils/fs.mjs';
 import { createSlug } from '../utils/helper.mjs';
 import { parseInfo, extractInfo, removeInfo, extractMainInfo, removeMainInfo } from '../utils/info.mjs';
-import { genDefault, genRoot } from '../utils/template.mjs';
+import { genDefault, genRoot, genWidget } from '../utils/template.mjs';
 import { marked } from '../lib/marked/marked.mjs';
 import { config } from '../config/index.mjs';
 
@@ -15,11 +15,19 @@ class ContentService {
         await writeFile(path.join(config.files.in.markdown), genDefault());
     }
 
-    async processContent(content) {
+    async processContent(content, type = 'manifest') {
         const itemInfo = await this.extractMetadata(content);
         const cleanedContent = await this.cleanContent(content);
         const htmlFragment = await marked.parse(cleanedContent);
-        const fullHtml = genRoot(htmlFragment, undefined, undefined, itemInfo);
+
+        let leftContent = '';
+        let rightContent = '';
+
+        if (type === 'manifest') {
+            leftContent = genWidget('toc');
+        }
+
+        const fullHtml = genRoot(htmlFragment, leftContent, rightContent, itemInfo);
 
         return {
             html: fullHtml,

@@ -6,8 +6,7 @@ function genDefault() {
 <info>
 type: manifest;
 category: tutorial;
-author: admin;
-tags: html css  js;
+tags: html css js;
 </info>`
 }
 
@@ -74,6 +73,10 @@ function genRoot(main, left = '', right = '', other = {}) {
         <title>${def.heading}</title>
 
         ${def.meta}
+
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="${def.heading}" />
+        <meta property="og:image" content="${def.thumbnail}" />
 
         <link rel="stylesheet" href="/layx/layx.css">
 

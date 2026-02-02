@@ -14,7 +14,6 @@ async function process() {
 
         await contentService.saveMarkdown(uid, content);
 
-        // Enhance info with build time data
         const outDir = config.directories.out.html[type] || config.directories.out.html.inventory;
         const finalItemInfo = {
             ...info,
