@@ -1,4 +1,4 @@
-export { genDefault, genRoot };
+export { genDefault, genRoot, genWidget};
 
 function genDefault() {
     return `<!-- default template -->
