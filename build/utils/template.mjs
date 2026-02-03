@@ -72,7 +72,7 @@ function genInventorySection(items) {
     <div class="x-12 sub-x gap-y-4 item__wrapper">
       ${items.map(item => `
       <div class="x-12 x-md-6 x-xl-4 item">
-        <img class="img" src="${item.image}" alt="">
+        <img class="img" src="${item.thumbnail}" alt="">
         <h3 class="h4 title">${item.heading}</h3>
         <div class="tag__wrapper">
           ${item.tags.map(tag => `<a href="">${tag}</a>`).join('')}
@@ -100,7 +100,7 @@ function genManifestSection(items) {
     function genItem(item) {
         return `
         <a href="" class="${item.type === 'left' ? 'x-12 x-xl-6 item' : 'x-12 x-md-6 item'}">
-        <img class="img" src="${item.image}" alt="">
+        <img class="img" src="${item.thumbnail}" alt="">
         <div class="wrapper">
           <h3 class="h4 title">${item.heading}</h3>
           <div class="info__wrapper">
