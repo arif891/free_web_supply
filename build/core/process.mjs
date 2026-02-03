@@ -33,10 +33,16 @@ async function process() {
         const inventoryItems = (newInfo.inventory || []).slice().reverse();
         const manifestItems = (newInfo.manifest || []).slice().reverse();
 
-        const newInventoryHtml = genInventorySection(inventoryItems, newInfo.inventory.length);
-        const newManifestHtml = genManifestSection(manifestItems, newInfo.manifest.length);
+        const homeInventoryHtml = genInventorySection([...inventoryItems], newInfo.inventory?.length, true);
+        const homeManifestHtml = genManifestSection([...manifestItems], newInfo.manifest?.length, true);
 
-        await contentService.updateHomePage(newInventoryHtml, newManifestHtml);
+        const fullInventoryHtml = genInventorySection([...inventoryItems], newInfo.inventory?.length, false);
+        const fullManifestHtml = genManifestSection([...manifestItems], newInfo.manifest?.length, false);
+
+        await contentService.updateHomePage(homeInventoryHtml, homeManifestHtml);
+        await contentService.updateInventoryPage(fullInventoryHtml);
+        await contentService.updateManifestPage(fullManifestHtml);
+
         await contentService.resetInput();
 
         console.log(`Successfully processed item: ${info.heading} (UID: ${uid})`);

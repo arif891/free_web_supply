@@ -84,6 +84,18 @@ class ContentService {
         await writeFile(config.files.home, homeHtml);
     }
 
+    async updateInventoryPage(html) {
+        let indexHtml = await readFile(path.join(config.directories.out.html.inventory, 'index.html'));
+        indexHtml = replaceCommentContent(indexHtml, html, 'inventory');
+        await writeFile(path.join(config.directories.out.html.inventory, 'index.html'), indexHtml);
+    }
+
+    async updateManifestPage(html) {
+        let indexHtml = await readFile(path.join(config.directories.out.html.manifest, 'index.html'));
+        indexHtml = replaceCommentContent(indexHtml, html, 'manifest');
+        await writeFile(path.join(config.directories.out.html.manifest, 'index.html'), indexHtml);
+    }
+
     async cleanContent(content) {
         let updatedContent = removeInfo(content);
         updatedContent = removeMainInfo(updatedContent);

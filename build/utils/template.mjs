@@ -94,7 +94,7 @@ function genInventoryItems(items) {
         <img class="img" src="${item.thumbnail}" alt="">
         <h3 class="h4 title">${item.heading}</h3>
         <div class="tag__wrapper">
-          ${item?.tags.map(tag => `<a href="${tag?.url}">${tag?.name}</a>`).join('')}
+          ${item?.tags?.map(tag => `<a href="">${tag}</a>`).join('')}
         </div>
         <div class="action__wrapper">
           <a class="btn dec_meta dec_bra dec_link action__btn" href="${item.url}">VIEW</a>
@@ -117,7 +117,7 @@ function genManifestSection(items, total = 0, home = true) {
 <section class="manifest__section" id="manifest-section">
   <layout class="manifest__layout" ${home ? 'data-vpt' : ''}>
     <div class="x-12 info__wrapper">
-      <span class="dec_bra">SYSTEM_MANIFEST</span><span class="d-md">RECORDS_FOUND: ${total}</span>
+      <span class="dec_bra">SYSTEM_MANIFEST</span><span class="d-md">RECORDS_FOUND: ${total.toString().padStart(2, '0')}</span>
     </div>
     <div class="x-12 header__wrapper">
       <h2 class="h4 sec__heading">DOCUMENTATION</h2>
@@ -139,7 +139,7 @@ function genManifestSection(items, total = 0, home = true) {
     `
 }
 
-function genManifestItems(items, cls ='') {
+function genManifestItems(items, cls = '') {
     return items.map(item => `
       <a href="" class="${item.cls || cls} item">
         <img class="img" src="${item.thumbnail}" alt="">
