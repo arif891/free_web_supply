@@ -115,7 +115,7 @@ function genManifestSection(items, total = 0, home = true) {
 
     return `
 <section class="manifest__section" id="manifest-section">
-  <layout class="manifest__layout" data-vpt>
+  <layout class="manifest__layout" ${home ? 'data-vpt' : ''}>
     <div class="x-12 info__wrapper">
       <span class="dec_bra">SYSTEM_MANIFEST</span><span class="d-md">RECORDS_FOUND: ${total}</span>
     </div>
