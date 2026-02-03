@@ -56,6 +56,7 @@ function genWidget(name, info = {}) {
 }
 
 function genInventorySection(items) {
+    items.length = 6;
 
     return `
  <section class="inventory__section" id="inventory-section">

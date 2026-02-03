@@ -1,14 +1,18 @@
 import path from 'node:path';
 import { readFile, writeFile } from '../utils/fs.mjs';
-import { createSlug } from '../utils/helper.mjs';
+import { createSlug, replaceCommentContent } from '../utils/helper.mjs';
 import { parseInfo, extractInfo, removeInfo, extractMainInfo, removeMainInfo } from '../utils/info.mjs';
-import { genDefault, genRoot, genWidget } from '../utils/template.mjs';
+import { genDefault, genRoot, genWidget, genInventorySection, genManifestSection } from '../utils/template.mjs';
 import { marked } from '../lib/marked/marked.mjs';
 import { config } from '../config/index.mjs';
 
 class ContentService {
     async readInput() {
         return await readFile(config.files.in.markdown);
+    }
+
+    async readHome() {
+        return await readFile(config.files.home);
     }
 
     async resetInput() {
@@ -35,6 +39,7 @@ class ContentService {
             slug: createSlug(itemInfo.heading)
         };
     }
+
 
     async saveMarkdown(uid, content) {
         await writeFile(path.join(config.directories.out.markdown, `item-${uid}.md`), content);

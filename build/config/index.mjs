@@ -12,6 +12,7 @@ export const config = {
     },
 
     files: {
+        home: 'index.html',
         in: {
             markdown: 'template.md'
         },

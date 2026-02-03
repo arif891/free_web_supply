@@ -26,6 +26,11 @@ async function process() {
 
         await infoService.addItem(finalItemInfo, type);
         await contentService.saveHtml(slug, html, type);
+
+        const newInfo = await infoService.getMainInfo();
+        const newInventoryHtml = genInventory(newInfo);
+
+        await contentService.updateHomePage(updatedHomeHtml);
         await contentService.resetInput();
 
         console.log(`Successfully processed item: ${info.heading} (UID: ${uid})`);
