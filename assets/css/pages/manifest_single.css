@@ -101,7 +101,18 @@ main {
             .content__wrapper {
 
                 h6, h5, h4, h3, h2, h1 {
-                    --typography-base-scale: .75;
+                    --typography-base-scale: .65;
+
+                    &:not(:last-child, :only-child) {
+                        margin-bottom: .75rem;
+                    }
+                }
+
+                p {
+
+                    &:not(:last-child, :only-child) {
+                        margin-bottom: 1rem;
+                    }
                 }
 
                 .wrapper {
