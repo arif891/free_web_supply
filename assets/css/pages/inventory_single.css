@@ -87,7 +87,7 @@ main {
                     --typography-base-scale: .65;
 
                     &:not(:last-child, :only-child) {
-                        margin-bottom: .75rem;
+                        margin-bottom: .5em;
                     }
                 }
 
@@ -98,7 +98,7 @@ main {
                     }
                 }
 
-                .wrapper {
+                .block-wrapper {
 
                     &:not(:last-child, :only-child) {
                         margin-bottom: 3rem;

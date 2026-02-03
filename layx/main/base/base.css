@@ -89,8 +89,8 @@
     }
 
     blockquote {
-        margin: 0;
-        padding: 1rem .5rem;
+        margin: 1rem 0;
+        padding: 0 1rem;
         border-left: .25rem solid var(--accent-color, #55c1ff);
         opacity: .8;
     }
@@ -99,7 +99,10 @@
         font-size: min(calc(.8rem + .15vw), 1rem);
     }
 
-    pre {
+    pre, code {
+        display: inline-block;
+        max-width: 100%;
+        overflow-x: auto;
         margin-block: 0;
     }
 

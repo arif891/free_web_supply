@@ -29,7 +29,7 @@ class ContentOrganizer {
 
                 // 1. Create Content Section
                 const section = document.createElement('div');
-                section.className = `wrapper l${level}`;
+                section.className = `block-wrapper l${level}`;
                 section.id = slug;
 
                 const parentContainer = this.getNearestParent(this.levelStack, level);
