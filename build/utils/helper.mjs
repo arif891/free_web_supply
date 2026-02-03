@@ -1,7 +1,7 @@
 import path from 'node:path';
 import fs from "node:fs/promises";
 
-export { getFilesWithExtension, replaceURLs, createSlug };
+export { getFilesWithExtension, replaceURLs, createSlug, replaceCommentContent };
 
 async function getFilesWithExtension(directory, extension, subDir = false, exclude = ['layx', 'setup']) {
     const entries = await fs.readdir(directory, { withFileTypes: true });
@@ -57,4 +57,10 @@ function createSlug(text) {
         .replace(/[\s_]+/g, '-')
         .replace(/-+/g, '-')
         .replace(/^-+|-+$/g, '');
+}
+
+
+function replaceCommentContent(html, content, commentTag) {
+  const regex = new RegExp(`<!--\\s*<${commentTag}>\\s*-->([\\s\\S]*?)<!--\\s*</${commentTag}>\\s*-->`, 'i');
+  return html.replace(regex, `<!--<${commentTag}>-->\n${content}\n<!--</${commentTag}>-->`);
 }
