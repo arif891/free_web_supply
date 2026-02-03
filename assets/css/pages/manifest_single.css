@@ -118,7 +118,7 @@ main {
                 .wrapper {
 
                     &:not(:last-child, :only-child) {
-                        margin-bottom: 4rem;
+                        margin-bottom: 3rem;
 
                         .wrapper & {
                             margin-bottom: 2rem;
