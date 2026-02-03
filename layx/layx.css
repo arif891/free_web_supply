@@ -7,7 +7,6 @@
 @import url(main/base/motion.css);
 
 /* Core components */
-@import url(main/container/container.css);
 @import url(main/layout/layout.css);
 
 /* helper */
