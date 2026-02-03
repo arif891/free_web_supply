@@ -31,8 +31,7 @@
 .dec_link {
     color: inherit;
 
-    &::before,
-    &::after {
+    &::before, &::after {
         opacity: .6;
     }
 
@@ -40,18 +39,12 @@
         text-decoration: none;
         opacity: 1;
 
-        &::before,
-        &::after {
+        &::before, &::after {
             opacity: 1;
             translate: calc(var(--_dir) * .5rem) 0;
         }
     }
 }
-
-backdrop {
-    --blur: calc(2vh + 2vw);
-}
-
 
 @media (width < 768px) {
 
@@ -61,6 +54,60 @@ backdrop {
 
     .d-md {
         display: none !important;
+    }
+}
+
+backdrop {
+    --blur: calc(2vh + 2vw);
+}
+
+code {
+    font-family: var(--ff-monospace);
+}
+
+[data-code-lang] {
+    font-family: var(--ff-monospace);
+    position: relative;
+    font-weight: 400;
+
+    .header {
+        .multiline & {
+            position: sticky;
+            top: 0;
+            background-color: var(--smt-bg);
+            backdrop-filter: blur(1rem);
+            z-index: 2;
+        }
+
+        .lang {
+            text-transform: uppercase;
+        }
+
+        .copy {
+            &::before {
+                content: '[ COPY ]';
+            }
+
+            &.copied::before {
+                content: '[ COPIED ]';
+            }
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+[data-pref-motion="false"] {
+    *, ::before, ::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
     }
 }
 
@@ -262,35 +309,6 @@ backdrop {
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    ::before,
-    ::after {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto !important;
-    }
-}
-
-[data-pref-motion="false"] {
-
-    *,
-    ::before,
-    ::after {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto !important;
-    }
-}
-
-
-
-
-
-
-
-
 .inventory__section {
 
     .inventory__layout {
@@ -373,36 +391,6 @@ backdrop {
                         justify-self: end;
                     }
                 }
-            }
-        }
-    }
-}
-
-[data-code-lang] {
-    font-family: var(--ff-monospace);
-    position: relative;
-    font-weight: 400;
-
-    .header {
-        .multiline & {
-            position: sticky;
-            top: 0;
-            background-color: var(--smt-bg);
-            backdrop-filter: blur(1rem);
-            z-index: 2;
-        }
-
-        .lang {
-            text-transform: uppercase;
-        }
-
-        .copy {
-            &::before {
-                content: '[ COPY ]';
-            }
-
-            &.copied::before {
-                content: '[ COPIED ]';
             }
         }
     }
