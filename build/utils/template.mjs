@@ -111,11 +111,11 @@ function genManifestSection(items, total = 0) {
       <h2 class="h4 sec__heading">DOCUMENTATION</h2>
     </div>
     <div class="x-12 x-xxl-4 left ">
-      ${items.filter(item => item.type === 'left').map(genManifestItems).join('')}
+      ${genManifestItems(items.filter(item => item.type === 'left'))}
     </div>
     <div class="x-12 x-xxl-1 divider"></div>
     <div class="x-12 x-xxl-7 right">
-      ${items.filter(item => item.type !== 'left').map(genManifestItems).join('')}
+      ${genManifestItems(items.filter(item => item.type !== 'left'))}
     </div>
     <div class="x-12 bottom__wrapper">
       <a class="dec_meta dec_bra dec_link" href="/pages/manifest/">VIEW_ALL</a>
@@ -137,7 +137,7 @@ function genManifestItems(items) {
           </div>
         </div>
       </a>
-        `).join();
+        `).join('');
 }
 
 function genRoot(main, left = '', right = '', other = {}) {
