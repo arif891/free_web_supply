@@ -137,8 +137,15 @@ backdrop {
             margin-top: 1rem;
 
             .search-input {
-                --padding-y: 1.25rem;
+                padding: 1.25rem 1rem;
                 width: 100%;
+                border-radius: 0;
+                background-color: var(--bg-color);
+                border: 0;
+
+                &:focus {
+                    outline: 1px solid var(--accent-color);
+                }
             }
         }
     }
@@ -176,11 +183,14 @@ backdrop {
                 }
 
                 .switch {
+                    appearance: none;
                     height: 100%;
                     width: auto;
                     aspect-ratio: 2 / 1;
                     padding: .25rem;
+                    background-color: var(--bg-color);
                     transition: background-color .3s;
+                    cursor: pointer;
 
                     &::before {
                         display: block;
@@ -192,6 +202,7 @@ backdrop {
                     }
 
                     &:checked {
+                        background-color: var(--accent-color);
                         background-image: none;
 
                         &::before {
