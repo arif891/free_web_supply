@@ -111,11 +111,11 @@ function genManifestSection(items, total = 0) {
       <h2 class="h4 sec__heading">DOCUMENTATION</h2>
     </div>
     <div class="x-12 x-xxl-4 left ">
-      ${genManifestItems(items.filter(item => item.type === 'left'))}
+      ${genManifestItems(items.filter(item => item.type === 'left'), 'x-12 x-xl-6')}
     </div>
     <div class="x-12 x-xxl-1 divider"></div>
     <div class="x-12 x-xxl-7 right">
-      ${genManifestItems(items.filter(item => item.type !== 'left'))}
+      ${genManifestItems(items.filter(item => item.type !== 'left'), 'x-12 x-md-6')}
     </div>
     <div class="x-12 bottom__wrapper">
       <a class="dec_meta dec_bra dec_link" href="/pages/manifest/">VIEW_ALL</a>
@@ -125,9 +125,9 @@ function genManifestSection(items, total = 0) {
     `
 }
 
-function genManifestItems(items) {
+function genManifestItems(items, cls ='') {
     return items.map(item => `
-        <a href="" class="${item.type === 'left' ? 'x-12 x-xl-6 item' : 'x-12 x-md-6 item'}">
+      <a href="" class="${cls} item">
         <img class="img" src="${item.thumbnail}" alt="">
         <div class="wrapper">
           <h3 class="h4 title">${item.heading}</h3>
