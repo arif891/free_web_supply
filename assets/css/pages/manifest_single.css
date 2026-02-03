@@ -63,7 +63,7 @@ main {
                         }
 
                         &:has(.block .link:target-current) {
-                            > .link {
+                            >.link {
                                 color: var(--link-color);
                             }
                         }
@@ -100,8 +100,19 @@ main {
 
             .content__wrapper {
 
-                h6,h5,h4,h3,h2,h1  {
-                  --typography-base-scale: .75;
+                h6, h5, h4, h3, h2, h1 {
+                    --typography-base-scale: .75;
+                }
+
+                .wrapper {
+
+                    &:not(:last-child, :only-child) {
+                        margin-bottom: 4rem;
+
+                        .wrapper & {
+                            margin-bottom: 2rem;
+                        }
+                    }
                 }
             }
         }

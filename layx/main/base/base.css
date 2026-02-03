@@ -84,10 +84,12 @@
     }
 
     pre {
-        margin-block: unset;
+        margin-block: 0;
     }
 
     code {
+        white-space: pre;
+        font-family: monospace;
         color: var(--code-color, #d63384);
     }
 
