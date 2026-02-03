@@ -1,4 +1,4 @@
-export { genDefault, genRoot, genWidget, genInventorySection, genManifestSection};
+export { genDefault, genRoot, genWidget, genInventorySection, genManifestSection };
 
 function genDefault() {
     return `<!-- default template -->
@@ -56,7 +56,7 @@ function genWidget(name, info = {}) {
 }
 
 function genInventorySection(items) {
-    items.length = 6;
+    if (items.length > 6) items.length = 6;
 
     return `
  <section class="inventory__section" id="inventory-section">
@@ -94,8 +94,9 @@ function genInventorySection(items) {
 }
 
 function genManifestSection(items) {
-    items.length = 4;
-    items[0].type = 'left';
+    if (items.length > 4) items.length = 4;
+    if (items.length > 0) items[0].type = 'left';
+
     function genItem(item) {
         return `
         <a href="" class="${item.type === 'left' ? 'x-12 x-xl-6 item' : 'x-12 x-md-6 item'}">

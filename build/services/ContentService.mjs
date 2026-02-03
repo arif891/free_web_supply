@@ -70,6 +70,20 @@ class ContentService {
         return { ...mainInfo, ...info };
     }
 
+    async updateHomePage(inventoryHtml, manifestHtml) {
+        let homeHtml = await this.readHome();
+
+        if (inventoryHtml) {
+            homeHtml = replaceCommentContent(homeHtml, inventoryHtml, 'inventory');
+        }
+
+        if (manifestHtml) {
+            homeHtml = replaceCommentContent(homeHtml, manifestHtml, 'manifest');
+        }
+
+        await writeFile(config.files.home, homeHtml);
+    }
+
     async cleanContent(content) {
         let updatedContent = removeInfo(content);
         updatedContent = removeMainInfo(updatedContent);

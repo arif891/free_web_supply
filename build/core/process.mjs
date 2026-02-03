@@ -1,6 +1,7 @@
 import { infoService } from '../services/InfoService.mjs';
 import { contentService } from '../services/ContentService.mjs';
 import { config } from '../config/index.mjs';
+import { genInventorySection, genManifestSection } from '../utils/template.mjs';
 
 async function process() {
     try {
@@ -28,9 +29,14 @@ async function process() {
         await contentService.saveHtml(slug, html, type);
 
         const newInfo = await infoService.getMainInfo();
-        const newInventoryHtml = genInventory(newInfo);
 
-        await contentService.updateHomePage(updatedHomeHtml);
+        const inventoryItems = (newInfo.inventory || []).slice().reverse();
+        const manifestItems = (newInfo.manifest || []).slice().reverse();
+
+        const newInventoryHtml = genInventorySection(inventoryItems);
+        const newManifestHtml = genManifestSection(manifestItems);
+
+        await contentService.updateHomePage(newInventoryHtml, newManifestHtml);
         await contentService.resetInput();
 
         console.log(`Successfully processed item: ${info.heading} (UID: ${uid})`);
