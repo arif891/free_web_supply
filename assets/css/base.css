@@ -162,7 +162,7 @@ backdrop {
 
                 &.smooth-scroll {
                     display: none;
-                    
+
                     @media (pointer: coarse) {
                         display: none !important;
                     }
@@ -362,6 +362,36 @@ backdrop {
                         justify-self: end;
                     }
                 }
+            }
+        }
+    }
+}
+
+[data-code-lang] {
+    font-family: var(--ff-monospace);
+    position: relative;
+    font-weight: 400;
+
+    .header {
+        .multiline & {
+            position: sticky;
+            top: 0;
+            background-color: var(--smt-bg);
+            backdrop-filter: blur(1rem);
+            z-index: 2;
+        }
+
+        .lang {
+            text-transform: uppercase;
+        }
+
+        .copy {
+            &::before {
+                content: '[ COPY ]';
+            }
+
+            &.copied::before {
+                content: '[ COPIED ]';
             }
         }
     }

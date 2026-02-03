@@ -4,14 +4,9 @@
 	font-size: 1rem;
 	line-height: 1.5;
 	max-width: 100%;
-	overflow-x: auto;
 	background-color: var(--surface-color);
 	border-radius: var(--radius);
 	white-space: pre;
-
-	&:not(.multiline, .oneline) {
-		padding: var(--padding);
-	}
 
 	&.multiline {
 
@@ -19,24 +14,17 @@
 			display: flex;
 			justify-content: space-between;
 			padding: var(--padding);
-			border-bottom: 2px solid var(--bg-color);
+			border-bottom: 1px solid var(--bg-color);
 
 			.lang, .copy {
-             line-height: 1;
-			 font-size: .9rem;
-			}
-
-			.copy {
-				padding: 0;
+				line-height: 1;
+				font-size: .9rem;
 			}
 		}
 
 		.wrapper {
 			display: flex;
 			padding: var(--padding);
-			max-width: 100%;
-			overflow-x: auto;
-			scrollbar-width: thin;
 		}
 	}
 
@@ -44,18 +32,18 @@
 		position: relative;
 		padding: var(--padding);
 
-		.wrapper {
-			max-width: 100%;
-			overflow-x: auto;
-		}
-
 		.copy {
 			position: absolute;
 			inset: 0 var(--padding) 0 auto;
 			padding: 0 0 0 1rem;
-			border: none;
-			background: linear-gradient(to right, transparent , var(--surface-color) 20% 100%);
+			background: linear-gradient(to right, transparent, var(--surface-color) 20% 100%);
 		}
+	}
+
+	.wrapper {
+		max-width: 100%;
+		overflow-x: auto;
+		scrollbar-width: thin;
 	}
 
 	.code {
@@ -64,6 +52,10 @@
 	}
 
 	.copy {
+		padding: 0;
+		background: none;
+		border: none;
+
 		&::before {
 			content: 'Copy';
 		}

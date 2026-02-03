@@ -19,7 +19,7 @@
 
     /* Others */
     --space: var(--base-space);
-    --radius: var(--base-radius);
+    --radius: 0;
     --vpu: var(--base-vpu);
     --duration: var(--base-duration);
 
