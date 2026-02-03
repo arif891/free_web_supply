@@ -55,8 +55,12 @@ function genWidget(name, info = {}) {
     }
 }
 
-function genInventorySection(items, total = 0) {
-    if (items.length > 6) items.length = 6;
+function genInventorySection(items, total = 0, home = true) {
+    if (home) {
+        if (items.length > 6) items.length = 6;
+    } else {
+        if (items.length > 20) items.length = 20;
+    }
 
     return `
  <section class="inventory__section" id="inventory-section">
@@ -72,11 +76,13 @@ function genInventorySection(items, total = 0) {
     <div class="x-12 sub-x gap-y-4 item__wrapper">
       ${genInventoryItems(items)}
     </div>
+    ${home ? `
     <div class="x-12 info__wrapper c-md">
       <span class="d-md">STATUS: VERIFIED</span>
       <a class="dec_bra dec_link" href="/pages/inventory/">VIEW_ALL</a>
       <span class="d-md">LAST_SYNC: ${new Intl.DateTimeFormat('en-GB').format(new Date()).replace(/\//g, '.')}</span>
     </div>
+    ` : ''}
   </layout>
 </section>   
     `
@@ -97,9 +103,15 @@ function genInventoryItems(items) {
       `).join('')
 }
 
-function genManifestSection(items, total = 0) {
-    if (items.length > 4) items.length = 4;
-    if (items.length > 0) items[0].type = 'left';
+function genManifestSection(items, total = 0, home = true) {
+    if (home) {
+        if (items.length > 4) items.length = 4;
+        if (items.length > 0) items[0].type = 'left';
+    } else {
+        if (items.length > 20) items.length = 20;
+        if (items.length > 0) items[0].cls = 'x-12 x-xl-6';
+        if (items.length > 1) items[1].cls = 'x-12 x-md-6';
+    }
 
     return `
 <section class="manifest__section" id="manifest-section">
@@ -110,16 +122,18 @@ function genManifestSection(items, total = 0) {
     <div class="x-12 header__wrapper">
       <h2 class="h4 sec__heading">DOCUMENTATION</h2>
     </div>
-    <div class="x-12 x-xxl-4 left ">
-      ${genManifestItems(items.filter(item => item.type === 'left'), 'x-12 x-xl-6')}
-    </div>
+    ${!home ? genManifestItems(items, 'x-12 x-md-6 x-xl-4') : ''}
+    ${home ? `
+    <div class="x-12 x-xxl-4 left ">` : ''}
+      ${home ? genManifestItems(items.filter(item => item.type === 'left'), 'x-12 x-xl-6') : ''}
+    ${home ? `</div>
     <div class="x-12 x-xxl-1 divider"></div>
-    <div class="x-12 x-xxl-7 right">
-      ${genManifestItems(items.filter(item => item.type !== 'left'), 'x-12 x-md-6')}
-    </div>
+    <div class="x-12 x-xxl-7 right">` : ''}
+      ${home ? genManifestItems(items.filter(item => item.type !== 'left'), 'x-12 x-md-6') : ''}
+    ${home ? `</div>
     <div class="x-12 bottom__wrapper">
       <a class="dec_meta dec_bra dec_link" href="/pages/manifest/">VIEW_ALL</a>
-    </div>
+    </div>` : ''}
   </layout>
 </section>    
     `
@@ -127,7 +141,7 @@ function genManifestSection(items, total = 0) {
 
 function genManifestItems(items, cls ='') {
     return items.map(item => `
-      <a href="" class="${cls} item">
+      <a href="" class="${item.cls || cls} item">
         <img class="img" src="${item.thumbnail}" alt="">
         <div class="wrapper">
           <h3 class="h4 title">${item.heading}</h3>
