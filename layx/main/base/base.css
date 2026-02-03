@@ -79,6 +79,10 @@
         }
     }
 
+    b, strong {
+        font-weight: 650;
+    }
+
     pre, code, kbd, samp {
         font-size: min(calc(.8rem + .15vw), 1rem);
     }

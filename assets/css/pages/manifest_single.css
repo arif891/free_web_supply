@@ -99,6 +99,8 @@ main {
             }
 
             .content__wrapper {
+                --_t_scale: var(--typography-base-scale, 1);
+                font-size: calc(min(.9rem + .3vw, 1.1rem) * var(--_t_scale));
 
                 h6, h5, h4, h3, h2, h1 {
                     --typography-base-scale: .65;
