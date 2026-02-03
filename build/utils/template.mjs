@@ -55,14 +55,14 @@ function genWidget(name, info = {}) {
     }
 }
 
-function genInventorySection(items) {
+function genInventorySection(items, total = 0) {
     if (items.length > 6) items.length = 6;
 
     return `
  <section class="inventory__section" id="inventory-section">
   <layout class="gap-2 inventory__layout">
     <div class="x-12 info__wrapper">
-      <span class="dec_bra">RAW_INVENTORY</span> <span class="d-md">COUNT: 12_UNITS</span>
+      <span class="dec_bra">RAW_INVENTORY</span> <span class="d-md">COUNT: ${total}_UNITS</span>
     </div>
     <div class="x-12 header__wrapper">
       <h2 class="h4 sec__heading">INVENTORY_ITEMS</h2>
@@ -75,7 +75,7 @@ function genInventorySection(items) {
         <img class="img" src="${item.thumbnail}" alt="">
         <h3 class="h4 title">${item.heading}</h3>
         <div class="tag__wrapper">
-          ${item.tags.map(tag => `<a href="">${tag}</a>`).join('')}
+          ${item?.tags.map(tag => `<a href="${tag?.url}">${tag?.name}</a>`).join('')}
         </div>
         <div class="action__wrapper">
           <a class="btn dec_meta dec_bra dec_link action__btn" href="${item.url}">VIEW</a>
@@ -93,7 +93,7 @@ function genInventorySection(items) {
     `
 }
 
-function genManifestSection(items) {
+function genManifestSection(items, total = 0) {
     if (items.length > 4) items.length = 4;
     if (items.length > 0) items[0].type = 'left';
 
@@ -116,7 +116,7 @@ function genManifestSection(items) {
 <section class="manifest__section" id="manifest-section">
   <layout class="manifest__layout" data-vpt>
     <div class="x-12 info__wrapper">
-      <span class="dec_bra">SYSTEM_MANIFEST</span><span class="d-md">RECORDS_FOUND: 04</span>
+      <span class="dec_bra">SYSTEM_MANIFEST</span><span class="d-md">RECORDS_FOUND: ${total}</span>
     </div>
     <div class="x-12 header__wrapper">
       <h2 class="h4 sec__heading">DOCUMENTATION</h2>

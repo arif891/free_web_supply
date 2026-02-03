@@ -33,8 +33,8 @@ async function process() {
         const inventoryItems = (newInfo.inventory || []).slice().reverse();
         const manifestItems = (newInfo.manifest || []).slice().reverse();
 
-        const newInventoryHtml = genInventorySection(inventoryItems);
-        const newManifestHtml = genManifestSection(manifestItems);
+        const newInventoryHtml = genInventorySection(inventoryItems, newInfo.inventory.length);
+        const newManifestHtml = genManifestSection(manifestItems, newInfo.manifest.length);
 
         await contentService.updateHomePage(newInventoryHtml, newManifestHtml);
         await contentService.resetInput();
