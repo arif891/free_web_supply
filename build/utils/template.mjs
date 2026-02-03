@@ -1,4 +1,4 @@
-export { genDefault, genRoot, genWidget};
+export { genDefault, genRoot, genWidget, genInventorySection, genManifestSection};
 
 function genDefault() {
     return `<!-- default template -->
@@ -53,6 +53,85 @@ function genWidget(name, info = {}) {
 </div>       
 `
     }
+}
+
+function genInventorySection(items) {
+
+    return `
+ <section class="inventory__section" id="inventory-section">
+  <layout class="gap-2 inventory__layout">
+    <div class="x-12 info__wrapper">
+      <span class="dec_bra">RAW_INVENTORY</span> <span class="d-md">COUNT: 12_UNITS</span>
+    </div>
+    <div class="x-12 header__wrapper">
+      <h2 class="h4 sec__heading">INVENTORY_ITEMS</h2>
+      <p>Audited units from the FWS core. Engineered to zero-radius standards for high-performance systems. The
+        vanilla baseline starts here.</p>
+    </div>
+    <div class="x-12 sub-x gap-y-4 item__wrapper">
+      ${items.map(item => `
+      <div class="x-12 x-md-6 x-xl-4 item">
+        <img class="img" src="${item.image}" alt="">
+        <h3 class="h4 title">${item.heading}</h3>
+        <div class="tag__wrapper">
+          ${item.tags.map(tag => `<a href="">${tag}</a>`).join('')}
+        </div>
+        <div class="action__wrapper">
+          <a class="btn dec_meta dec_bra dec_link action__btn" href="${item.url}">VIEW</a>
+        </div>
+      </div>
+      `).join('')}
+    </div>
+    <div class="x-12 info__wrapper c-md">
+      <span class="d-md">STATUS: VERIFIED</span>
+      <a class="dec_bra dec_link" href="/pages/inventory/">VIEW_ALL</a>
+      <span class="d-md">LAST_SYNC: ${new Intl.DateTimeFormat('en-GB').format(new Date()).replace(/\//g, '.')}</span>
+    </div>
+  </layout>
+</section>   
+    `
+}
+
+function genManifestSection(items) {
+    items.length = 4;
+    items[0].type = 'left';
+    function genItem(item) {
+        return `
+        <a href="" class="${item.type === 'left' ? 'x-12 x-xl-6 item' : 'x-12 x-md-6 item'}">
+        <img class="img" src="${item.image}" alt="">
+        <div class="wrapper">
+          <h3 class="h4 title">${item.heading}</h3>
+          <div class="info__wrapper">
+            <span class="date">DATE: ${item.date}</span>
+            <span class="dec_bra dec_link">DECRYPT</span>
+          </div>
+        </div>
+      </a>
+        `
+    }
+
+    return `
+<section class="manifest__section" id="manifest-section">
+  <layout class="manifest__layout" data-vpt>
+    <div class="x-12 info__wrapper">
+      <span class="dec_bra">SYSTEM_MANIFEST</span><span class="d-md">RECORDS_FOUND: 04</span>
+    </div>
+    <div class="x-12 header__wrapper">
+      <h2 class="h4 sec__heading">DOCUMENTATION</h2>
+    </div>
+    <div class="x-12 x-xxl-4 left ">
+      ${items.filter(item => item.type === 'left').map(genItem).join('')}
+    </div>
+    <div class="x-12 x-xxl-1 divider"></div>
+    <div class="x-12 x-xxl-7 right">
+      ${items.filter(item => item.type !== 'left').map(genItem).join('')}
+    </div>
+    <div class="x-12 bottom__wrapper">
+      <a class="dec_meta dec_bra dec_link" href="/pages/manifest/">VIEW_ALL</a>
+    </div>
+  </layout>
+</section>    
+    `
 }
 
 function genRoot(main, left = '', right = '', other = {}) {
