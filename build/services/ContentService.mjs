@@ -26,7 +26,7 @@ class ContentService {
         const htmlFragment = await marked.parse(cleanedContent);
 
         const uid = await infoService.generateUid(itemInfo?.type || 'manifest');
-        const outDir = config.directories.out.html[info.type] || config.directories.out.html.manifest;
+        const outDir = config.directories.out.html[itemInfo?.type] || config.directories.out.html.manifest;
         const finalItemInfo = {
             ...itemInfo,
             id: uid,
