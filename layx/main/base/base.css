@@ -99,8 +99,8 @@
         font-size: min(calc(.8rem + .15vw), 1rem);
     }
 
-    pre, code {
-        display: inline-block;
+    pre {
+        display: block;
         max-width: 100%;
         overflow-x: auto;
         margin-block: 0;
