@@ -40,8 +40,10 @@ function genWidget(name, info = {}) {
         <h5 class="title">ON THIS PAGE</h5>
         <span class="dec_meta">IDX</span>
     </div>
+    <div class="wrapper">
     <nav class="toc" id="toc">
     </nav>
+    </div>
 </div>
 `
 
