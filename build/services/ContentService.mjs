@@ -1,4 +1,5 @@
 import path from 'node:path';
+import { infoService } from './InfoService.mjs';
 import { readFile, writeFile } from '../utils/fs.mjs';
 import { createSlug, replaceCommentContent } from '../utils/helper.mjs';
 import { parseInfo, extractInfo, removeInfo, extractMainInfo, removeMainInfo } from '../utils/info.mjs';
