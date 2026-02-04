@@ -11,7 +11,6 @@ main {
             .toc__wrapper {
                 padding: 1rem;
                 max-height: calc(100vh - 2rem);
-                overflow-y: auto;
                 background-color: var(--surface-color);
 
                 .header__wrapper {
@@ -33,6 +32,8 @@ main {
                     scroll-target-group: auto;
                     padding-left: 1rem;
                     border-left: 1px solid;
+                    max-height: 100%;
+                    overflow-y: auto;
 
                     &::after {
                         content: '';
