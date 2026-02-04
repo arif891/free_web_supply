@@ -117,8 +117,15 @@ main {
                     }
                 }
 
-                li {
-                    color: var(--paragraph-color);
+                ol, ul {
+
+                    &:not(:last-child, :only-child) {
+                        margin-block: 0 1rem;
+                    }
+
+                    li {
+                        color: var(--paragraph-color);
+                    }
                 }
 
                 
