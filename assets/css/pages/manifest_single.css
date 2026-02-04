@@ -6,19 +6,7 @@ main {
 
     .manifest__layout {
 
-        .left, .right {
-            height: fit-content;
-            position: sticky;
-            top: 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
         .left {
-            @media (width < 1400px) {
-                display: none;
-            }
 
             .toc__wrapper {
                 padding: 1rem;
@@ -85,147 +73,11 @@ main {
         }
 
         .main {
-            --paragraph-line-height: 1.6;
-            margin-bottom: 2rem;
-
-            .thumbnail {
-                aspect-ratio: 16 / 9;
-                object-fit: cover;
-                margin-bottom: 1.5rem;
-            }
-
-            .heading {
-                margin-bottom: 1.5rem;
-            }
-
-            .content__wrapper {
-                --_t_scale: var(--typography-base-scale, 1);
-                font-size: calc(min(.9rem + .3vw, 1.1rem) * var(--_t_scale));
-
-                h6, h5, h4, h3, h2, h1 {
-                    --typography-base-scale: .65;
-
-                    &:not(:last-child, :only-child) {
-                        margin-bottom: .5em;
-                    }
-                }
-
-                p {
-                    text-wrap: pretty;
-
-                    &:not(:last-child, :only-child) {
-                        margin-bottom: 1rem;
-                    }
-                }
-
-                ol, ul {
-
-                    &:not(:last-child, :only-child) {
-                        margin-block: 0 1rem;
-                    }
-
-                    li {
-                        text-wrap: pretty;
-                        color: var(--paragraph-color);
-                    }
-                }
-
-                [data-code-lang] {
-                    &:not(:last-child, :only-child) {
-                        margin-block: .25rem .5rem;
-                    }
-                }
-
-                .block-wrapper {
-
-                    &:not(:last-child, :only-child) {
-                        margin-bottom: 3rem;
-
-                        .wrapper & {
-                            margin-bottom: 2rem;
-                        }
-                    }
-                }
-            }
+    
         }
 
         .right {
 
-            .action__wrapper {
-                display: flex;
-                flex-direction: column;
-
-                .action__btn {
-                    --padding-y: 1.5rem;
-
-                    &.preview {
-                        background-color: var(--color);
-                        color: var(--bg-color);
-                    }
-
-                }
-
-            }
-
-            .author__wrapper {
-                display: flex;
-                gap: .5rem;
-                background-color: var(--surface-color);
-
-                .img {
-                    height: 7rem;
-                    aspect-ratio: 1;
-                    background-color: black;
-                }
-
-                .content__wrapper {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    padding: .5rem;
-
-                    .text__wrapper, .social__wrapper {
-                        display: flex;
-                        flex-wrap: wrap;
-                    }
-
-                    .text__wrapper {
-                        flex-direction: column;
-                    }
-
-                    .social__wrapper {
-                        gap: .25rem;
-
-                        .link {
-                            color: inherit;
-                            padding: .5rem;
-                            opacity: .6;
-                            transition: opacity .3s;
-
-                            &:first-child {
-                                padding-left: 0;
-                            }
-
-                            &:hover {
-                                opacity: .9;
-                            }
-
-                        }
-                    }
-
-                    .name {
-                        color: inherit;
-                        font-size: 1.5rem;
-                        margin-left: -.1rem;
-                    }
-
-                    .role {
-                        font-size: .75rem;
-                        opacity: .6;
-                    }
-                }
-            }
         }
-
     }
 }

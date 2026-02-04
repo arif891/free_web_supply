@@ -180,6 +180,7 @@ function genRoot(main, left = '', right = '', other = {}) {
         <link rel="stylesheet" href="/layx/layx.css">
 
         <link rel="stylesheet" href="/assets/css/base.css">
+        <link rel="stylesheet" href="/assets/css/pages/inventory_&_manifest_single.css">
         <link rel="stylesheet" href="/assets/css/pages/${def.type}_single.css">
     </head>
 
