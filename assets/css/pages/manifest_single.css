@@ -15,6 +15,7 @@ main {
                 padding: 1rem;
                 max-height: calc(100vh - 2rem);
                 background-color: var(--surface-color);
+                overflow: clip;
 
                 .header__wrapper {
                     display: flex;
