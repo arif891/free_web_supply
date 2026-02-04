@@ -98,6 +98,10 @@ main {
                     }
                 }
 
+                li {
+                    color: var(--paragraph-color);
+                }
+
                 .block-wrapper {
 
                     &:not(:last-child, :only-child) {
