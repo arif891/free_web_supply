@@ -24,50 +24,53 @@ main {
                     }
                 }
 
-                .toc {
-                    display: flex;
-                    flex-direction: column;
-                    gap: .25rem;
-                    margin-top: 1rem;
-                    scroll-target-group: auto;
-                    padding-left: 1rem;
-                    border-left: 1px solid;
+                .wrapper {
                     max-height: 100%;
                     overflow-y: auto;
 
-                    &::after {
-                        content: '';
-                        position: absolute;
-                        background-color: var(--link-color);
-                        width: 1px;
-                        position-anchor: --toc-active;
-                        left: 1rem;
-                        top: anchor(top);
-                        bottom: anchor(bottom);
-                        transition: .3s;
-                    }
+                    .toc {
+                        display: flex;
+                        flex-direction: column;
+                        gap: .25rem;
+                        margin-top: 1rem;
+                        scroll-target-group: auto;
+                        padding-left: 1rem;
+                        border-left: 1px solid;
 
-                    .block {
-
-                        .block & {
-                            margin-left: 1rem;
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            background-color: var(--link-color);
+                            width: 1px;
+                            position-anchor: --toc-active;
+                            left: 1rem;
+                            top: anchor(top);
+                            bottom: anchor(bottom);
+                            transition: .3s;
                         }
 
-                        &:has(.block .link:target-current) {
-                            >.link {
-                                color: var(--link-color);
+                        .block {
+
+                            .block & {
+                                margin-left: 1rem;
                             }
-                        }
 
-                        .link {
-                            display: block;
-                            color: inherit;
-                            padding-block: .5rem;
-                            transition: color .3s;
+                            &:has(.block .link:target-current) {
+                                >.link {
+                                    color: var(--link-color);
+                                }
+                            }
 
-                            &:target-current {
-                                color: var(--link-color);
-                                anchor-name: --toc-active;
+                            .link {
+                                display: block;
+                                color: inherit;
+                                padding-block: .5rem;
+                                transition: color .3s;
+
+                                &:target-current {
+                                    color: var(--link-color);
+                                    anchor-name: --toc-active;
+                                }
                             }
                         }
                     }
@@ -75,12 +78,8 @@ main {
             }
         }
 
-        .main {
-    
-        }
+        .main {}
 
-        .right {
-
-        }
+        .right {}
     }
 }
