@@ -10,6 +10,8 @@ main {
 
             .toc__wrapper {
                 padding: 1rem;
+                max-height: calc(100vh - 2rem);
+                overflow-y: auto;
                 background-color: var(--surface-color);
 
                 .header__wrapper {

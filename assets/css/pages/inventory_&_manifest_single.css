@@ -68,7 +68,7 @@
                 }
 
                 .block-wrapper {
-                    scroll-margin-top: 2.5rem;
+                    scroll-margin-top: 7.5vh;
 
                     &:not(:last-child, :only-child) {
                         margin-bottom: 3rem;
