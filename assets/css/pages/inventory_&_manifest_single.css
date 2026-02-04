@@ -43,7 +43,6 @@
                 }
 
                 p {
-                    text-wrap: pretty;
 
                     &:not(:last-child, :only-child) {
                         margin-bottom: 1rem;
