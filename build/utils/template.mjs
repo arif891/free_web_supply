@@ -54,6 +54,31 @@ function genWidget(name, info = {}) {
    <a class="btn dec_bra dec_meta dec_link action__btn ${name}" href="${url}">${name.toUpperCase()}</a>`).join('')}
 </div>       
 `
+
+      case 'detail':
+            return `
+<div class="detail__wrapper">
+    <div class="header__wrapper">
+        <h5 class="title">DETAILS</h5>
+        <span class="dec_meta">UID_${info?.id}</span>
+    </div>
+    <div class="text__block_wrapper">
+        <div class="text__block">
+            <span class="dec_meta">CATEGORY:</span>
+            <span class="dec_meta">${info?.category}</span>
+        </div>
+        <div class="text__block">
+            <span class="dec_meta">DATE:</span>
+            <span class="dec_meta">${info?.date}</span>
+        </div>
+    </div>
+    <div class="tag__wrapper">
+        <a href="">CSS_ANIMATION</a>
+        <a href="">JS</a>
+        <a href="">SCROLL</a>
+    </div>
+</div>      
+`
     }
 }
 

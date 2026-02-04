@@ -31,6 +31,10 @@ class ContentService {
             leftContent = genWidget('toc');
         }
 
+        if (itemInfo?.type === 'inventory') {
+            leftContent = genWidget('detail', itemInfo);
+        }
+
         const fullHtml = genRoot(htmlFragment, leftContent, rightContent, itemInfo);
 
         return {
