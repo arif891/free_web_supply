@@ -111,6 +111,7 @@ main {
                 }
 
                 p {
+                    text-wrap: pretty;
 
                     &:not(:last-child, :only-child) {
                         margin-bottom: 1rem;
@@ -124,6 +125,7 @@ main {
                     }
 
                     li {
+                        text-wrap: pretty;
                         color: var(--paragraph-color);
                     }
                 }
