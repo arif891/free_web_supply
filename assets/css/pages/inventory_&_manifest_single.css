@@ -38,7 +38,7 @@
                     --typography-base-scale: .65;
 
                     &:not(:last-child, :only-child) {
-                        margin-bottom: .5em;
+                        margin-bottom: .5rem;
                     }
                 }
 
@@ -68,6 +68,7 @@
                 }
 
                 .block-wrapper {
+                    scroll-margin-top: 2.5rem;
 
                     &:not(:last-child, :only-child) {
                         margin-bottom: 3rem;

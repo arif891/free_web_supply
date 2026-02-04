@@ -74,7 +74,6 @@ code {
         .multiline & {
             position: sticky;
             top: 0;
-            background-color: var(--smt-bg);
             backdrop-filter: blur(1rem);
             z-index: 2;
         }
