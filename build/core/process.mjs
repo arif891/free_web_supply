@@ -6,27 +6,14 @@ import { genInventorySection, genManifestSection } from '../utils/template.mjs';
 async function process() {
     try {
         const content = await contentService.readInput();
-        const { html, info, slug } = await contentService.processContent(content);
+        const { html, info } = await contentService.processContent(content);
 
-        const type = info.type || 'manifest';
+        console.log(`Processing item with UID: ${info.id} (Type: ${info.type})`);
 
-        const uid = await infoService.generateUid(type);
-        console.log(`Processing item with UID: ${uid} (Type: ${type})`);
+        await contentService.saveMarkdown(info.id, content);
 
-        await contentService.saveMarkdown(uid, content);
-
-        const outDir = config.directories.out.html[type] || config.directories.out.html.inventory;
-        const finalItemInfo = {
-            ...info,
-            id: uid,
-            timestamp: Date.now(),
-            slug,
-            date: new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }),
-            url: `/${outDir}${slug}/`
-        };
-
-        await infoService.addItem(finalItemInfo, type);
-        await contentService.saveHtml(slug, html, type);
+        await infoService.addItem(info, info.type);
+        await contentService.saveHtml(info.slug, html, info.type);
 
         const newInfo = await infoService.getMainInfo();
 

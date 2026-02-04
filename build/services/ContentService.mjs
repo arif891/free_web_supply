@@ -24,23 +24,33 @@ class ContentService {
         const cleanedContent = await this.cleanContent(content);
         const htmlFragment = await marked.parse(cleanedContent);
 
+        const uid = await infoService.generateUid(itemInfo?.type || 'manifest');
+        const outDir = config.directories.out.html[info.type] || config.directories.out.html.manifest;
+        const finalItemInfo = {
+            ...itemInfo,
+            id: uid,
+            timestamp: Date.now(),
+            slug: createSlug(itemInfo.heading),
+            date: new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }),
+            url: `/${outDir}${createSlug(itemInfo.heading)}/`
+        };
+
         let leftContent = '';
         let rightContent = '';
 
-        if (itemInfo?.type === 'manifest') {
+        if (finalItemInfo?.type === 'manifest') {
             leftContent = genWidget('toc');
         }
 
-        if (itemInfo?.type === 'inventory') {
-            leftContent = genWidget('detail', itemInfo);
+        if (finalItemInfo?.type === 'inventory') {
+            leftContent = genWidget('detail', finalItemInfo);
         }
 
-        const fullHtml = genRoot(htmlFragment, leftContent, rightContent, itemInfo);
+        const fullHtml = genRoot(htmlFragment, leftContent, rightContent, finalItemInfo);
 
         return {
             html: fullHtml,
-            info: itemInfo,
-            slug: createSlug(itemInfo.heading)
+            info: finalItemInfo,
         };
     }
 
