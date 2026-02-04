@@ -19,7 +19,7 @@ class ContentService {
         await writeFile(path.join(config.files.in.markdown), genDefault());
     }
 
-    async processContent(content, type = 'manifest') {
+    async processContent(content) {
         const itemInfo = await this.extractMetadata(content);
         const cleanedContent = await this.cleanContent(content);
         const htmlFragment = await marked.parse(cleanedContent);
@@ -27,7 +27,7 @@ class ContentService {
         let leftContent = '';
         let rightContent = '';
 
-        if (type === 'manifest') {
+        if (itemInfo?.type === 'manifest') {
             leftContent = genWidget('toc');
         }
 
