@@ -32,7 +32,7 @@ async function process() {
 
         await contentService.resetInput();
 
-        console.log(`Successfully processed item: ${info.heading} (UID: ${uid})`);
+        console.log(`Successfully processed item: ${info.heading} (UID: ${info.id})`);
     } catch (error) {
         console.error("Error during build process:", error);
         throw error;
