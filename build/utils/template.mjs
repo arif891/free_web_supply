@@ -353,6 +353,7 @@ ${main}
         <script src="/layx/layx.js" type="module"></script>
 
         <script src="/assets/js/base.js" type="module"></script>
+        <script src="/assets/js/pages/inventory_&_manifest_single.js" type="module"></script>
         <script src="/assets/js/pages/${def.type}_single.js" type="module"></script>
     </body>
 
