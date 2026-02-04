@@ -20,7 +20,7 @@ export const config = {
             build: 'info.json'
         },
         default: {
-            thumbnail: '/assets/images/base/default.png'
+            thumbnail: '/assets/images/base/default_thumbnail.avif'
         }
     }
 }
