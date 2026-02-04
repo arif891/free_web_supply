@@ -73,7 +73,7 @@ function genWidget(name, info = {}) {
         </div>
     </div>
     <div class="tag__wrapper">
-        ${info?.tags?.map(tag => `<a href="">${tag}</a>`).join('')}
+        ${info?.tags?.map(tag => `<a class="tag" href="">${tag}</a>`).join('')}
     </div>
 </div>      
 `
