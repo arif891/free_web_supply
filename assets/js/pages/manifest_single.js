@@ -3,8 +3,9 @@ class ContentOrganizer {
         this.wrapper = document.getElementById(contentId);
         this.tocNav = document.getElementById(tocId);
 
-        if (!this.wrapper || !this.tocNav) {
-            console.error('Organizer: Required elements not found.');
+        // Only the wrapper is strictly required for content organizing
+        if (!this.wrapper) {
+            console.error('Organizer: Wrapper element not found.');
             return;
         }
 
@@ -36,38 +37,42 @@ class ContentOrganizer {
                 parentContainer.appendChild(section);
                 section.appendChild(el);
 
-                // 2. Create TOC Entry
-                const tocEntry = document.createElement('div');
-                tocEntry.className = `block l${level}`;
+                // 2. Create TOC Entry (Only if tocNav exists)
+                if (this.tocNav) {
+                    const tocEntry = document.createElement('div');
+                    tocEntry.className = `block l${level}`;
 
-                const tocLink = document.createElement('a');
-                tocLink.href = `#${slug}`;
-                tocLink.textContent = title;
-                tocLink.className = 'link';
+                    const tocLink = document.createElement('a');
+                    tocLink.href = `#${slug}`;
+                    tocLink.textContent = title;
+                    tocLink.className = 'link';
 
-                tocEntry.appendChild(tocLink);
+                    tocEntry.appendChild(tocLink);
 
-                const parentToc = this.getNearestParent(this.tocStack, level);
-                parentToc.appendChild(tocEntry);
+                    const parentToc = this.getNearestParent(this.tocStack, level);
+                    // Ensure we have a valid parent in the TOC stack
+                    if (parentToc) {
+                        parentToc.appendChild(tocEntry);
+                    }
+                    
+                    this.tocStack[level] = tocEntry;
+                }
 
                 // 3. Update Stacks
                 this.levelStack[level] = section;
-                this.tocStack[level] = tocEntry;
                 this.currentMaxLevel = level;
 
                 this.clearSubsequentLevels(level);
 
             } else {
                 // Move non-heading content to the deepest active section
-                const deepestLevel = Math.max(...Object.keys(this.levelStack).map(Number));
+                const levels = Object.keys(this.levelStack).map(Number);
+                const deepestLevel = Math.max(...levels);
                 this.levelStack[deepestLevel].appendChild(el);
             }
         });
     }
 
-    /**
-     * Generates a URL-friendly slug
-     */
     generateSlug(text) {
         return text
             .toLowerCase()
@@ -76,9 +81,6 @@ class ContentOrganizer {
             .replace(/[^\w-]/g, '');
     }
 
-    /**
-     * Finds the nearest existing parent container in the stack
-     */
     getNearestParent(stack, level) {
         let parentLevel = level - 1;
         while (parentLevel >= 0 && !stack[parentLevel]) {
@@ -87,9 +89,6 @@ class ContentOrganizer {
         return stack[parentLevel];
     }
 
-    /**
-     * Cleans up stacks to prevent "ghost" parents when jumping levels
-     */
     clearSubsequentLevels(level) {
         for (let i = level + 1; i <= 6; i++) {
             delete this.levelStack[i];
