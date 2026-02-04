@@ -73,9 +73,7 @@ function genWidget(name, info = {}) {
         </div>
     </div>
     <div class="tag__wrapper">
-        <a href="">CSS_ANIMATION</a>
-        <a href="">JS</a>
-        <a href="">SCROLL</a>
+        ${info?.tags?.map(tag => `<a href="">${tag}</a>`).join('')}
     </div>
 </div>      
 `
