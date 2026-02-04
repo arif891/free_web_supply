@@ -11,6 +11,7 @@ main {
             .toc__wrapper {
                 padding: 1rem;
                 max-height: calc(100vh - 2rem);
+                overflow-y: auto;
                 background-color: var(--surface-color);
 
                 .header__wrapper {
@@ -24,53 +25,48 @@ main {
                     }
                 }
 
-                .wrapper {
-                    max-height: 100%;
-                    overflow-y: auto;
+                .toc {
+                    display: flex;
+                    flex-direction: column;
+                    gap: .25rem;
+                    margin-top: 1rem;
+                    scroll-target-group: auto;
+                    padding-left: 1rem;
+                    border-left: 1px solid;
 
-                    .toc {
-                        display: flex;
-                        flex-direction: column;
-                        gap: .25rem;
-                        margin-top: 1rem;
-                        scroll-target-group: auto;
-                        padding-left: 1rem;
-                        border-left: 1px solid;
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        background-color: var(--link-color);
+                        width: 1px;
+                        position-anchor: --toc-active;
+                        left: 1rem;
+                        top: anchor(top);
+                        bottom: anchor(bottom);
+                        transition: .3s;
+                    }
 
-                        &::after {
-                            content: '';
-                            position: absolute;
-                            background-color: var(--link-color);
-                            width: 1px;
-                            position-anchor: --toc-active;
-                            left: 1rem;
-                            top: anchor(top);
-                            bottom: anchor(bottom);
-                            transition: .3s;
+                    .block {
+
+                        .block & {
+                            margin-left: 1rem;
                         }
 
-                        .block {
-
-                            .block & {
-                                margin-left: 1rem;
+                        &:has(.block .link:target-current) {
+                            >.link {
+                                color: var(--link-color);
                             }
+                        }
 
-                            &:has(.block .link:target-current) {
-                                >.link {
-                                    color: var(--link-color);
-                                }
-                            }
+                        .link {
+                            display: block;
+                            color: inherit;
+                            padding-block: .5rem;
+                            transition: color .3s;
 
-                            .link {
-                                display: block;
-                                color: inherit;
-                                padding-block: .5rem;
-                                transition: color .3s;
-
-                                &:target-current {
-                                    color: var(--link-color);
-                                    anchor-name: --toc-active;
-                                }
+                            &:target-current {
+                                color: var(--link-color);
+                                anchor-name: --toc-active;
                             }
                         }
                     }
