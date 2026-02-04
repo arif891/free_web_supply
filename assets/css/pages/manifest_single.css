@@ -128,9 +128,10 @@ main {
                     }
                 }
 
-                
                 [data-code-lang] {
-                    margin-block: .25rem .5rem;
+                    &:not(:last-child, :only-child) {
+                        margin-block: .25rem .5rem;
+                    }
                 }
 
                 .block-wrapper {
