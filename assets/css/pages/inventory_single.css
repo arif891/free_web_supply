@@ -102,6 +102,10 @@ main {
                     color: var(--paragraph-color);
                 }
 
+                [data-code-lang] {
+                    margin-block: .25rem .5rem;
+                }
+
                 .block-wrapper {
 
                     &:not(:last-child, :only-child) {
