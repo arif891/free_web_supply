@@ -233,7 +233,7 @@ function genRoot(main, left = '', right = '', other = {}) {
                             <nav class="link__wrapper">
                                 <a class="link dec_bra dec_link" href="/pages/inventory/">INVENTORY</a>
                                 <a class="link dec_bra dec_link" href="/pages/manifest/">MANIFEST</a>
-                                <a class="link dec_bra dec_link" href="/pages/about.html">SYSTEM</a>
+                                <a class="link dec_bra dec_link" href="/pages/system.html">SYSTEM</a>
                             </nav>
                             <button class="menu-btn" id="menu-btn"></button>
                         </div>
@@ -246,7 +246,7 @@ function genRoot(main, left = '', right = '', other = {}) {
                             <a class="link" href="/pages/inventory/">INVENTORY</a>
                             <a class="link" href="/pages/manifest/">MANIFEST</a>
                             <a class="link" href="/pages/team.html">PERSONNEL</a>
-                            <a class="link" href="/pages/about.html">SYSTEM</a>
+                            <a class="link" href="/pages/system.html">SYSTEM</a>
                         </nav>
                     </div>
                     <div class="right">
