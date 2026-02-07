@@ -1,0 +1,116 @@
+:root {
+    color-scheme: dark !important;
+}
+
+main {
+    padding-top: 7.5rem;
+}
+
+.team__section {
+
+    .team__layout {
+
+        .info__wrapper {
+            margin-bottom: 0 !important;
+        }
+
+        .header__wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1rem;
+
+            .pra {
+                max-width: 55ch;
+            }
+        }
+
+        .member__card {
+
+            .wrapper {
+                position: relative;
+                aspect-ratio: 1;
+                overflow: clip;
+
+                .bg, .img {
+                    width: 100%;
+                    position: absolute;
+                    inset: 0;
+                    transition: .6s;
+                }
+
+                .bg {
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+                @media (hover: hover) {
+                    .bg {
+                        scale: 1.25;
+
+                        .wrapper:hover & {
+                            scale: 1;
+                        }
+                    }
+
+                    .img {
+
+                        .wrapper:hover & {
+                            scale: 1.05;
+                        }
+                    }
+                }
+
+                .content__wrapper {
+                    position: absolute;
+                    inset: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    .top, .bottom {
+                        padding: 1rem;
+                    }
+
+                    .top {
+                        display: flex;
+                        justify-content: end;
+                    }
+
+                    .bottom {
+                        position: relative;
+                        isolation: isolate;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: end;
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            inset: 0;
+                            z-index: -1;
+                            backdrop-filter: blur(1rem);
+                            mask: linear-gradient(45deg, #000, #0000);
+                        }
+
+                        .text__wrapper {
+                            .role {
+                                font-size: .75rem;
+                                color: inherit;
+                            }
+                        }
+
+                        .link {
+                            color: inherit;
+                            line-height: 1;
+                            padding: .75rem .8rem;
+                            background-color: var(--smt-bg);
+                            backdrop-filter: blur(.5rem);
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
