@@ -1,6 +1,6 @@
 # FWS / SUPPLY — The Vanilla Standard
 
-![FWS Logo](/assets/brand/logo.svg)
+<!-- ![FWS Logo](/assets/brand/logo.svg) -->
 
 **FWS / SUPPLY** is an archive of raw web logic, stripped of bloat and engineered for maximum performance. It is a system designed to curate high-performance web components and documentation while maintaining strict adherence to "Vanilla" standards and 0-radius geometric precision.
 
