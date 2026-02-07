@@ -34,8 +34,8 @@ async function process() {
 
         console.log(`Successfully processed item: ${info.heading} (UID: ${info.id})`);
     } catch (error) {
-        console.error("Error during build process:", error);
-        throw error;
+        console.error(`\n\x1b[31m[ERROR]\x1b[0m ${error.message}\n`);
+        process.exit(1);
     }
 }
 
