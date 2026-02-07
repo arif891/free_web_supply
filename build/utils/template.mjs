@@ -207,6 +207,8 @@ function genRoot(main, left = '', right = '', other = {}) {
         <link rel="stylesheet" href="/assets/css/base.css">
         <link rel="stylesheet" href="/assets/css/pages/inventory_&_manifest_single.css">
         <link rel="stylesheet" href="/assets/css/pages/${def.type}_single.css">
+
+        <link rel="shortcut icon" href="/assets/brand/logo.svg" type="image/svg">
     </head>
 
     <body>
@@ -245,7 +247,7 @@ function genRoot(main, left = '', right = '', other = {}) {
                         <nav class="link__wrapper">
                             <a class="link" href="/pages/inventory/">INVENTORY</a>
                             <a class="link" href="/pages/manifest/">MANIFEST</a>
-                            <a class="link" href="/pages/team.html">PERSONNEL</a>
+                            <a class="link" href="/pages/team/">PERSONNEL</a>
                             <a class="link" href="/pages/system.html">SYSTEM</a>
                         </nav>
                     </div>
@@ -303,7 +305,7 @@ ${main}
                         <span class="dec_meta">ROOT_DIRECTORY:</span>
                         <a href="/pages/inventory/" class="link">INVENTORY</a>
                         <a href="/pages/manifest/" class="link">MANIFEST</a>
-                        <a href="/pages/team.html" class="link">PERSONNEL</a>
+                        <a href="/pages/team/" class="link">PERSONNEL</a>
                     </div>
                     <div class="link__block">
                         <span class="dec_meta">PROTOCOLS:</span>
