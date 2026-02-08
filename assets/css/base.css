@@ -225,6 +225,49 @@ code {
                     display: none;
                 }
 
+                &.theme {
+
+                    .btn__wrapper {
+                        display: flex;
+                        position: relative;
+                        padding: .5rem;
+                        background-color: var(--surface-color);
+                        isolation: isolate;
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            inset: .5rem auto .5rem .5rem;
+                            width: 3rem;
+                            background: var(--accent-color);
+                            z-index: -1;
+                            transition: translate .3s;
+                        }
+
+                        &:has(.active:nth-child(2)) {
+                            &::before {
+                                translate: 100% 0;
+                            }
+                        }
+
+                        &:has(.active:nth-child(3)) {
+                            &::before {
+                                translate: 200% 0;
+                            }
+                        }
+
+                        .btn {
+                            line-height: .8;
+                            padding: 1rem;
+                            background: none;
+
+                            &:nth-child(2) {
+                                scale: 1.25;
+                            }
+                        }
+                    }
+                }
+
                 .title {
                     margin: 0;
                     line-height: .8;

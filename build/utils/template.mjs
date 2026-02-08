@@ -330,35 +330,55 @@ ${main}
             </layout>
         </footer>
 
-        <div class="preference-menu" id="preference-menu" popover data-component="preference-menu">
+        <div class="preference-menu" id="preference-menu" popover data-component="preferenceMenu">
             <div class="header">
-                <div class="wrapper">
-                    <h3 class="heading">PREFERENCES</h3>
-                    <button class="dec_meta dec_bra dec_link close-btn" commandfor="preference-menu"
-                        command="hide-popover">CLOSE</button>
-                </div>
+              <div class="wrapper">
+                <h3 class="heading">PREFERENCES</h3>
+                <button class="dec_meta dec_bra dec_link close-btn" commandfor="preference-menu"
+                  command="hide-popover">CLOSE</button>
+              </div>
             </div>
             <div class="scroller" data-smooth-scroll="prevent">
-                <div class="item__wrapper motion">
-                    <h5 class="title">Motion</h5>
-                    <input class="switch" name="motion" type="checkbox" checked>
+              <div class="item__wrapper motion">
+                <h5 class="title">Motion</h5>
+                <input class="switch" name="motion" type="checkbox" checked>
+              </div>
+              <div class="item__wrapper smooth-scroll">
+                <h5 class="title">Smooth Scroll</h5>
+                <input class="switch" name="smooth-scroll" type="checkbox" checked>
+              </div>
+              <div class="item__wrapper page-transition">
+                <h5 class="title">Page Transition</h5>
+                <input class="switch" name="page-transition" type="checkbox" checked>
+              </div>
+              <div class="item__wrapper show-loader">
+                <h5 class="title">Show Loader</h5>
+                <input class="switch" name="show-loader" type="checkbox" checked>
+              </div>
+              <div class="item__wrapper theme">
+                <h5 class="title">Theme</h5>
+                <div class="btn__wrapper">
+                  <button class="btn" data-theme-set="auto">
+                    <svg class="icon">
+                      <use href="/assets/image/svg/icons.svg#circle-half" />
+                    </svg>
+                  </button>
+                  <button class="btn" data-theme-set="light">
+                    <svg class="icon">
+                      <use href="/assets/image/svg/icons.svg#sun" />
+                    </svg>
+                  </button>
+                  <button class="btn" data-theme-set="dark">
+                    <svg class="icon">
+                      <use href="/assets/image/svg/icons.svg#moon" />
+                    </svg>
+                  </button>
                 </div>
-                <div class="item__wrapper smooth-scroll">
-                    <h5 class="title">Smooth Scroll</h5>
-                    <input class="switch" name="smooth-scroll" type="checkbox" checked>
-                </div>
-                <div class="item__wrapper page-transition">
-                    <h5 class="title">Page Transition</h5>
-                    <input class="switch" name="page-transition" type="checkbox" checked>
-                </div>
-                <div class="item__wrapper show-loader">
-                    <h5 class="title">Show Loader</h5>
-                    <input class="switch" name="show-loader" type="checkbox" checked>
-                </div>
+              </div>
             </div>
         </div>
 
-        <div class="search-menu" id="search-menu" popover data-component="search-menu">
+        <div class="search-menu" id="search-menu" popover data-component="searchMenu">
             <div class="header">
                 <div class="wrapper">
                     <h3 class="heading">SEARCH</h3>
