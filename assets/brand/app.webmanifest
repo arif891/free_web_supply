@@ -1,0 +1,23 @@
+{
+  "name": "FWS",
+  "description": "A curated supply of raw web logic. Stripped of bloat. Engineered for performance.",
+  "categories": [
+    "productivity"
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "id": "com.example.pwa",
+  "version": "0.0.1",
+  "theme_color": "#000",
+  "background_color": "#000",
+  "display": "standalone",
+  
+  "icons": [
+    {
+      "src": "/assets/brand/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

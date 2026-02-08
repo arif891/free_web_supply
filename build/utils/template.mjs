@@ -209,6 +209,7 @@ function genRoot(main, left = '', right = '', other = {}) {
         <link rel="stylesheet" href="/assets/css/pages/${def.type}_single.css">
 
         <link rel="shortcut icon" href="/assets/brand/logo.svg" type="image/svg">
+        <link rel="manifest" href="/assets/brand/app.webmanifest">
     </head>
 
     <body>
