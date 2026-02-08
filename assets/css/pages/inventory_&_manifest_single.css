@@ -67,6 +67,13 @@
                     }
                 }
 
+                code {
+                    &:not([data-code-lang]) {
+                        color: inherit;
+                        background-color: var(--surface-color);
+                    }
+                }
+
                 .block-wrapper {
                     scroll-margin-top: 7.5vh;
 
