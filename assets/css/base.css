@@ -221,6 +221,10 @@ code {
                     }
                 }
 
+                &.page-transition, &.show-loader {
+                    display: none;
+                }
+
                 .title {
                     margin: 0;
                     line-height: .8;
