@@ -2,6 +2,14 @@
     color-scheme: dark !important;
 }
 
+.preference-menu {
+    .item__wrapper {
+        &.theme {
+            display: none !important;
+        }
+    }
+}
+
 main {
     padding-top: 7.5rem;
 }

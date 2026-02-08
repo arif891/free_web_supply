@@ -2,6 +2,18 @@
     color-scheme: dark !important;
 }
 
+.preference-menu {
+    .item__wrapper {
+        &.smooth-scroll {
+            display: flex !important;
+        }
+
+        &.theme {
+            display: none !important;
+        }
+    }
+}
+
 .hero__section {
     min-height: 100svh;
     align-content: center;
@@ -652,13 +664,5 @@
     .pra {
         max-width: 51ch;
         margin-bottom: 2rem;
-    }
-}
-
-
-
-.preference-menu {
-    .item__wrapper.smooth-scroll {
-        display: flex !important;
     }
 }

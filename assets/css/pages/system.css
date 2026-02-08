@@ -1,3 +1,15 @@
+:root {
+    color-scheme: dark !important;
+}
+
+.preference-menu {
+    .item__wrapper {
+        &.theme {
+            display: none !important;
+        }
+    }
+}
+
 .system__section {
     position: relative;
     padding-block: 0 !important;
