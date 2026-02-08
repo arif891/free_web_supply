@@ -257,9 +257,11 @@ navbar {
         background-color: var(--bg-color);
         overflow: clip;
         pointer-events: initial;
+        interactivity: inert;
     
         .open & {
             translate: 0 0;
+            interactivity: auto;
         }
 
         .scrolled & {
