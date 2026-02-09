@@ -4,5 +4,11 @@
             "main": false
         }
     },
-    "cleanUrls": true
+    "cleanUrls": true,
+    "rewrites": [
+    {
+      "source": "/:path*",
+      "destination": "/pages/:path*"
+    }
+  ]
 }
