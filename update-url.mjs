@@ -1,6 +1,6 @@
 import { getFilesWithExtension, readFile, writeFile } from './src/utils/fs.js';
 
-const htmlFiles = await getFilesWithExtension('/', 'html', true);
+const htmlFiles = await getFilesWithExtension('./', 'html', true);
 
 htmlFiles.forEach(async file => {
     const content = await readFile(file);
