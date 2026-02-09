@@ -55,7 +55,7 @@ function genWidget(name, info = {}) {
 </div>       
 `
 
-      case 'detail':
+        case 'detail':
             return `
 <div class="detail__wrapper">
     <div class="header__wrapper">
@@ -114,8 +114,10 @@ function genInventorySection(items, total = 0, home = true) {
 }
 
 function genInventoryItems(items) {
+    if (items.length > 0) items[1].cls = 'sp';
+    if (items.length > 3) items[4].cls = 'sp';
     return items.map(item => `
-      <div class="x-12 x-md-6 x-xl-4 item">
+      <div class="x-12 x-md-6 x-xl-4 item ${item.cls || ''}">
         <img class="img" src="${item.thumbnail}" alt="">
         <h3 class="h4 title">${item.heading}</h3>
         <div class="tag__wrapper">
