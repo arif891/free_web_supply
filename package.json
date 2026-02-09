@@ -4,7 +4,7 @@
     "layx": "./src/cli.js"
   },
   "scripts": {
-    "build": "node src/cli.js build",
+    "build": "node src/cli.js build && node update-url.mjs",
     "unbuild": "node src/cli.js unbuild"
   },
   "devDependencies": {
