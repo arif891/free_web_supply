@@ -92,7 +92,7 @@ class usePreferences {
         if (isEnabled) {
             if (window.__smoothScrollInstance) return;
 
-            const { SmoothScroll } = await import('/layx/others/smooth_scroll/smooth_scroll.js');
+            const { SmoothScroll } = await import('../../layx/others/smooth_scroll/smooth_scroll.js');
 
             new SmoothScroll();
 
