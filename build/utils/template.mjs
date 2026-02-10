@@ -118,7 +118,7 @@ function genInventoryItems(items) {
     if (items.length > 3) items[4].cls = 'sp';
     return items.map(item => `
       <div class="x-12 x-md-6 x-xl-4 item ${item.cls || ''}">
-        <div class="thumbnail" data-thumbnail="${item.thumbnail}" ${item.preview ? `data-preview="${item.preview}"` : ''}>
+        <div class="thumbnail ${item.preview ? 'preview' : ''}" style="--preview: url(${item.preview || ''})">
             <img class="img" src="${item.thumbnail}" alt="">
         </div>
         <h3 class="h4 title">${item.heading}</h3>
@@ -278,7 +278,7 @@ function genRoot(main, left = '', right = '', other = {}) {
                         ${left}
                     </div>
                     <div class="x-12 x-lg-8 x-xxl-6 main">
-                        <div class="thumbnail">
+                        <div class="thumbnail ${item.preview ? 'preview' : ''}" style="--preview: url(${item.preview || ''})">
                            <img class="img" src="${def.thumbnail}" alt="">
                         </div>
                         <h1 class="h2 heading">${def.heading}</h1>
