@@ -404,7 +404,7 @@ code {
                     border-block: 1px solid;
                     padding: var(--padding);
 
-                    a {
+                    .tag {
                         display: block;
                         color: inherit;
                         font-family: var(--ff-monospace);

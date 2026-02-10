@@ -118,12 +118,12 @@ function genInventoryItems(items) {
     if (items.length > 3) items[4].cls = 'sp';
     return items.map(item => `
       <div class="x-12 x-md-6 x-xl-4 item ${item.cls || ''}">
-        <div class="thumbnail" data-thumbnail="${item.thumbnail}" ${item.animatedUrl ? `data-animated-url="${item.animatedUrl}"` : ''}>
+        <div class="thumbnail" data-thumbnail="${item.thumbnail}" ${item.preview ? `data-preview="${item.preview}"` : ''}>
             <img class="img" src="${item.thumbnail}" alt="">
         </div>
         <h3 class="h4 title">${item.heading}</h3>
         <div class="tag__wrapper">
-          ${item?.tags?.map(tag => `<a href="">${tag}</a>`).join('')}
+          ${item?.tags?.map(tag => `<a class="tag" href="">${tag}</a>`).join('')}
         </div>
         <div class="action__wrapper">
           <a class="btn dec_meta dec_bra dec_link action__btn" href="${item.url}">VIEW</a>
