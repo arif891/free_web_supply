@@ -21,9 +21,12 @@
             margin-bottom: 2rem;
 
             .thumbnail {
-                aspect-ratio: 16 / 9;
-                object-fit: cover;
                 margin-bottom: 1.5rem;
+
+                .img {
+                    aspect-ratio: 16 / 9;
+                    object-fit: cover;
+                }
             }
 
             .heading {

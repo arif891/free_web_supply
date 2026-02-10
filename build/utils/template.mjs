@@ -278,7 +278,9 @@ function genRoot(main, left = '', right = '', other = {}) {
                         ${left}
                     </div>
                     <div class="x-12 x-lg-8 x-xxl-6 main">
-                        <img class="thumbnail" src="${def.thumbnail}" alt="">
+                        <div class="thumbnail">
+                           <img class="img" src="${def.thumbnail}" alt="">
+                        </div>
                         <h1 class="h2 heading">${def.heading}</h1>
                         <div class="content__wrapper" id="content-wrapper">
 ${main} 
