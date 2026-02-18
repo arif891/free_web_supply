@@ -11,7 +11,7 @@
                 "scroll",
                 "css"
             ],
-            "demo": "pages/demo/global-parallax-setup",
+            "demo": "/pages/demo/global-parallax-setup",
             "id": 1,
             "timestamp": 1771399396868,
             "slug": "global-parallax-setup",
