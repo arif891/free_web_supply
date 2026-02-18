@@ -1,231 +1,23 @@
-export { genDefault, genRoot, genWidget, genInventorySection, genManifestSection };
 
-function genDefault() {
-    return `<!-- FWS / SUPPLY — New Archive Entry -->
-
-# [Enter Title Here]
-
-![thumbnail](/assets/image/base/default.avif)
-
-## Overview
-Describe the core purpose and technical baseline of this entry.
-
-## Implementation
-Provide code blocks and integration steps.
-
-\`\`\`html
-<!-- Code snippet -->
-\`\`\`
-
-<info>
-type: manifest;    // inventory | manifest
-category: uncategorized;
-tags: vanilla css js;
-preview: ;         // path to demo index.html
-</info>`
-}
-
-function genWidget(name, info = {}) {
-    switch (name) {
-        case 'author':
-            return `
-<div class="author__wrapper">
-    <img class="img" src="${info.image}" alt="">
-    <div class="content__wrapper">
-        <div class="text__wrapper">
-            <a class="name" href="${info.url}">${info.name}</a>
-            <span class="role">${info.role}</span>
-        </div>
-        <div class="social__wrapper">
-            ${Object.entries(info.social).map(([key, value]) => `
-            <a class="link" href="${value}">
-                <svg class="icon">
-                    <use href="/assets/image/svg/icons.svg#${key}" />
-                </svg>
-            </a>`).join('')}
-        </div>
-    </div>
-</div>
-`
-
-        case 'toc':
-            return `
-<div class="toc__wrapper">
-    <div class="header__wrapper">
-        <h5 class="title">ON THIS PAGE</h5>
-        <span class="dec_meta">IDX</span>
-    </div>
-    <div class="wrapper">
-    <nav class="toc" id="toc">
-    </nav>
-    </div>
-</div>
-`
-
-        case 'action':
-            return `
-<div class="action__wrapper">
-    ${Object.entries(info.buttons).map(([name, url]) => `
-   <a class="btn dec_bra dec_meta dec_link action__btn ${name}" href="${url}">${name.toUpperCase()}</a>`).join('')}
-</div>       
-`
-
-        case 'detail':
-            return `
-<div class="detail__wrapper">
-    <div class="header__wrapper">
-        <h5 class="title">DETAILS</h5>
-        <span class="dec_meta">UID_${info?.id}</span>
-    </div>
-    <div class="text__block_wrapper">
-        <div class="text__block">
-            <span class="dec_meta">CATEGORY:</span>
-            <span class="dec_meta">${info?.category}</span>
-        </div>
-        <div class="text__block">
-            <span class="dec_meta">DATE:</span>
-            <span class="dec_meta">${info?.date}</span>
-        </div>
-    </div>
-    <div class="tag__wrapper">
-        ${info?.tags?.map(tag => `<a class="tag" href="">${tag}</a>`).join('')}
-    </div>
-</div>      
-`
-    }
-}
-
-function genInventorySection(items, total = 0, home = true) {
-    if (home) {
-        if (items.length > 6) items.length = 6;
-    } else {
-        if (items.length > 20) items.length = 20;
-    }
-
-    return `
- <section class="inventory__section" id="inventory-section">
-  <layout class="gap-2 inventory__layout">
-    <div class="x-12 info__wrapper">
-      <span class="dec_bra">RAW_INVENTORY</span> <span class="d-md">COUNT: ${total}_UNITS</span>
-    </div>
-    <div class="x-12 header__wrapper">
-      <h2 class="h4 sec__heading">INVENTORY_ITEMS</h2>
-      <p>Audited units from the FWS core. Engineered to zero-radius standards for high-performance systems. The
-        vanilla baseline starts here.</p>
-    </div>
-    <div class="x-12 sub-x gap-y-4 item__wrapper">
-      ${genInventoryItems(items)}
-    </div>
-    ${home ? `
-    <div class="x-12 info__wrapper c-md">
-      <span class="d-md">STATUS: VERIFIED</span>
-      <a class="dec_bra dec_link" href="/pages/inventory/">VIEW_ALL</a>
-      <span class="d-md">LAST_SYNC: ${new Intl.DateTimeFormat('en-GB').format(new Date()).replace(/\//g, '.')}</span>
-    </div>
-    ` : ''}
-  </layout>
-</section>   
-    `
-}
-
-function genInventoryItems(items) {
-    if (items.length > 1) items[1].cls = 'sp';
-    if (items.length > 4) items[4].cls = 'sp';
-    return items.map(item => `
-      <div class="x-12 x-md-6 x-xl-4 item ${item.cls || ''}">
-        <div class="thumbnail ${item.preview ? 'preview' : ''}" style="--preview: url(${item.preview || ''})">
-            <img class="img" src="${item.thumbnail}" alt="">
-        </div>
-        <h3 class="h4 title">${item.heading}</h3>
-        <div class="tag__wrapper">
-          ${item?.tags?.map(tag => `<a class="tag" href="">${tag}</a>`).join('')}
-        </div>
-        <div class="action__wrapper">
-          <a class="btn dec_meta dec_bra dec_link action__btn" href="${item.url}">VIEW</a>
-        </div>
-      </div>
-      `).join('')
-}
-
-function genManifestSection(items, total = 0, home = true) {
-    if (home) {
-        if (items.length > 4) items.length = 4;
-        if (items.length > 0) items[0].type = 'left';
-    } else {
-        if (items.length > 20) items.length = 20;
-        if (items.length > 0) items[0].cls = 'x-12 x-xl-6';
-        if (items.length > 1) items[1].cls = 'x-12 x-md-6';
-    }
-
-    return `
-<section class="manifest__section" id="manifest-section">
-  <layout class="manifest__layout" ${home ? 'data-vpt' : ''}>
-    <div class="x-12 info__wrapper">
-      <span class="dec_bra">SYSTEM_MANIFEST</span><span class="d-md">RECORDS_FOUND: ${total.toString().padStart(2, '0')}</span>
-    </div>
-    <div class="x-12 header__wrapper">
-      <h2 class="h4 sec__heading">DOCUMENTATION</h2>
-    </div>
-    ${!home ? genManifestItems(items, 'x-12 x-md-6 x-xl-4') : ''}
-    ${home ? `
-    <div class="x-12 x-xxl-4 left ">` : ''}
-      ${home ? genManifestItems(items.filter(item => item.type === 'left'), 'x-12 x-xl-6') : ''}
-    ${home ? `</div>
-    <div class="x-12 x-xxl-1 divider"></div>
-    <div class="x-12 x-xxl-7 right">` : ''}
-      ${home ? genManifestItems(items.filter(item => item.type !== 'left'), 'x-12 x-md-6') : ''}
-    ${home ? `</div>
-    <div class="x-12 bottom__wrapper">
-      <a class="dec_meta dec_bra dec_link" href="/pages/manifest/">VIEW_ALL</a>
-    </div>` : ''}
-  </layout>
-</section>    
-    `
-}
-
-function genManifestItems(items, cls = '') {
-    return items.map(item => `
-      <a href="" class="${item.cls || cls} item">
-        <img class="img" src="${item.thumbnail}" alt="">
-        <div class="wrapper">
-          <h3 class="h4 title">${item.heading}</h3>
-          <div class="info__wrapper">
-            <span class="date">DATE: ${item.date}</span>
-            <span class="dec_bra dec_link">DECRYPT</span>
-          </div>
-        </div>
-      </a>
-        `).join('');
-}
-
-function genRoot(main, left = '', right = '', other = {}) {
-    const def = {
-        heading: '',
-        thumbnail: '/assets/image/base/default.avif',
-        meta: '',
-        type: 'manifest',
-        ...other
-    }
-    return `
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>${def.heading}</title>
+        <title>Global Parallax Setup</title>
 
-        ${def.meta}
+        
 
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="${def.heading}" />
-        <meta property="og:image" content="${def.thumbnail}" />
+        <meta property="og:title" content="Global Parallax Setup" />
+        <meta property="og:image" content="/assets/image/inventory/global-parallax-setup/thumbnail.avif" />
 
         <link rel="stylesheet" href="/layx/layx.css">
 
         <link rel="stylesheet" href="/assets/css/base.css">
         <link rel="stylesheet" href="/assets/css/pages/inventory_&_manifest_single.css">
-        <link rel="stylesheet" href="/assets/css/pages/${def.type}_single.css">
+        <link rel="stylesheet" href="/assets/css/pages/inventory_single.css">
 
         <link rel="shortcut icon" href="/assets/brand/logo.svg" type="image/svg">
         <link rel="manifest" href="/assets/brand/app.webmanifest">
@@ -287,22 +79,93 @@ function genRoot(main, left = '', right = '', other = {}) {
 
 
         <main>
-            <section class="${def.type}__section">
-                <layout class="gap-2 ${def.type}__layout">
+            <section class="inventory__section">
+                <layout class="gap-2 inventory__layout">
                     <div class="x-3 left">
-                        ${left}
+                        
+<div class="detail__wrapper">
+    <div class="header__wrapper">
+        <h5 class="title">DETAILS</h5>
+        <span class="dec_meta">UID_1</span>
+    </div>
+    <div class="text__block_wrapper">
+        <div class="text__block">
+            <span class="dec_meta">CATEGORY:</span>
+            <span class="dec_meta">scroll</span>
+        </div>
+        <div class="text__block">
+            <span class="dec_meta">DATE:</span>
+            <span class="dec_meta">February 18, 2026</span>
+        </div>
+    </div>
+    <div class="tag__wrapper">
+        <a class="tag" href="">parallax</a><a class="tag" href="">scroll</a><a class="tag" href="">css</a>
+    </div>
+</div>      
+
                     </div>
                     <div class="x-12 x-lg-8 x-xxl-6 main">
-                        <div class="thumbnail ${def.preview ? 'preview' : ''}" style="--preview: url(${def.preview || ''})">
-                           <img class="img" src="${def.thumbnail}" alt="">
+                        <div class="thumbnail " style="--preview: url()">
+                           <img class="img" src="/assets/image/inventory/global-parallax-setup/thumbnail.avif" alt="">
                         </div>
-                        <h1 class="h2 heading">${def.heading}</h1>
+                        <h1 class="h2 heading">Global Parallax Setup</h1>
                         <div class="content__wrapper" id="content-wrapper">
-${main} 
+<!-- default template -->
+
+
+
+
+
+<p>A high-performance parallax system powered by native CSS <code>animation-timeline</code>. This implementation avoids JavaScript scroll listeners, ensuring 60fps performance by offloading animation calculations to the compositor thread.</p>
+<h2>Overview</h2>
+<p>The system uses the <code>view()</code> timeline to track elements as they pass through the viewport. By adjusting the <code>translate</code> property based on a <code>data-scroll-speed</code> attribute, elements can appear to move at different depths.</p>
+<h3>Features</h3>
+<ul>
+<li><strong>Zero JS</strong>: Pure CSS implementation for maximum performance.</li>
+<li><strong>Variable Depth</strong>: Custom speeds per element.</li>
+<li><strong>Smooth Integration</strong>: Works with any HTML element via data attributes.</li>
+<li><strong>FWS Standard</strong>: Strict 0-radius geometry compatible.</li>
+</ul>
+<h2>Installation</h2>
+<p>Add the following logic to your global CSS architecture:</p>
+<code data-code-lang="css">[data-scroll-speed] {
+    /* Speed calculation: default to 1 (normal scroll) */
+    --speed: var(--scroll-speed, attr(data-scroll-speed type(&lt;number&gt;)));
+
+    animation: scrollSpeedAdjust linear both;
+    animation-timeline: view();
+    animation-range: cover;
+}
+
+@keyframes scrollSpeedAdjust {
+    to {
+        /* Precise translation formula for parallax offset */
+        translate: 0 calc(100vh * (1 - var(--speed, 1)) - min(50%, abs(100vh * (1 - var(--speed, 1)) / 2)));
+    }
+}
+</code><blockquote>
+<p><strong>Note</strong>: The CSS <code>attr()</code> function with types is currently an experimental feature (CSS Values Level 4). For maximum compatibility, use the <code>--scroll-speed</code> variable as a fallback.</p>
+</blockquote>
+<h2>Usage</h2>
+<p>Apply the <code>data-scroll-speed</code> attribute to any element. </p>
+<ul>
+<li><code>0.5</code>: Moves at half speed (background effect).</li>
+<li><code>1.0</code>: Moves at normal speed (default).</li>
+<li><code>1.5</code>: Moves faster than scroll (foreground effect).</li>
+</ul>
+<code data-code-lang="html">&lt;!-- Background Element --&gt;
+&lt;div data-scroll-speed=&quot;0.5&quot;&gt;Deep Background&lt;/div&gt;
+
+&lt;!-- Foreground Element --&gt;
+&lt;div data-scroll-speed=&quot;1.2&quot;&gt;Near Foreground&lt;/div&gt;
+
+&lt;!-- Fallback for browsers without attr() type support --&gt;
+&lt;div style=&quot;--scroll-speed: 0.8&quot; data-scroll-speed=&quot;0.8&quot;&gt;Compatible Element&lt;/div&gt;
+</code> 
                         </div>
                     </div>
                     <div class="x-12 x-lg-4 x-xxl-3 right">
-                        ${right}
+                        
                     </div>
                 </layout>
             </section>
@@ -421,9 +284,7 @@ ${main}
 
         <script src="/assets/js/base.js" type="module"></script>
         <script src="/assets/js/pages/inventory_&_manifest_single.js" type="module"></script>
-        <script src="/assets/js/pages/${def.type}_single.js" type="module"></script>
+        <script src="/assets/js/pages/inventory_single.js" type="module"></script>
     </body>
 
 </html>
-`
-}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Global Parallax Setup</title>
+
+        <style>
+            /* Demo Specific Code */
+            [data-scroll-speed] {
+                --speed: var(--scroll-speed, attr(data-scroll-speed type(<number>)));
+
+                animation: scrollSpeedAdjust linear both;
+                animation-timeline: view();
+                animation-range: cover;
+            }
+
+            @keyframes scrollSpeedAdjust {
+                to {
+                    translate: 0 calc(100vh * (1 - var(--speed, 1)) - min(50%, abs(100vh * (1 - var(--speed, 1)) / 2)));
+                }
+            }
+
+            /* Basic Styling */
+            html {
+                scrollbar-width: thin;
+                scrollbar-color: #ffffff7c transparent;
+            }
+
+            body {
+                margin: 0;
+                background-color: black;
+                color: white;
+                font-family: sans-serif;
+                background-image: url(/assets/image/demo/common/bg.png);
+                background-attachment: fixed;
+            }
+
+            .page__block {
+                display: grid;
+                height: 100vh;
+
+                &.hero,
+                &.footer {
+                    align-content: center;
+                    justify-items: center;
+
+                    .block__heading {
+                        font-size: 5vw;
+                        font-weight: 500;
+                        margin-bottom: 1rem;
+                    }
+
+                    .block__subheading {
+                        margin: 0;
+                    }
+
+                    .no-support {
+                        color: red;
+                        display: none;
+
+                        @supports not (animation-timeline: view()) {
+                            display: block;
+                        }
+                    }
+                }
+
+                &.main {
+                    grid-template-columns: repeat(3, 1fr);
+                    align-content: center;
+                    gap: 1rem;
+                    padding-inline: 5%;
+
+                    .inner__block {
+
+                        .info__text {
+                            display: block;
+                            font-size: .85rem;
+                            margin-bottom: .5rem;
+                        }
+
+                        img {
+                            width: 100%;
+                            height: 300px;
+                            object-fit: cover;
+                        }
+                    }
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="page__block hero">
+            <h1 class="block__heading">Global Parallax Setup</h1>
+            <p class="block__subheading">ScroLL Down</p>
+            <h3 class="no-support">Your Browser Not Supported!</h3>
+        </div>
+        <div class="page__block main">
+            <div data-scroll-speed=".5" class="inner__block">
+                <span class="info__text">Speed 0.5x</span>
+                <img src="/assets/image/demo/common/7.webp">
+            </div>
+            <div data-scroll-speed="1" class="inner__block">
+                <span class="info__text">Speed 1.0x</span>
+                <img src="/assets/image/demo/common/2.webp">
+            </div>
+            <div data-scroll-speed="1.5" class="inner__block">
+                <span class="info__text">Speed 1.5x</span>
+                <img src="/assets/image/demo/common/5.webp">
+            </div>
+        </div>
+        <div class="page__block footer">
+            <h1 class="block__heading">POWERED BY CSS</h1>
+            <p class="block__subheading">animation-timeline: view()</p>
+        </div>
+
+        <script type="module">
+            import { SmoothScroll } from "../../../layx/others/smooth_scroll/smooth_scroll.js";
+            new SmoothScroll();
+        </script>
+    </body>
+
+</html>

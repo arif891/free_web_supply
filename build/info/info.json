@@ -1,5 +1,23 @@
 {
     "ver": 1,
-    "inventory": [],
+    "inventory": [
+        {
+            "heading": "Global Parallax Setup",
+            "thumbnail": "/assets/image/inventory/global-parallax-setup/thumbnail.avif",
+            "type": "inventory",
+            "category": "scroll",
+            "tags": [
+                "parallax",
+                "scroll",
+                "css"
+            ],
+            "demo": "pages/demo/global-parallax-setup",
+            "id": 1,
+            "timestamp": 1771399396868,
+            "slug": "global-parallax-setup",
+            "date": "February 18, 2026",
+            "url": "/pages/inventory/global-parallax-setup/"
+        }
+    ],
     "manifest": []
 }
