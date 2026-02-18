@@ -1,12 +1,27 @@
 export { genDefault, genRoot, genWidget, genInventorySection, genManifestSection };
 
 function genDefault() {
-    return `<!-- default template -->
+    return `<!-- FWS / SUPPLY — New Archive Entry -->
+
+# [Enter Title Here]
+
+![thumbnail](/assets/image/base/default.avif)
+
+## Overview
+Describe the core purpose and technical baseline of this entry.
+
+## Implementation
+Provide code blocks and integration steps.
+
+\`\`\`html
+<!-- Code snippet -->
+\`\`\`
 
 <info>
-type: manifest;
-category: tutorial;
-tags: html css js;
+type: manifest;    // inventory | manifest
+category: uncategorized;
+tags: vanilla css js;
+preview: ;         // path to demo index.html
 </info>`
 }
 
@@ -278,7 +293,7 @@ function genRoot(main, left = '', right = '', other = {}) {
                         ${left}
                     </div>
                     <div class="x-12 x-lg-8 x-xxl-6 main">
-                        <div class="thumbnail ${item.preview ? 'preview' : ''}" style="--preview: url(${item.preview || ''})">
+                        <div class="thumbnail ${def.preview ? 'preview' : ''}" style="--preview: url(${def.preview || ''})">
                            <img class="img" src="${def.thumbnail}" alt="">
                         </div>
                         <h1 class="h2 heading">${def.heading}</h1>
