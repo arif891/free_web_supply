@@ -134,7 +134,7 @@ function genInventoryItems(items) {
     return items.map(item => `
       <div class="x-12 x-md-6 x-xl-4 item ${item.cls || ''}">
         <div class="thumbnail ${item.preview ? 'preview' : ''}" style="--preview: url(${item.preview || ''})">
-            <img class="img" src="${item.thumbnail}" alt="">
+            <img class="img" src="${item.thumbnail}" alt="" loading="lazy">
         </div>
         <h3 class="h4 title">${item.heading}</h3>
         <div class="tag__wrapper">
@@ -186,7 +186,7 @@ function genManifestSection(items, total = 0, home = true) {
 function genManifestItems(items, cls = '') {
     return items.map(item => `
       <a href="" class="${item.cls || cls} item">
-        <img class="img" src="${item.thumbnail}" alt="">
+        <img class="img" src="${item.thumbnail}" alt="" loading="lazy">
         <div class="wrapper">
           <h3 class="h4 title">${item.heading}</h3>
           <div class="info__wrapper">
