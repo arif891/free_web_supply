@@ -54,7 +54,7 @@ class ContentOrganizer {
                     if (parentToc) {
                         parentToc.appendChild(tocEntry);
                     }
-                    
+
                     this.tocStack[level] = tocEntry;
                 }
 
@@ -98,3 +98,64 @@ class ContentOrganizer {
 }
 
 new ContentOrganizer();
+
+class ActionHandler {
+    constructor(wrapperId = 'action-wrapper') {
+        this.wrapper = document.getElementById(wrapperId);
+        this.init();
+    }
+
+    init() {
+        if (!this.wrapper) {
+            console.error('ActionHandler: Wrapper element not found.');
+            return;
+        }
+
+        this.wrapper.addEventListener('click', (event) => {
+            const button = event.target.closest('button[data-action]');
+            if (button) {
+                const action = button.getAttribute('data-action');
+                const info = button.getAttribute('data-info');
+                this.handleAction(action, info);
+            }
+        });
+    }
+
+    handleAction(action, info) {
+        switch (action) {
+            case 'preview':
+                this.preview(info);
+                break;
+            default:
+                console.warn(`Unknown action: ${action}`);
+        }
+    }
+
+    preview(info) {
+        let previewWindow = document.getElementById('preview-window');
+        const template =
+            `<div class="preview-window" id="preview-window" popover>
+  <div class="preview-header">
+    <a class="btn preview-link" href="${info}" target="_blank">
+    <svg class="icon">
+    <use href="/assets/image/svg/icons.svg#arrow-up-right" />
+    </svg>
+    </a>
+    <button class="btn close-btn" onclick="this.closest('.preview-window').hidePopover()">
+    <svg class="icon">
+    <use href="/assets/image/svg/icons.svg#close" />
+    </svg>
+    </button>
+  </div>
+  <iframe class="preview-iframe" src="${info}" frameborder="0" allowfullscreen></iframe>
+</div>`;
+        if (!previewWindow) {
+            document.body.insertAdjacentHTML('beforeend', template);
+            previewWindow = document.getElementById('preview-window');
+        }
+
+        previewWindow.showPopover();
+    }
+}
+
+new ActionHandler();
