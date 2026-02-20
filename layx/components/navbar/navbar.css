@@ -24,7 +24,6 @@ navbar {
         z-index: 1;
         display: flex;
         justify-content: center;
-        pointer-events: initial;
 
         .main {
             display: grid;
@@ -36,6 +35,7 @@ navbar {
             transition-property: translate, flex-grow;
             transition-duration: var(--transition-dur);
             translate: 0 .5rem;
+            pointer-events: initial;
 
             &::after {
                 content: '';
@@ -182,7 +182,7 @@ navbar {
                     }
 
                     .scrolled & {
-                     visibility: hidden;
+                        visibility: hidden;
                     }
 
                     .link {
@@ -235,7 +235,7 @@ navbar {
                             translate: 0 calc(7px * var(--_dir));
 
                             @media (width < 576px) {
-                              scale: .75;
+                                scale: .75;
                             }
                         }
                     }
@@ -258,7 +258,7 @@ navbar {
         overflow: clip;
         pointer-events: initial;
         interactivity: inert;
-    
+
         .open & {
             translate: 0 0;
             interactivity: auto;
@@ -359,7 +359,7 @@ navbar {
                 padding-right: var(--padding);
             }
 
-            #pre-btn  {
+            #pre-btn {
                 padding: 0;
                 background: unset;
             }
