@@ -40,11 +40,21 @@ class ContentService {
         let rightContent = '';
 
         if (finalItemInfo?.type === 'manifest') {
-            leftContent = genWidget('toc');
+            leftContent += genWidget('toc');
         }
 
         if (finalItemInfo?.type === 'inventory') {
-            leftContent = genWidget('detail', finalItemInfo);
+            leftContent += genWidget('detail', finalItemInfo);
+
+            if (finalItemInfo?.demo) {
+                const info = {
+                    buttons: {
+                        action: 'preview',
+                        info: finalItemInfo.demo,
+                    }
+                }
+                rightContent += genWidget('action', info);
+            }
         }
 
         const fullHtml = genRoot(htmlFragment, leftContent, rightContent, finalItemInfo);
