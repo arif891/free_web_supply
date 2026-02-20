@@ -136,12 +136,12 @@ class ActionHandler {
         const template =
             `<div class="preview-window" id="preview-window" popover>
   <div class="preview-header">
-    <a class="btn preview-link" href="${info}" target="_blank">
+    <a class="btn preview-link" href="${info}" target="_blank" title="Open in new tab">
     <svg class="icon">
     <use href="/assets/image/svg/icons.svg#arrow-up-right" />
     </svg>
     </a>
-    <button class="btn close-btn" onclick="this.closest('.preview-window').hidePopover()">
+    <button class="btn close-btn" onclick="this.closest('.preview-window').hidePopover()" title="Close preview">
     <svg class="icon">
     <use href="/assets/image/svg/icons.svg#close" />
     </svg>
