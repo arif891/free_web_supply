@@ -327,7 +327,7 @@ navbar {
         .right {
             grid-column: 2;
             grid-row: span 2;
-            background-image: url(/assets/image/base/nav_left.webp);
+            background-image: url(/assets/image/base/bg.avif);
             background-size: cover;
             display: flex;
             justify-content: center;
