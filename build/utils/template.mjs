@@ -62,8 +62,8 @@ function genWidget(name, info = {}) {
         case 'action':
             return `
 <div class="action__wrapper">
-    ${Object.entries(info.buttons).map(([name, action, info]) => `
-   <button class="dec_bra dec_meta dec_link action__btn ${name}" data-action="${action}" data-info="${info}">${name.toUpperCase()}</button>`).join('')}
+    ${Object.entries(info.buttons).map(([action, info]) => `
+   <button class="dec_bra dec_meta dec_link action__btn ${action.replaceAll(' ', '-')}" data-action="${action.replaceAll(' ', '-')}" data-info="${info}">${action.toUpperCase()}</button>`).join('')}
 </div>       
 `
 
