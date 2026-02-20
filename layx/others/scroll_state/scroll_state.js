@@ -24,7 +24,7 @@ class ScrollState {
         // Config
         this.updateVelocity = options.updateVelocity ?? false;
         this.updateCSS = options.updateCSS ?? false;
-        this.topThreshold = options.topThreshold ?? window.innerHeight / 4;
+        this.topThreshold = options.topThreshold ?? 250;
         this.velocitySmoothing = options.velocitySmoothing ?? 0.1;
         this.velocityDamping = options.velocityDamping ?? 0.9;
         this.scrollEndDelay = options.scrollEndDelay ?? 50;

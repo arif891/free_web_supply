@@ -38,7 +38,7 @@
                 font-size: calc(min(.9rem + .3vw, 1.1rem) * var(--_t_scale));
 
                 h6, h5, h4, h3, h2, h1 {
-                    --typography-base-scale: .65;
+                    --typography-base-scale: .75;
 
                     &:not(:last-child, :only-child) {
                         margin-bottom: .5rem;
@@ -68,10 +68,12 @@
                     &:not(:last-child, :only-child) {
                         margin-block: .25rem .5rem;
                     }
+                    
+                    font-size: calc(min(.75rem + .5vw, 1.075rem) * var(--_t_scale));
                 }
 
                 code {
-                    &:not([data-code-lang]) {
+                    &:not([data-code-lang], [data-code-lang] &) {
                         color: inherit;
                         background-color: var(--surface-color);
                         padding-inline: .35rem;
