@@ -47,13 +47,12 @@ class ContentService {
             leftContent += genWidget('detail', finalItemInfo);
 
             if (finalItemInfo?.demo) {
-                const info = {
-                    buttons: [{
-                        action: 'preview',
-                        info: finalItemInfo.demo,
-                    }]
+                const actionInfo = {
+                    buttons: {
+                        'preview': finalItemInfo.demo,
+                    }
                 };
-                rightContent += genWidget('action', info);
+                rightContent += genWidget('action', actionInfo);
             }
         }
 
