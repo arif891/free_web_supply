@@ -1,268 +1,23 @@
-export { genDefault, genRoot, genWidget, genInventorySection, genManifestSection };
 
-function genDefault() {
-    return `<!-- FWS / SUPPLY — New Archive Entry -->
-
-# [Enter Title Here]
-
-![thumbnail](/assets/image/base/default.avif)
-
-Brief description of the unit and its purpose within the FWS architecture.
-
-## Overview
-
-Detailed explanation of the problem this unit solves and the methodology behind the implementation.
-
-## Key Features
-
-- **Feature 1**: Describe a core benefit.
-- **Feature 2**: Describe another benefit.
-- **Performance**: High-performance, zero-bloat logic.
-
-## Technical Specifications
-
-| Parameter | Value |
-| :--- | :--- |
-| **Logic** | [e.g. JavaScript ES6+] |
-| **Styling** | [e.g. Vanilla CSS] |
-| **APIs** | [e.g. Web Components] |
-| **Payload** | [e.g. < 1KB] |
-
-## Implementation
-
-### 1. Structural CSS
-\`\`\`css
-/* Define styles here */
-\`\`\`
-
-### 2. Core Logic
-\`\`\`javascript
-/* Define logic here */
-\`\`\`
-
-## Integration
-
-1. **Step One**: How to include the code.
-2. **Step Two**: How to initialize.
-3. **Step Three**: Verify functionality.
-
-<info>
-type: manifest;
-category: uncategorized;
-tags: vanilla css js;
-</info>
-
-<!-- 
-type: inventory | manifest; (inventory: provide unit, manifest: provide article)
-category: [category]; (Give a proper category name)
-tags: [tag1 tag2 tag3]; (Give some related tag name)
-preview: [url]; (Provide a animated preview image url)
-demo: [url]; (Provide a demo url)
--->
-`
-}
-
-function genWidget(name, info = {}) {
-    switch (name) {
-        case 'author':
-            return `
-<div class="author__wrapper">
-    <img class="img" src="${info.image}" alt="">
-    <div class="content__wrapper">
-        <div class="text__wrapper">
-            <a class="name" href="${info.url}">${info.name}</a>
-            <span class="role">${info.role}</span>
-        </div>
-        <div class="social__wrapper">
-            ${Object.entries(info.social).map(([key, value]) => `
-            <a class="link" href="${value}">
-                <svg class="icon">
-                    <use href="/assets/image/svg/icons.svg#${key}" />
-                </svg>
-            </a>`).join('')}
-        </div>
-    </div>
-</div>
-`
-
-        case 'toc':
-            return `
-<div class="toc__wrapper">
-    <div class="header__wrapper">
-        <h5 class="title">ON THIS PAGE</h5>
-        <span class="dec_meta">IDX</span>
-    </div>
-    <div class="wrapper">
-    <nav class="toc" id="toc">
-    </nav>
-    </div>
-</div>
-`
-
-        case 'action':
-            return `
-<div class="action__wrapper" id="action-wrapper">
-    ${Object.entries(info.buttons).map(([action, info]) => `
-   <button class="dec_bra dec_meta dec_link action__btn ${action.replaceAll(' ', '-')}" data-action="${action.replaceAll(' ', '-')}" data-info="${info}">${action.toUpperCase()}</button>`).join('')}
-</div>       
-`
-
-        case 'detail':
-            return `
-<div class="detail__wrapper">
-    <div class="header__wrapper">
-        <h5 class="title">DETAILS</h5>
-        <span class="dec_meta">UID_${info?.id}</span>
-    </div>
-    <div class="text__block_wrapper">
-        <div class="text__block">
-            <span class="dec_meta">CATEGORY:</span>
-            <span class="dec_meta">${info?.category}</span>
-        </div>
-        <div class="text__block">
-            <span class="dec_meta">DATE:</span>
-            <span class="dec_meta">${info?.date}</span>
-        </div>
-    </div>
-    <div class="tag__wrapper">
-        ${info?.tags?.map(tag => `<a class="tag" href="">${tag}</a>`).join('')}
-    </div>
-</div>      
-`
-    }
-}
-
-function genInventorySection(items, total = 0, home = true) {
-    if (home) {
-        if (items.length > 6) items.length = 6;
-    } else {
-        if (items.length > 20) items.length = 20;
-    }
-
-    return `
- <section class="inventory__section" id="inventory-section">
-  <layout class="gap-2 inventory__layout">
-    <div class="x-12 info__wrapper">
-      <span class="dec_bra">RAW_INVENTORY</span> <span class="d-md">COUNT: ${total}_UNITS</span>
-    </div>
-    <div class="x-12 header__wrapper">
-      <h2 class="h4 sec__heading">INVENTORY_ITEMS</h2>
-      <p>Audited units from the FWS core. Engineered to zero-radius standards for high-performance systems. The
-        vanilla baseline starts here.</p>
-    </div>
-    <div class="x-12 sub-x gap-y-4 item__wrapper">
-      ${genInventoryItems(items)}
-    </div>
-    ${home ? `
-    <div class="x-12 info__wrapper c-md">
-      <span class="d-md">STATUS: VERIFIED</span>
-      <a class="dec_bra dec_link" href="/pages/inventory/">VIEW_ALL</a>
-      <span class="d-md">LAST_SYNC: ${new Intl.DateTimeFormat('en-GB').format(new Date()).replace(/\//g, '.')}</span>
-    </div>
-    ` : ''}
-  </layout>
-</section>   
-    `
-}
-
-function genInventoryItems(items) {
-    if (items.length > 1) items[1].cls = 'sp';
-    if (items.length > 4) items[4].cls = 'sp';
-    return items.map(item => `
-      <div class="x-12 x-md-6 x-xl-4 item ${item.cls || ''}">
-        <div class="thumbnail ${item.preview ? 'preview' : ''}" style="--preview: url(${item.preview || ''})">
-            <img class="img" src="${item.thumbnail}" alt="" loading="lazy">
-        </div>
-        <h3 class="h4 title">${item.heading}</h3>
-        <div class="tag__wrapper">
-          ${item?.tags?.map(tag => `<a class="tag" href="">${tag}</a>`).join('')}
-        </div>
-        <div class="action__wrapper">
-          <a class="btn dec_meta dec_bra dec_link action__btn" href="${item.url}">VIEW</a>
-        </div>
-      </div>
-      `).join('')
-}
-
-function genManifestSection(items, total = 0, home = true) {
-    if (home) {
-        if (items.length > 4) items.length = 4;
-        if (items.length > 0) items[0].type = 'left';
-    } else {
-        if (items.length > 20) items.length = 20;
-        if (items.length > 0) items[0].cls = 'x-12 x-xl-6';
-        if (items.length > 1) items[1].cls = 'x-12 x-md-6';
-    }
-
-    return `
-<section class="manifest__section" id="manifest-section">
-  <layout class="manifest__layout" ${home ? 'data-vpt' : ''}>
-    <div class="x-12 info__wrapper">
-      <span class="dec_bra">SYSTEM_MANIFEST</span><span class="d-md">RECORDS_FOUND: ${total.toString().padStart(2, '0')}</span>
-    </div>
-    <div class="x-12 header__wrapper">
-      <h2 class="h4 sec__heading">DOCUMENTATION</h2>
-    </div>
-    ${!home ? genManifestItems(items, 'x-12 x-md-6 x-xl-4') : ''}
-    ${home ? `
-    <div class="x-12 x-xxl-4 left ">` : ''}
-      ${home ? genManifestItems(items.filter(item => item.type === 'left'), 'x-12 x-xl-6') : ''}
-    ${home ? `</div>
-    <div class="x-12 x-xxl-1 divider"></div>
-    <div class="x-12 x-xxl-7 right">` : ''}
-      ${home ? genManifestItems(items.filter(item => item.type !== 'left'), 'x-12 x-md-6') : ''}
-    ${home ? `</div>
-    <div class="x-12 bottom__wrapper">
-      <a class="dec_meta dec_bra dec_link" href="/pages/manifest/">VIEW_ALL</a>
-    </div>` : ''}
-  </layout>
-</section>    
-    `
-}
-
-function genManifestItems(items, cls = '') {
-    return items.map(item => `
-      <a href="" class="${item.cls || cls} item">
-        <img class="img" src="${item.thumbnail}" alt="" loading="lazy">
-        <div class="wrapper">
-          <h3 class="h4 title">${item.heading}</h3>
-          <div class="info__wrapper">
-            <span class="date">DATE: ${item.date}</span>
-            <span class="dec_bra dec_link">DECRYPT</span>
-          </div>
-        </div>
-      </a>
-        `).join('');
-}
-
-function genRoot(main, left = '', right = '', other = {}) {
-    const def = {
-        heading: '',
-        thumbnail: '/assets/image/base/default.avif',
-        meta: '',
-        type: 'manifest',
-        ...other
-    }
-    return `
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>${def.heading}</title>
+        <title>Direction-Aware Side Page Transition</title>
 
-        ${def.meta}
+        
 
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="${def.heading}" />
-        <meta property="og:image" content="${def.thumbnail}" />
+        <meta property="og:title" content="Direction-Aware Side Page Transition" />
+        <meta property="og:image" content="/assets/image/inventory/direction-aware-side-page-transition/thumbnail.avif" />
 
         <link rel="stylesheet" href="/layx/layx.css">
 
         <link rel="stylesheet" href="/assets/css/base.css">
         <link rel="stylesheet" href="/assets/css/pages/inventory_&_manifest_single.css">
-        <link rel="stylesheet" href="/assets/css/pages/${def.type}_single.css">
+        <link rel="stylesheet" href="/assets/css/pages/inventory_single.css">
 
         <link rel="shortcut icon" href="/assets/brand/logo.svg" type="image/svg">
         <link rel="manifest" href="/assets/brand/app.webmanifest">
@@ -324,22 +79,239 @@ function genRoot(main, left = '', right = '', other = {}) {
 
 
         <main>
-            <section class="${def.type}__section">
-                <layout class="gap-2 ${def.type}__layout">
+            <section class="inventory__section">
+                <layout class="gap-2 inventory__layout">
                     <div class="x-3 left">
-                        ${left}
+                        
+<div class="detail__wrapper">
+    <div class="header__wrapper">
+        <h5 class="title">DETAILS</h5>
+        <span class="dec_meta">UID_2</span>
+    </div>
+    <div class="text__block_wrapper">
+        <div class="text__block">
+            <span class="dec_meta">CATEGORY:</span>
+            <span class="dec_meta">transition</span>
+        </div>
+        <div class="text__block">
+            <span class="dec_meta">DATE:</span>
+            <span class="dec_meta">February 21, 2026</span>
+        </div>
+    </div>
+    <div class="tag__wrapper">
+        <a class="tag" href="">page-transition</a><a class="tag" href="">view-transition</a>
+    </div>
+</div>      
+
                     </div>
                     <div class="x-12 x-lg-8 x-xxl-6 main">
-                        <div class="thumbnail ${def.preview ? 'preview' : ''}" style="--preview: url(${def.preview || ''})">
-                           <img class="img" src="${def.thumbnail}" alt="">
+                        <div class="thumbnail preview" style="--preview: url(/assets/image/inventory/direction-aware-side-page-transition/preview.avif)">
+                           <img class="img" src="/assets/image/inventory/direction-aware-side-page-transition/thumbnail.avif" alt="">
                         </div>
-                        <h1 class="h2 heading">${def.heading}</h1>
+                        <h1 class="h2 heading">Direction-Aware Side Page Transition</h1>
                         <div class="content__wrapper" id="content-wrapper">
-${main} 
+<!-- FWS / SUPPLY — New Archive Entry -->
+
+
+
+
+
+<p>A high-performance, direction-aware side page transition system engineered for Multi-Page Applications (MPAs). This unit leverages the native <code>View Transition API</code> and <code>Navigation API</code> to deliver fluid, app-like navigation without the overhead of a client-side router.</p>
+<h2>Overview</h2>
+<p>Traditional MPA transitions often feel disjointed. This supply unit solves that by detecting the navigation direction (forwards vs. backwards) and applying corresponding animations. It ensures that clicking &quot;Back&quot; in the browser feels fundamentally different from clicking a &quot;Next&quot; link, creating a cohesive spatial mental model for the user.</p>
+<h2>Key Features</h2>
+<ul>
+<li><strong>Directional Intelligence</strong>: Automatically detects if the user is moving forward or backward in the history stack.</li>
+<li><strong>Native Efficiency</strong>: Zero dependencies. Runs on native browser APIs for maximum performance and minimum bundle size.</li>
+<li><strong>Reduced Motion Support</strong>: Respects user system preferences by wrapping transitions in <code>prefers-reduced-motion</code> queries.</li>
+<li><strong>MPA Compatible</strong>: Specifically designed for cross-document transitions, bringing SPA-level polish to static sites.</li>
+</ul>
+<h2>Technical Specifications</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Logic</strong></td>
+<td align="left">JavaScript (ES6+)</td>
+</tr>
+<tr>
+<td align="left"><strong>Styling</strong></td>
+<td align="left">CSS Level 4 (Nested)</td>
+</tr>
+<tr>
+<td align="left"><strong>APIs Used</strong></td>
+<td align="left">View Transition API, Navigation API</td>
+</tr>
+<tr>
+<td align="left"><strong>Payload</strong></td>
+<td align="left">&lt; 2KB (Minified)</td>
+</tr>
+<tr>
+<td align="left"><strong>Geometry</strong></td>
+<td align="left">0-radius Precision</td>
+</tr>
+</tbody></table>
+<h2>Implementation</h2>
+<h3>1. Structural CSS</h3>
+<p>The styling utilizes CSS View Transition types to toggle between <code>forwards</code> and <code>backwards</code> states. Each state handles both the outgoing (<code>old</code>) and incoming (<code>new</code>) snapshots.</p>
+<code data-code-lang="css">@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+        navigation: auto; /* Enable cross-document transitions */
+        types: forwards, backwards;
+    }
+}
+
+:root {
+    --page-transition-bg: aliceblue;
+    --page-transition-duration: 1.2s;
+    --page-transition-timing: cubic-bezier(0.7, 0, 0.3, 1);
+    background-color: var(--page-transition-bg);
+
+    /* Forwards Transition */
+    &amp;:active-view-transition-type(forwards) {
+        &amp;::view-transition-old(root) {
+            animation: page_out_right var(--page-transition-duration) var(--page-transition-timing);
+        }
+
+        &amp;::view-transition-new(root) {
+            animation: page_in_left var(--page-transition-duration) var(--page-transition-timing);
+        }
+    }
+
+    /* Backwards Transition */
+    &amp;:active-view-transition-type(backwards) {
+        &amp;::view-transition-old(root) {
+            animation: page_out_left var(--page-transition-duration) var(--page-transition-timing);
+        }
+
+        &amp;::view-transition-new(root) {
+            animation: page_in_right var(--page-transition-duration) var(--page-transition-timing);
+        }
+    }
+}
+
+@keyframes page_out_right {
+    0% {
+        scale: 1;
+        translate: 0% 0%;
+    }
+
+    30% {
+        scale: .5;
+    }
+
+    100% {
+        scale: .5;
+        translate: 100% 0%;
+    }
+}
+
+@keyframes page_out_left {
+    0% {
+        scale: 1;
+        translate: 0% 0%;
+    }
+
+    30% {
+        scale: .5;
+    }
+
+    100% {
+        scale: .5;
+        translate: -100% 0%;
+    }
+}
+
+@keyframes page_in_left {
+    0% {
+        scale: .5;
+        translate: -100% 0%;
+    }
+
+    70% {
+        scale: .5;
+    }
+
+    100% {
+        scale: 1;
+        translate: 0% 0%;
+    }
+}
+
+@keyframes page_in_right {
+    0% {
+        scale: .5;
+        translate: 100% 0%;
+    }
+
+    70% {
+        scale: .5;
+    }
+
+    100% {
+        scale: 1;
+        translate: 0% 0%;
+    }
+}
+</code><h3>2. Direction Logic</h3>
+<p>This script detects the navigation type and assigns the appropriate transition type to the current document reveal.</p>
+<code data-code-lang="js">/**
+ * FWS Supply: View Transition Direction Handler
+ */
+function initDirectionalTransitions() {
+    if (!window.navigation || !document.startViewTransition) return;
+
+    const STORAGE_KEY = &#39;nav_idx&#39;;
+
+    // Track outgoing index
+    window.addEventListener(&quot;pageswap&quot;, (e) =&gt; {
+        if (!e.viewTransition) return;
+        if (navigation.currentEntry) {
+            sessionStorage.setItem(STORAGE_KEY, navigation.currentEntry.index);
+        }
+    });
+
+    // Handle incoming reveal
+    window.addEventListener(&quot;pagereveal&quot;, (e) =&gt; {
+        if (!e.viewTransition || !navigation.activation) return;
+
+        const { navigationType, entry } = navigation.activation;
+        let type = &#39;forwards&#39;;
+
+        if (navigationType === &#39;traverse&#39;) {
+            const prevIdx = Number(sessionStorage.getItem(STORAGE_KEY));
+            const currIdx = entry.index;
+            if (!isNaN(prevIdx)) {
+                type = currIdx &lt; prevIdx ? &#39;backwards&#39; : &#39;forwards&#39;;
+            }
+        }
+        
+        e.viewTransition.types.add(type);
+        sessionStorage.removeItem(STORAGE_KEY);
+    });
+}
+
+initDirectionalTransitions();
+</code><h2>Integration</h2>
+<ol>
+<li><strong>Include Styles</strong>: Copy the CSS into your global theme or a specific transition module.</li>
+<li><strong>Execute Script</strong>: Run the initialization script on every page (ideally as a module in the <code>&lt;head&gt;</code> or at the end of <code>&lt;body&gt;</code>).</li>
+<li><strong>Verify Compatibility</strong>: Ensure your browser supports <code>View Transition API</code> (Chrome 111+, Edge 111+).</li>
+</ol>
+ 
                         </div>
                     </div>
                     <div class="x-12 x-lg-4 x-xxl-3 right">
-                        ${right}
+                        
+<div class="action__wrapper" id="action-wrapper">
+    
+   <button class="dec_bra dec_meta dec_link action__btn preview" data-action="preview" data-info="/pages/demo/direction-aware-side-page-transition">PREVIEW</button>
+</div>       
+
                     </div>
                 </layout>
             </section>
@@ -458,9 +430,7 @@ ${main}
 
         <script src="/assets/js/base.js" type="module"></script>
         <script src="/assets/js/pages/inventory_&_manifest_single.js" type="module"></script>
-        <script src="/assets/js/pages/${def.type}_single.js" type="module"></script>
+        <script src="/assets/js/pages/inventory_single.js" type="module"></script>
     </body>
 
 </html>
-`
-}

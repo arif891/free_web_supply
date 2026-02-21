@@ -9,16 +9,17 @@
 :root {
     --page-transition-bg: aliceblue;
     --page-transition-duration: 1.2s;
+    --page-transition-timing: cubic-bezier(0.7, 0, 0.3, 1);
     background-color: var(--page-transition-bg);
 
     /* Animation styles for forwards type only */
     &:active-view-transition-type(forwards) {
         &::view-transition-old(root) {
-            animation: page_out_right var(--page-transition-duration);
+            animation: page_out_right var(--page-transition-duration) var(--page-transition-timing);
         }
 
         &::view-transition-new(root) {
-            animation: page_in_left var(--page-transition-duration);
+            animation: page_in_left var(--page-transition-duration) var(--page-transition-timing);
         }
 
     }
@@ -26,11 +27,11 @@
     /* Animation styles for backwards type only */
     &:active-view-transition-type(backwards) {
         &::view-transition-old(root) {
-            animation: page_out_left var(--page-transition-duration);
+            animation: page_out_left var(--page-transition-duration) var(--page-transition-timing);
         }
 
         &::view-transition-new(root) {
-            animation: page_in_right var(--page-transition-duration);
+            animation: page_in_right var(--page-transition-duration) var(--page-transition-timing);
         }
     }
 }

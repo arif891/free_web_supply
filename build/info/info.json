@@ -17,6 +17,23 @@
             "slug": "global-parallax-setup",
             "date": "February 18, 2026",
             "url": "/pages/inventory/global-parallax-setup/"
+        },
+        {
+            "heading": "Direction-Aware Side Page Transition",
+            "thumbnail": "/assets/image/inventory/direction-aware-side-page-transition/thumbnail.avif",
+            "type": "inventory",
+            "category": "transition",
+            "tags": [
+                "page-transition",
+                "view-transition"
+            ],
+            "preview": "/assets/image/inventory/direction-aware-side-page-transition/preview.avif",
+            "demo": "/pages/demo/direction-aware-side-page-transition",
+            "id": 2,
+            "timestamp": 1771691117685,
+            "slug": "direction-aware-side-page-transition",
+            "date": "February 21, 2026",
+            "url": "/pages/inventory/direction-aware-side-page-transition/"
         }
     ],
     "manifest": []
