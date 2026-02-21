@@ -69,6 +69,7 @@ main {
     background-color: var(--color);
     transition: .6s allow-discrete var(--ef-menu);
     overscroll-behavior: contain;
+    box-shadow: rgb(from currentColor r g b / .1) 0px 50px 100px 15px;
 
     &:popover-open {
         translate: 0;
