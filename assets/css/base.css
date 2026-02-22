@@ -387,9 +387,31 @@ code {
                 grid-template-rows: subgrid;
                 gap: 0;
 
-                .img {
-                    aspect-ratio: 16 / 9;
-                    object-fit: cover;
+                .thumbnail {
+                    position: relative;
+
+                    .img {
+                        aspect-ratio: 16 / 9;
+                        object-fit: cover;
+                    }
+
+                    &.preview {
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            inset: 0;
+                            background-image: url(/assets/image/base/tra.avif);
+                            transition: background-image .3s;
+                            background-size: cover;
+                        }
+
+                        &:hover {
+                            &::after {
+                                transition-delay: .3s;
+                                background-image: var(--preview);
+                            }
+                        }
+                    }
                 }
 
                 .title {

@@ -170,7 +170,7 @@ function genInventoryItems(items) {
     if (items.length > 4) items[4].cls = 'sp';
     return items.map(item => `
       <div class="x-12 x-md-6 x-xl-4 item ${item.cls || ''}">
-        <div class="thumbnail ${item.preview ? 'preview' : ''}" style="--preview: url(${item.preview || ''})">
+        <div class="thumbnail ${item.preview ? `preview" style="--preview: url(${item.preview});"` : '"'}>
             <img class="img" src="${item.thumbnail}" alt="" loading="lazy">
         </div>
         <h3 class="h4 title">${item.heading}</h3>
