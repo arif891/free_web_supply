@@ -389,6 +389,7 @@ code {
 
                 .thumbnail {
                     position: relative;
+                    border-bottom: 1px solid;
 
                     .img {
                         aspect-ratio: 16 / 9;
