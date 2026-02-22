@@ -68,7 +68,7 @@
                     &:not(:last-child, :only-child) {
                         margin-block: .25rem .5rem;
                     }
-                    
+
                     font-size: calc(min(.75rem + .65vw, 1.075rem) * var(--_t_scale));
                 }
 
@@ -77,6 +77,18 @@
                         color: inherit;
                         background-color: var(--surface-color);
                         padding-inline: .35rem;
+                    }
+                }
+
+                table {
+                    tr {
+                        &:nth-child(even) {
+                            background-color: rgb(from currentColor r g b / .025);
+                        }
+                    }
+
+                    th, td {
+                        color: var(--paragraph-color);
                     }
                 }
 
