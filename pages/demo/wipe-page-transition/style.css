@@ -15,7 +15,8 @@ body {
         justify-content: space-between;
         align-items: center;
         gap: 5vw;
-        background-color: antiquewhite;
+        color: #fff;
+        background-color: rgb(27, 27, 27);
         padding: .5rem;
         view-transition-name: nav;
         z-index: 10;
@@ -27,7 +28,7 @@ body {
             color: inherit;
             border: 0;
             padding: 1rem 1.5rem;
-            background-color: rgb(255 255 255 / .6);
+            background-color: rgba(82, 82, 82, 0.6);
             cursor: pointer;
         }
 
@@ -40,6 +41,6 @@ body {
         margin: 0;
         font-size: 5vw;
         font-weight: 400;
-        color: #888888;
+        color: #ffffff;
     }
 }

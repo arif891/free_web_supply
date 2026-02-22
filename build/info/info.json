@@ -34,6 +34,25 @@
             "slug": "direction-aware-side-page-transition",
             "date": "February 21, 2026",
             "url": "/pages/inventory/direction-aware-side-page-transition/"
+        },
+        {
+            "heading": "Wipe Page Transition",
+            "thumbnail": "/assets/image/inventory/wipe-page-transition/thumbnail.avif",
+            "type": "inventory",
+            "category": "transition",
+            "tags": [
+                "view-transition",
+                "css",
+                "mpa",
+                "motion"
+            ],
+            "demo": "/pages/demo/wipe-page-transition",
+            "preview": "/assets/image/inventory/wipe-page-transition/preview.avif",
+            "id": 3,
+            "timestamp": 1771772297966,
+            "slug": "wipe-page-transition",
+            "date": "February 22, 2026",
+            "url": "/pages/inventory/wipe-page-transition/"
         }
     ],
     "manifest": []

@@ -1,0 +1,53 @@
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+        navigation: auto;
+    }
+}
+
+:root {
+    --page-transition-duration: 1s;
+
+    &::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-color: rgb(32, 49, 65);
+        translate: 0 100%;
+        view-transition-name: cover;
+    }
+}
+
+::view-transition-old(root) {
+    animation: pageOut var(--page-transition-duration) forwards;
+}
+
+::view-transition-new(root) {
+    translate: 0 100%;
+    animation: pageIn var(--page-transition-duration) forwards;
+}
+
+::view-transition-old(cover) {
+    animation: coverSlide var(--page-transition-duration) forwards;
+}
+
+::view-transition-new(cover) {
+    display: none;
+}
+
+@keyframes coverSlide {
+    100% {
+        translate: 0 -200%;
+    }
+}
+
+@keyframes pageOut {
+    100% {
+        translate: 0 -100%;
+    }
+}
+
+@keyframes pageIn {
+    100% {
+        translate: 0 0;
+    }
+}

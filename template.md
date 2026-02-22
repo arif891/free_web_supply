@@ -2,7 +2,7 @@
 
 # [Enter Title Here]
 
-![thumbnail](/assets/image/base/default.avif)
+![thumbnail](/assets/image/base/default_thumbnail.avif)
 
 Brief description of the unit and its purpose within the FWS architecture.
 
@@ -33,7 +33,7 @@ Detailed explanation of the problem this unit solves and the methodology behind 
 ```
 
 ### 2. Core Logic
-```javascript
+```js
 /* Define logic here */
 ```
 
