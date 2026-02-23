@@ -27,7 +27,7 @@ function removeInfo(input) {
 
 function extractMainInfo(input) {
     const headingRegex = /^#\s+(.+)/m;
-    const thumbRegex = /!\[thumbnail\]\((.*?)\)/;
+    const thumbRegex = /!\[.*?\]\((.*?)\)/;
 
     const headingMatch = input.match(headingRegex);
     const thumbMatch = input.match(thumbRegex);

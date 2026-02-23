@@ -3,7 +3,7 @@ import { infoService } from './InfoService.mjs';
 import { readFile, writeFile } from '../utils/fs.mjs';
 import { createSlug, replaceCommentContent } from '../utils/helper.mjs';
 import { parseInfo, extractInfo, removeInfo, extractMainInfo, removeMainInfo } from '../utils/info.mjs';
-import { genDefault, genRoot, genWidget, genInventorySection, genManifestSection } from '../utils/template.mjs';
+import { htmlBuilder } from './HtmlBuilder.mjs';
 import { marked } from '../lib/marked/marked.mjs';
 import { config } from '../config/index.mjs';
 
@@ -16,8 +16,8 @@ class ContentService {
         return await readFile(config.files.home);
     }
 
-    async resetInput() {
-        await writeFile(path.join(config.files.in.markdown), genDefault());
+    async resetInput(defaultContent) {
+        await writeFile(path.join(config.files.in.markdown), defaultContent);
     }
 
     async processContent(content) {
@@ -36,27 +36,7 @@ class ContentService {
             url: `/${outDir}${createSlug(itemInfo.heading)}/`
         };
 
-        let leftContent = '';
-        let rightContent = '';
-
-        if (finalItemInfo?.type === 'manifest') {
-            leftContent += genWidget('toc');
-        }
-
-        if (finalItemInfo?.type === 'inventory') {
-            leftContent += genWidget('detail', finalItemInfo);
-
-            if (finalItemInfo?.demo) {
-                const actionInfo = {
-                    buttons: {
-                        'preview': finalItemInfo.demo,
-                    }
-                };
-                rightContent += genWidget('action', actionInfo);
-            }
-        }
-
-        const fullHtml = genRoot(htmlFragment, leftContent, rightContent, finalItemInfo);
+        const fullHtml = htmlBuilder.buildPage(htmlFragment, finalItemInfo);
 
         return {
             html: fullHtml,
@@ -65,8 +45,8 @@ class ContentService {
     }
 
 
-    async saveMarkdown(uid, content) {
-        await writeFile(path.join(config.directories.out.markdown, `item-${uid}.md`), content);
+    async saveMarkdown(content, uid, type = 'manifest') {
+        await writeFile(path.join(config.directories.out.markdown, `${type}-${uid}.md`), content);
     }
 
     async saveHtml(slug, html, type = 'manifest') {

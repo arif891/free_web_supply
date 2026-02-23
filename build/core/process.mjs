@@ -1,7 +1,7 @@
 import { infoService } from '../services/InfoService.mjs';
 import { contentService } from '../services/ContentService.mjs';
 import { config } from '../config/index.mjs';
-import { genInventorySection, genManifestSection } from '../utils/template.mjs';
+import { genDefault, genInventorySection, genManifestSection } from '../templates/index.mjs';
 
 async function process() {
     try {
@@ -10,7 +10,7 @@ async function process() {
 
         console.log(`Processing item with UID: ${info.id} (Type: ${info.type})`);
 
-        await contentService.saveMarkdown(info.id, content);
+        await contentService.saveMarkdown(content, info.id, info.type);
 
         await infoService.addItem(info, info.type);
         await contentService.saveHtml(info.slug, html, info.type);
@@ -30,7 +30,7 @@ async function process() {
         await contentService.updateInventoryPage(fullInventoryHtml);
         await contentService.updateManifestPage(fullManifestHtml);
 
-        await contentService.resetInput();
+        await contentService.resetInput(genDefault());
 
         console.log(`Successfully processed item: ${info.heading} (UID: ${info.id})`);
     } catch (error) {
