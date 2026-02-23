@@ -41,10 +41,8 @@
             "type": "inventory",
             "category": "transition",
             "tags": [
-                "view-transition",
-                "css",
-                "mpa",
-                "motion"
+                "page-transition",
+                "view-transition"
             ],
             "demo": "/pages/demo/wipe-page-transition",
             "preview": "/assets/image/inventory/wipe-page-transition/preview.avif",
@@ -53,6 +51,23 @@
             "slug": "wipe-page-transition",
             "date": "February 22, 2026",
             "url": "/pages/inventory/wipe-page-transition/"
+        },
+        {
+            "heading": "Overlapping Page Transition",
+            "thumbnail": "/assets/image/inventory/overlapping-page-transition/thumbnail.avif",
+            "type": "inventory",
+            "category": "transition",
+            "tags": [
+                "page-transition",
+                "view-transition"
+            ],
+            "preview": "/assets/image/inventory/overlapping-page-transition/preview.avif",
+            "demo": "/pages/demo/overlapping-page-transition/",
+            "id": 4,
+            "timestamp": 1771857325543,
+            "slug": "overlapping-page-transition",
+            "date": "February 23, 2026",
+            "url": "/pages/inventory/overlapping-page-transition/"
         }
     ],
     "manifest": []

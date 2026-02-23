@@ -1,6 +1,6 @@
 # FWS / SUPPLY — The Vanilla Standard
 
-<!-- ![FWS Logo](/assets/brand/logo.svg) -->
+![FWS Logo](/assets/image/base/default_thumbnail.avif)
 
 **FWS / SUPPLY** is an archive of raw web logic, stripped of bloat and engineered for maximum performance. It is a system designed to curate high-performance web components and documentation while maintaining strict adherence to "Vanilla" standards and 0-radius geometric precision.
 
@@ -43,7 +43,7 @@ Your content in markdown format...
 Run the build process to generate the HTML pages and update the index files.
 
 ```bash
-node build/build.mjs
+node build.mjs
 ```
 
 The system will:

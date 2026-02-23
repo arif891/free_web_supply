@@ -1,0 +1,51 @@
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+        navigation: auto;
+    }
+}
+
+:root {
+    --page-transition-duration: .8s;
+    --page-transition-timing: cubic-bezier(.165, .84, .44, 1);
+
+    &::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-color: rgb(from currentColor r g b / .3);
+        opacity: 0;
+        pointer-events: none;
+        view-transition-name: tbg;
+    }
+}
+
+::view-transition-old(root) {
+    animation: none;
+}
+
+::view-transition-new(root) {
+    scale: .75;
+    translate: 0 100%;
+    animation: pageIn var(--page-transition-duration) var(--page-transition-timing) forwards;
+}
+
+::view-transition-old(tbg) {
+    animation: bgShow var(--page-transition-duration) var(--page-transition-timing) forwards;
+}
+
+::view-transition-new(tbg) {
+    display: none;
+}
+
+@keyframes pageIn {
+    100% {
+        translate: 0 0;
+        scale: 1;
+    }
+}
+
+@keyframes bgShow {
+    100% {
+        opacity: 1;
+    }
+}
