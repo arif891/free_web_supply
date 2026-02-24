@@ -68,6 +68,24 @@
             "slug": "overlapping-page-transition",
             "date": "February 23, 2026",
             "url": "/pages/inventory/overlapping-page-transition/"
+        },
+        {
+            "heading": "Parallax Image",
+            "thumbnail": "/assets/image/inventory/parallax-image/thumbnail.avif",
+            "type": "inventory",
+            "category": "scroll animation",
+            "tags": [
+                "scroll",
+                "animation",
+                "css"
+            ],
+            "demo": "/pages/demo/parallax-image",
+            "preview": "/assets/image/inventory/parallax-image/preview.avif",
+            "id": 5,
+            "timestamp": 1771948696794,
+            "slug": "parallax-image",
+            "date": "February 24, 2026",
+            "url": "/pages/inventory/parallax-image/"
         }
     ],
     "manifest": []

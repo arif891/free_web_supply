@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Parallax Image</title>
+
+        <style>
+            .parallax-img-wrapper {
+                display: grid;
+                height: 100%;
+                overflow: clip;
+
+                .parallax-img {
+                    --extend: 35%;
+                    --extend-x: 0px;
+                    --extend-y: var(--extend);
+                    --translate-x: calc(-1 * (var(--extend-x, 0) / (100% + var(--extend-x, 0)) * 100%));
+                    --translate-y: calc(-1 * (var(--extend-y, 0) / (100% + var(--extend-y, 0)) * 100%));
+                    display: block;
+                    width: calc(100% + var(--extend-x, 0));
+                    height: calc(100% + var(--extend-y, 0));
+                    object-fit: cover;
+                    object-position: center;
+                    animation: moveImg linear both;
+                    animation-timeline: view();
+
+
+                    .inline>& {
+                        --extend-y: 0px;
+                        --extend-x: var(--extend);
+                        animation-timeline: view(inline);
+                    }
+                }
+            }
+
+            @keyframes moveImg {
+                to {
+                    translate: var(--translate-x) var(--translate-y);
+                }
+            }
+
+
+            /* Base styles */
+
+
+            * {
+                box-sizing: border-box;
+            }
+
+            html {
+                scrollbar-width: thin;
+                scrollbar-color: #8f8f8f69 transparent;
+                background-color: black;
+                color: #fff;
+            }
+
+            body {
+                margin: 0;
+            }
+
+            section {
+                height: 100vh;
+
+                .text__wrapper {
+                    position: absolute;
+                    inset: 0;
+                    display: grid;
+                    place-content: center;
+
+                    h1 {
+                        font-size: 7.5vw;
+                        margin: 0;
+                    }
+
+                    p {
+                        text-align: center;
+                        margin-block: 1.5rem 4rem;
+                    }
+                }
+
+                &.demo__grid {
+                    height: auto;
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(max(250px, 25vw), 1fr));
+                    padding-inline: 5%;
+                    padding-top: calc(5vw + 5vh);
+                    gap: calc(1.5vw + 1.5vh);
+
+                    img {
+                        aspect-ratio: 16 / 9;
+                    }
+                }
+
+                &.vertical__scroll {
+                    height: calc(200vh + 100vw);
+                    overflow: clip;
+                    view-timeline: --ver-scroll;
+
+                    .wrapper {
+                        position: sticky;
+                        inset: 0 0 auto;
+                        display: flex;
+                        gap: calc(1.5vw + 1.5vh);
+                        scrollbar-width: thin;
+                        padding-inline: 5%;
+                        padding-block: 12.5vh;
+                        height: 100vh;
+                        animation: _moveSec linear both;
+                        animation-timeline: --ver-scroll;
+                        animation-range: contain;
+
+                        .parallax-img-wrapper {
+                            flex-shrink: 0;
+                            width: 100%;
+
+                            .parallax-img {
+                                animation-timeline: --ver-scroll;
+                                animation-range: contain;
+                            }
+                        }
+                    }
+                }
+
+                @supports not (animation-timeline: view()) {
+                    &.vertical__scroll {
+                        height: auto;
+
+                        .wrapper {
+                            animation: none;
+                            overflow: auto;
+                        }
+                    }
+
+                    .parallax-img-wrapper {
+                        .parallax-img {
+                            animation: none !important;
+                        }
+                    }
+                }
+            }
+
+            @keyframes _moveSec {
+                to {
+                    translate: calc(-90% - 95vw) 0;
+                }
+            }
+
+            .no-support {
+                color: red;
+                display: none;
+                text-align: center;
+                font-family: sans-serif;
+
+                @supports not (animation-timeline: view()) {
+                    display: block;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <section class="hero">
+            <div class="parallax-img-wrapper">
+                <img class="parallax-img" src="/assets/image/demo/common/16.webp" alt="">
+            </div>
+            <div class="text__wrapper">
+                <div>
+                    <h1>PARALLAX IMAGE</h1>
+                    <p>Scroll Down</p>
+                    <h3 class="no-support">Your Browser Not Supported!</h3>
+                </div>
+            </div>
+        </section>
+        <section class="demo__grid">
+            <div class="parallax-img-wrapper">
+                <img class="parallax-img" src="/assets/image/demo/common/1.webp" alt="">
+            </div>
+            <div class="parallax-img-wrapper">
+                <img class="parallax-img" src="/assets/image/demo/common/2.webp" alt="">
+            </div>
+            <div class="parallax-img-wrapper">
+                <img class="parallax-img" src="/assets/image/demo/common/7.webp" alt="">
+            </div>
+            <div class="parallax-img-wrapper">
+                <img class="parallax-img" src="/assets/image/demo/common/4.webp" alt="">
+            </div>
+            <div class="parallax-img-wrapper">
+                <img class="parallax-img" src="/assets/image/demo/common/5.webp" alt="">
+            </div>
+            <div class="parallax-img-wrapper">
+                <img class="parallax-img" src="/assets/image/demo/common/6.webp" alt="">
+            </div>
+        </section>
+        <section class="vertical__scroll">
+            <div class="wrapper">
+                <div class="parallax-img-wrapper inline">
+                    <img class="parallax-img" src="/assets/image/demo/common/1.webp" alt="">
+                </div>
+                <div class="parallax-img-wrapper inline">
+                    <img class="parallax-img" src="/assets/image/demo/common/2.webp" alt="">
+                </div>
+                <div class="parallax-img-wrapper inline">
+                    <img class="parallax-img" src="/assets/image/demo/common/7.webp" alt="">
+                </div>
+            </div>
+        </section>
+
+        <script type="module">
+            import { SmoothScroll } from "../../../layx/others/smooth_scroll/smooth_scroll.js";
+            new SmoothScroll();
+        </script>
+    </body>
+
+</html>
