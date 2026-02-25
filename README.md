@@ -1,10 +1,10 @@
-# FWS / SUPPLY — The Vanilla Standard
+# FWS / SUPPLY — Award-Winning Web Secrets
 
 ![FWS Logo](/assets/image/base/default_thumbnail.avif)
 
-> **"Redefining web architecture through raw logic and the absence of excess."**
+> **"Unlocking the logic of award-winning web design through pure vanilla standards."**
 
-**FWS / SUPPLY** is an archive of raw web logic, stripped of bloat and engineered for maximum performance. It is a system designed to curate high-performance web components and documentation while maintaining strict adherence to "Vanilla" standards and 0-radius geometric precision.
+**FWS / SUPPLY** is an archive of premium web logic, stripped of bloat and engineered for maximum performance. It is a system designed to curate award-winning UI tricks and high-end components while maintaining strict adherence to "Vanilla" standards and 0-radius geometric precision. Access the raw logic used in world-class digital experiences.
 
 ## 📐 Philosophy: The Core Protocol
 
@@ -12,7 +12,17 @@
 
 2.  **Geometric Precision**: Our aesthetic is a byproduct of mathematical order. 0-radius geometry reflects a refusal to "round off" the edges of digital reality.
 
-3.  **Archive Purpose**: Every 'Supply' unit is engineered for a specific, vital function within a larger system. We don't build bloat; we curate solutions.
+3.  **Archive Purpose**: Every 'Supply' unit is engineered for a specific, vital function within a larger system. We don't build bloat; we curate solutions for award-winning UX.
+
+---
+
+## ✨ Elite Techniques (The Archive)
+
+Curated logic units for high-end digital experiences:
+- **Motion Orchestration**: Seamless page transitions and micro-interactions without heavy libraries.
+- **Visual Depth**: Native parallax engines, scroll-driven animations, and zero-radius geometry patterns.
+- **Performance Logic**: Stripped source code that achieves 100/100 Lighthouse scores while maintaining premium aesthetics.
+- **Creative UI Tricks**: Advanced styling and interaction techniques used in world-class, award-winning sites.
 
 ---
 
