@@ -1,0 +1,15 @@
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+        navigation: auto;
+    }
+}
+
+:root {
+    --page-transition-duration: .8s;
+    --page-transition-timing: cubic-bezier(.165, .84, .44, 1);
+}
+
+::view-transition-group(root) {
+    animation-timing-function: var(--page-transition-timing);
+    animation-duration: var(--page-transition-duration);
+}

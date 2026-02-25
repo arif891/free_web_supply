@@ -55,7 +55,7 @@ function genWidget(name, info = {}) {
     <div class="text__block_wrapper">
         <div class="text__block">
             <span class="dec_meta">CATEGORY:</span>
-            <span class="dec_meta">${info?.category}</span>
+            <span class="dec_meta cap">${info?.category}</span>
         </div>
         <div class="text__block">
             <span class="dec_meta">DATE:</span>

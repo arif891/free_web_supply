@@ -159,3 +159,14 @@ class ActionHandler {
 }
 
 new ActionHandler();
+
+// Find all <a> tags where the href starts with "http"
+const externalLinks = document.querySelectorAll('a[href^="http"]');
+
+externalLinks.forEach(link => {
+    // Set the target attribute
+    link.setAttribute('target', '_blank');
+
+    // Good practice: add rel="noopener" for security
+    link.setAttribute('rel', 'noopener');
+});

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="page_transition.css">
+
+    <style>
+      body {
+        background-image: url(/assets/image/demo/common/16.webp);
+        background-size: cover;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="nav">
+      <button onclick="goBack()">Back</button>
+      <span>LOGO</span>
+      <a href="index.html">Home</a>
+    </div>
+
+    <h1>And here is<br> page two!</h1>
+
+
+    <script type="speculationrules">
+  {
+    "prerender": [
+      {
+        "urls": ["./index.html"]
+      }
+    ]
+  }
+</script>
+
+    <script>
+      function goBack() {
+        if (navigation.canGoBack) {
+          navigation.back();
+        }
+      }
+    </script>
+  </body>
+
+</html>
