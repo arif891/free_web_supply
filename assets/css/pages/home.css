@@ -154,6 +154,7 @@
 
         .main__pra {
             margin-bottom: 2.5rem;
+            text-wrap: auto;
 
             .sp {
                 .ivp & {
