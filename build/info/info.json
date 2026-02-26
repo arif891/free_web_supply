@@ -107,5 +107,23 @@
             "url": "/pages/inventory/cross-fade-page-transition/"
         }
     ],
-    "manifest": []
+    "manifest": [
+        {
+            "heading": "Video Preview on Hover Using Only CSS",
+            "thumbnail": "/assets/image/manifest/thumbnail-hover-preview-video-in-only-css/thumbnail.avif",
+            "type": "manifest",
+            "category": "interaction",
+            "tags": [
+                "hover",
+                "css",
+                "micro-interaction",
+                "preview"
+            ],
+            "id": 1,
+            "timestamp": 1772089577462,
+            "slug": "video-preview-on-hover-using-only-css",
+            "date": "February 26, 2026",
+            "url": "/pages/manifest/video-preview-on-hover-using-only-css/"
+        }
+    ]
 }

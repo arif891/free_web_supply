@@ -38,7 +38,7 @@ function genManifestSection(items, total = 0, home = true) {
 
 function genManifestItems(items, cls = '') {
     return items.map(item => `
-      <a href="" class="${item.cls || cls} item">
+      <a href="${item.url}" class="${item.cls || cls} item">
         <img class="img" src="${item.thumbnail}" alt="" loading="lazy">
         <div class="wrapper">
           <h3 class="h4 title">${item.heading}</h3>
