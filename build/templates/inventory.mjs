@@ -24,7 +24,7 @@ function genInventorySection(items, total = 0, home = true) {
     ${home ? `
     <div class="x-12 info__wrapper c-md">
       <span class="d-md">STATUS: VERIFIED</span>
-      <a class="dec_bra dec_link" href="/pages/inventory/">VIEW_ALL</a>
+      <a class="dec_bra dec_link" href="/pages/inventory">VIEW_ALL</a>
       <span class="d-md">LAST_SYNC: ${new Intl.DateTimeFormat('en-GB').format(new Date()).replace(/\//g, '.')}</span>
     </div>
     ` : ''}

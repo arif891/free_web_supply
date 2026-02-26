@@ -29,7 +29,7 @@ function genManifestSection(items, total = 0, home = true) {
       ${home ? genManifestItems(items.filter(item => item.type !== 'left'), 'x-12 x-md-6') : ''}
     ${home ? `</div>
     <div class="x-12 bottom__wrapper">
-      <a class="dec_meta dec_bra dec_link" href="/pages/manifest/">VIEW_ALL</a>
+      <a class="dec_meta dec_bra dec_link" href="/pages/manifest">VIEW_ALL</a>
     </div>` : ''}
   </layout>
 </section>    
