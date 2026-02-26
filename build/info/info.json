@@ -16,7 +16,7 @@
             "timestamp": 1771399396868,
             "slug": "global-parallax-setup",
             "date": "February 18, 2026",
-            "url": "/pages/inventory/global-parallax-setup/"
+            "url": "/pages/inventory/global-parallax-setup"
         },
         {
             "heading": "Direction-Aware Side Page Transition",
@@ -33,7 +33,7 @@
             "timestamp": 1771691117685,
             "slug": "direction-aware-side-page-transition",
             "date": "February 21, 2026",
-            "url": "/pages/inventory/direction-aware-side-page-transition/"
+            "url": "/pages/inventory/direction-aware-side-page-transition"
         },
         {
             "heading": "Wipe Page Transition",
@@ -50,7 +50,7 @@
             "timestamp": 1771772297966,
             "slug": "wipe-page-transition",
             "date": "February 22, 2026",
-            "url": "/pages/inventory/wipe-page-transition/"
+            "url": "/pages/inventory/wipe-page-transition"
         },
         {
             "heading": "Overlapping Page Transition",
@@ -67,7 +67,7 @@
             "timestamp": 1771857325543,
             "slug": "overlapping-page-transition",
             "date": "February 23, 2026",
-            "url": "/pages/inventory/overlapping-page-transition/"
+            "url": "/pages/inventory/overlapping-page-transition"
         },
         {
             "heading": "Parallax Image",
@@ -85,7 +85,7 @@
             "timestamp": 1771948696794,
             "slug": "parallax-image",
             "date": "February 24, 2026",
-            "url": "/pages/inventory/parallax-image/"
+            "url": "/pages/inventory/parallax-image"
         },
         {
             "heading": "Cross Fade Page Transition",
@@ -104,7 +104,7 @@
             "timestamp": 1772005934017,
             "slug": "cross-fade-page-transition",
             "date": "February 25, 2026",
-            "url": "/pages/inventory/cross-fade-page-transition/"
+            "url": "/pages/inventory/cross-fade-page-transition"
         }
     ],
     "manifest": [
@@ -123,7 +123,7 @@
             "timestamp": 1772089577462,
             "slug": "video-preview-on-hover-using-only-css",
             "date": "February 26, 2026",
-            "url": "/pages/manifest/video-preview-on-hover-using-only-css/"
+            "url": "/pages/manifest/video-preview-on-hover-using-only-css"
         }
     ]
 }
