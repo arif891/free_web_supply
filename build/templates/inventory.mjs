@@ -39,7 +39,7 @@ function genInventoryItems(items) {
     return items.map(item => `
       <div class="x-12 x-md-6 x-xl-4 item ${item.cls || ''}">
         <div class="thumbnail ${item.preview ? `preview" style="--preview: url(${item.preview});"` : '"'}>
-            <img class="img" src="${item.thumbnail}" alt="" loading="lazy">
+            <img class="img" src="${item.thumbnail}" alt="Thumbnail" loading="lazy">
         </div>
         <h3 class="h4 title">${item.heading}</h3>
         <div class="tag__wrapper">

@@ -124,6 +124,24 @@
             "slug": "video-preview-on-hover-using-only-css",
             "date": "February 26, 2026",
             "url": "/pages/manifest/video-preview-on-hover-using-only-css"
+        },
+        {
+            "heading": "Mastering Web Typography: A Comprehensive Guide",
+            "thumbnail": "/assets/image/manifest/mastering-web-typography-a-comprehensive-guide/thumbnail.avif",
+            "type": "manifest",
+            "category": "design",
+            "tags": [
+                "typography",
+                "design",
+                "font",
+                "web-design",
+                "accessibility"
+            ],
+            "id": 2,
+            "timestamp": 1772204629739,
+            "slug": "mastering-web-typography-a-comprehensive-guide",
+            "date": "February 27, 2026",
+            "url": "/pages/manifest/mastering-web-typography-a-comprehensive-guide"
         }
     ]
 }
