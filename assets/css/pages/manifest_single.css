@@ -38,13 +38,13 @@ main {
                         gap: .25rem;
                         scroll-target-group: auto;
                         padding-left: 1rem;
-                        border-left: 1px solid;
+                        border-left: 2px solid rgb(from currentColor r g b / .1);
 
                         &::after {
                             content: '';
                             position: absolute;
                             background-color: var(--link-color);
-                            width: 1px;
+                            width: 2px;
                             position-anchor: --toc-active;
                             left: 1rem;
                             top: anchor(top);

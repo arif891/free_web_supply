@@ -156,7 +156,7 @@ function genRoot(main, left = '', right = '', other = {}) {
                     <div class="x-3 left">
                         ${left}
                     </div>
-                    <div class="x-12 x-lg-8 x-xxl-6 main">
+                    <article class="x-12 x-lg-8 x-xxl-6 main">
                         <div class="thumbnail ${def.preview ? 'preview' : ''}" style="--preview: url(${def.preview || ''})">
                            <img class="img" src="${def.thumbnail}" alt="">
                         </div>
@@ -164,7 +164,7 @@ function genRoot(main, left = '', right = '', other = {}) {
                         <div class="content__wrapper" id="content-wrapper">
 ${main} 
                         </div>
-                    </div>
+                    </article>
                     <div class="x-12 x-lg-4 x-xxl-3 right">
                         ${right}
                     </div>
