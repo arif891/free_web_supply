@@ -32,8 +32,8 @@ main {
                         display: flex;
                         justify-content: space-between;
 
-                        .cap {
-                            text-transform: capitalize;
+                        .dec_meta {
+                            text-transform: uppercase;
                         }
                     }
                 }

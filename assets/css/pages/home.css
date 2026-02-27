@@ -455,6 +455,10 @@
 
             .info__wrapper {
                 margin-block: 1rem 0 !important;
+
+                .date {
+                    text-transform: uppercase;
+                }
             }
 
             @media (width < 1400px) {
