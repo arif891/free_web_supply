@@ -196,7 +196,7 @@
                     &::after {
                         translate: 0;
                         opacity: 1;
-                        top: 0 !important;
+                       
                     }
                 }
             }
@@ -229,6 +229,7 @@
                             animation: _translate both;
                             animation-timeline: view();
                             animation-range: exit;
+                             top: 0 !important;
                         }
                     }
                 }
