@@ -83,7 +83,7 @@ function genRoot(main, left = '', right = '', other = {}) {
 
         <meta property="og:type" content="article" />
         <meta property="og:title" content="${def.heading}" />
-        <meta property="og:image" content="${def.thumbnail}" />
+        <meta property="og:image" content="https://fws-supply.website${def.thumbnail}" />
 
         <link rel="stylesheet" href="/layx/layx.css">
 
