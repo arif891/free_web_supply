@@ -27,7 +27,7 @@ class SearchManager {
 
         this.input.addEventListener('input', () => {
             clearTimeout(this.debounceTimer);
-            this.debounceTimer = setTimeout(() => this.search(), 500);
+            this.debounceTimer = setTimeout(() => this.search(), 250);
         });
     }
 
@@ -36,7 +36,7 @@ class SearchManager {
 
         const query = this.input.value.trim();
 
-        if (query.length < 2) {
+        if (query.length < 3) {
             this.scroller.innerHTML = '';
             return;
         }
