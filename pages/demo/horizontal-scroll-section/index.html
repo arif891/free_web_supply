@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Horizontal scroll section</title>
+
+        <style>
+            .horizontal-scroll-section {
+                height: 250vh;
+                view-timeline: --hs-sec;
+
+                .sticky {
+                    position: sticky;
+                    top: 0;
+                    height: 100vh;
+                    max-width: 100%;
+                    overflow-x: hidden;
+
+                    background: black;
+
+                    .wrapper {
+                        display: flex;
+                        width: fit-content;
+                        animation: move linear both;
+                        animation-timeline: --hs-sec;
+                        animation-range: contain;
+
+                        gap: 5vw;
+                        padding: 10vh 5vw;
+
+                        img {
+                            display: block;
+                            aspect-ratio: 16 / 9;
+                            object-fit: cover;
+                            height: 80vh;
+                        }
+                    }
+                }
+            }
+
+            @keyframes move {
+                to {
+                    translate: calc(-100% + 100vw) 0;
+                }
+            }
+
+            @supports not (animation-timeline: view()) {
+                .horizontal-scroll-section {
+                    height: auto;
+
+                    .sticky {
+                        position: static;
+                        height: auto;
+
+                        .wrapper {
+                            width: auto;
+                            flex-direction: column;
+                            animation: none;
+
+                            .img {
+                                height: auto;
+                                max-width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+
+            * {
+                margin: 0;
+                font-weight: 500;
+            }
+
+            :root {
+                scrollbar-width: thin;
+            }
+
+            body {
+                margin: 0;
+                font-family: sans-serif; 
+                background-color: #fff;
+            }
+
+            .demo__container {
+                height: 50vh;
+                padding: 5%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="demo__container">
+            <h1>Horizontal Scroll Section</h1>
+            <p>With CSS view-timeline</p>
+        </div>
+
+        <section class="horizontal-scroll-section">
+            <div class="sticky">
+                <div class="wrapper">
+                    <img src="/assets/image/demo/common/1.webp" alt="">
+                    <img src="/assets/image/demo/common/2.webp" alt="">
+                    <img src="/assets/image/demo/common/4.webp" alt="">
+                </div>
+            </div>
+        </section>
+
+        <div class="demo__container" style="display: grid; place-content: center;">
+           <h2>CONTINUE</h2>
+        </div>
+
+        <script type="module">
+            import { SmoothScroll } from "../../../layx/others/smooth_scroll/smooth_scroll.js";
+            new SmoothScroll();
+        </script>
+    </body>
+
+</html>

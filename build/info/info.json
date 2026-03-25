@@ -105,6 +105,24 @@
             "slug": "cross-fade-page-transition",
             "date": "February 25, 2026",
             "url": "/pages/inventory/cross-fade-page-transition"
+        },
+        {
+            "heading": "Horizontal Scroll Section",
+            "thumbnail": "/assets/image/inventory/horizontal-scroll-section/thumbnail.avif",
+            "type": "inventory",
+            "category": "animation",
+            "tags": [
+                "css",
+                "scroll",
+                "animation"
+            ],
+            "demo": "/pages/demo/horizontal-scroll-section",
+            "preview": "/assets/image/inventory/horizontal-scroll-section/preview.avif",
+            "id": 7,
+            "timestamp": 1774445871243,
+            "slug": "horizontal-scroll-section",
+            "date": "March 25, 2026",
+            "url": "/pages/inventory/horizontal-scroll-section"
         }
     ],
     "manifest": [
