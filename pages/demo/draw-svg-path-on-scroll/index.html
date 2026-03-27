@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#F5ECE6">
+        <title>Draw svg path on scroll</title>
+
+        <style>
+            .svg {
+                display: block;
+                width: 80%;
+                margin-inline: auto;
+                overflow: visible;
+                view-timeline: --svg;
+
+                .path {
+                    stroke: #fff;
+                    stroke-width: 7.5rem;
+                    stroke-dashoffset: .99;
+                    stroke-dasharray: 1;
+                    stroke-linecap: round;
+                    animation: draw linear both;
+                    animation-timeline: --svg;
+                    animation-range: cover contain;
+                }
+            }
+
+            @keyframes draw {
+                to {
+                    stroke-dashoffset: 0;
+                }
+            }
+
+            :root {
+                scrollbar-width: thin;
+                scrollbar-color: #cccccc #F5ECE6;
+            }
+
+            body {
+                margin: 0;
+                background-color: #F5ECE6;
+            }
+
+            .stack__wrapper {
+                display: grid;
+
+                &>* {
+                    grid-column: 1 / 1;
+                    grid-row: 1 / 1;
+                }
+
+
+                .section__wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5%;
+                    padding-block: 5%;
+                    padding-inline: 2.5%;
+
+                    .demo__section {
+
+                        &:nth-child(even) {
+                            align-self: end;
+                        }
+
+                        h1 {
+                            font-size: 2.5vw;
+                            opacity: .7;
+                        }
+
+                        img {
+                            width: 50vw;
+                        }
+                    }
+                }
+            }
+
+            .info__block {
+                padding-block: 40vh;
+
+                h1 {
+                    font-size: 5vw;
+                    text-align: center;
+                    opacity: .8;
+                }
+
+                p {
+                    color: red;
+                    display: none;
+                    text-align: center;
+
+                    @supports not (animation-timeline: view()) {
+                        display: block;
+                    }
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="info__block">
+            <h1>DRAW SVG PATH ON SCROLL</h1>
+            <p class="warn-text">Your browser does not support CSS view-timeline</p>
+        </div>
+        <div class="stack__wrapper">
+            <svg class="svg" viewBox="0 0 1228 3930" fill="none">
+                <path class="path" pathLength="1"
+                    d="M595.097 0.416992C628.597 22.5837 675.497 75.717 595.097 110.917C494.597 154.917 70.8862 189.943 96.1016 376.917C122.602 573.417 206.791 463.535 964.598 741.417C1589.1 970.417 935.602 1407.92 691.103 1479.92C394.278 1567.33 -6.60437 1720.32 0.595629 2001.92C9.59563 2353.92 1011.1 2371.42 1092.6 2660.92C1174.1 2950.42 1038.09 3198.42 595.097 3394.42C240.698 3551.22 447.43 3816.42 595.097 3929.42" />
+            </svg>
+
+            <section class="section__wrapper">
+                <div class="demo__section">
+                    <h1>SOME SECTION TITLE</h1>
+                    <img src="/assets/image/demo/common/1.webp" alt="">
+                </div>
+                <div class="demo__section">
+                    <h1>SOME SECTION TITLE</h1>
+                    <img src="/assets/image/demo/common/2.webp" alt="">
+                </div>
+                <div class="demo__section">
+                    <h1>SOME SECTION TITLE</h1>
+                    <img src="/assets/image/demo/common/6.webp" alt="">
+                </div>
+                <div class="demo__section">
+                    <h1>SOME SECTION TITLE</h1>
+                    <img src="/assets/image/demo/common/8.webp" alt="">
+                </div>
+            </section>
+        </div>
+        <div class="info__block">
+            <h1>SVG PATH END HERE</h1>
+        </div>
+    </body>
+
+    <script type="module">
+        import { SmoothScroll } from "../../../layx/others/smooth_scroll/smooth_scroll.js";
+        new SmoothScroll();
+    </script>
+
+</html>

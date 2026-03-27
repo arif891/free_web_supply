@@ -123,6 +123,24 @@
             "slug": "horizontal-scroll-section",
             "date": "March 25, 2026",
             "url": "/pages/inventory/horizontal-scroll-section"
+        },
+        {
+            "heading": "Draw SVG Path on Scroll",
+            "thumbnail": "/assets/image/inventory/draw-svg-path-on-scroll/thumbnail.avif",
+            "type": "inventory",
+            "category": "animation",
+            "tags": [
+                "css",
+                "scroll",
+                "svg"
+            ],
+            "preview": "/assets/image/inventory/draw-svg-path-on-scroll/preview.avif",
+            "demo": "/pages/demo/draw-svg-path-on-scroll",
+            "id": 8,
+            "timestamp": 1774623380812,
+            "slug": "draw-svg-path-on-scroll",
+            "date": "March 27, 2026",
+            "url": "/pages/inventory/draw-svg-path-on-scroll"
         }
     ],
     "manifest": [

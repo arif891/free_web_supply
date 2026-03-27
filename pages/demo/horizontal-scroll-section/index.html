@@ -66,6 +66,10 @@
                         }
                     }
                 }
+
+                .warn-text {
+                    display: block !important;
+                }
             }
 
             * {
@@ -86,6 +90,11 @@
             .demo__container {
                 height: 50vh;
                 padding: 5%;
+
+                .warn-text {
+                    color: red;
+                    display: none;
+                }
             }
         </style>
     </head>
@@ -94,6 +103,7 @@
         <div class="demo__container">
             <h1>Horizontal Scroll Section</h1>
             <p>With CSS view-timeline</p>
+            <p class="warn-text">Your browser does not support CSS view-timeline</p>
         </div>
 
         <section class="horizontal-scroll-section">
