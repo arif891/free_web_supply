@@ -178,6 +178,23 @@
             "slug": "mastering-web-typography-a-comprehensive-guide",
             "date": "February 27, 2026",
             "url": "/pages/manifest/mastering-web-typography-a-comprehensive-guide"
+        },
+        {
+            "heading": "Mastering Scrollbar Customization with CSS",
+            "thumbnail": "/assets/image/manifest/mastering-scrollbar-customization-with-css/thumbnail.avif",
+            "type": "manifest",
+            "category": "design",
+            "tags": [
+                "css,",
+                "ui,",
+                "ux,",
+                "scrollbar"
+            ],
+            "id": 3,
+            "timestamp": 1774789528169,
+            "slug": "mastering-scrollbar-customization-with-css",
+            "date": "March 29, 2026",
+            "url": "/pages/manifest/mastering-scrollbar-customization-with-css"
         }
     ]
 }
