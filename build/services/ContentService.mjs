@@ -99,6 +99,12 @@ class ContentService {
         indexHtml = replaceCommentContent(indexHtml, html, 'manifest');
         await writeFile(path.join(config.directories.out.html.manifest, 'index.html'), indexHtml);
     }
+    
+    async updateAssetPage(html) {
+        let indexHtml = await readFile(path.join(config.directories.out.html.asset, 'index.html'));
+        indexHtml = replaceCommentContent(indexHtml, html, 'asset');
+        await writeFile(path.join(config.directories.out.html.asset, 'index.html'), indexHtml);
+    }
 
     async cleanContent(content) {
         let updatedContent = removeInfo(content);

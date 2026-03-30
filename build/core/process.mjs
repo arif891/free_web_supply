@@ -1,7 +1,7 @@
 import { infoService } from '../services/InfoService.mjs';
 import { contentService } from '../services/ContentService.mjs';
 import { config } from '../config/index.mjs';
-import { genDefault, genInventorySection, genManifestSection } from '../templates/index.mjs';
+import { genDefault, genInventorySection, genManifestSection, genAssetSection } from '../templates/index.mjs';
 
 async function process() {
     try {
@@ -19,16 +19,19 @@ async function process() {
 
         const inventoryItems = (newInfo.inventory || []).slice().reverse();
         const manifestItems = (newInfo.manifest || []).slice().reverse();
+        const assetItems = (newInfo.asset || []).slice().reverse();
 
         const homeInventoryHtml = genInventorySection([...inventoryItems], newInfo.inventory?.length, true);
         const homeManifestHtml = genManifestSection([...manifestItems], newInfo.manifest?.length, true);
 
         const fullInventoryHtml = genInventorySection([...inventoryItems], newInfo.inventory?.length, false);
         const fullManifestHtml = genManifestSection([...manifestItems], newInfo.manifest?.length, false);
+        const fullAssetHtml = genAssetSection([...assetItems], newInfo.asset?.length);
 
         await contentService.updateHomePage(homeInventoryHtml, homeManifestHtml);
         await contentService.updateInventoryPage(fullInventoryHtml);
         await contentService.updateManifestPage(fullManifestHtml);
+        await contentService.updateAssetPage(fullAssetHtml);
 
         await contentService.resetInput(genDefault());
 

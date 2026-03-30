@@ -5,7 +5,8 @@ export const config = {
             markdown: 'markdown/',
             html: {
                 inventory: 'pages/inventory/',
-                manifest: 'pages/manifest/'
+                manifest: 'pages/manifest/',
+                asset: 'pages/asset/'
             }
         },
         info: 'build/info/'
