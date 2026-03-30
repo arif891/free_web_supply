@@ -29,7 +29,7 @@ function genAssetItems(items) {
             </a>
               </div>
               <div class="bottom">
-                <h1 class="h4 title">${item.heading}</h1>
+                <h1 class="h5 title">${item.heading}</h1>
               </div>
             </div>
           </div>
