@@ -13,7 +13,9 @@ async function process() {
         await contentService.saveMarkdown(content, info.id, info.type);
 
         await infoService.addItem(info, info.type);
-        await contentService.saveHtml(info.slug, html, info.type);
+        if (info.type !== 'asset') {
+            await contentService.saveHtml(info.slug, html, info.type);
+        }
 
         const newInfo = await infoService.getMainInfo();
 

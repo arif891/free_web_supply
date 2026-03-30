@@ -22,11 +22,11 @@ function genAssetItems(items) {
                     <use href="/assets/image/svg/icons.svg#arrow-up-right" />
                   </svg>
             </a>` : ''}
-            <a class="link" href="${item.download ?? item.image}" download title="Download">
+            <a class="link" href="${item.download ?? item.thumbnail}" download title="Download">
                   <svg class="icon">
                     <use href="/assets/image/svg/icons.svg#download" />
                   </svg>
-                </a>
+            </a>
               </div>
               <div class="bottom">
                 <h1 class="h4 title">${item.heading}</h1>
