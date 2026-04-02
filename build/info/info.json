@@ -195,6 +195,21 @@
             "slug": "mastering-scrollbar-customization-with-css",
             "date": "March 29, 2026",
             "url": "/pages/manifest/mastering-scrollbar-customization-with-css"
+        },
+        {
+            "heading": "Element Glow Effect by SVG Filter",
+            "thumbnail": "/assets/image/manifest/element-glow-effect-by-svg-filter/thumbnail.avif",
+            "type": "manifest",
+            "category": "effects",
+            "tags": [
+                "svg",
+                "filter"
+            ],
+            "id": 4,
+            "timestamp": 1775130319502,
+            "slug": "element-glow-effect-by-svg-filter",
+            "date": "April 2, 2026",
+            "url": "/pages/manifest/element-glow-effect-by-svg-filter"
         }
     ]
 }

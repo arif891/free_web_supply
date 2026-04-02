@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Element Glow Effect by SVG Filter</title>
+
+        
+
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Element Glow Effect by SVG Filter" />
+        <meta property="og:image" content="https://fws-supply.website/assets/image/manifest/element-glow-effect-by-svg-filter/thumbnail.avif" />
+
+        <link rel="stylesheet" href="/layx/layx.css">
+
+        <link rel="stylesheet" href="/assets/css/base.css">
+        <link rel="stylesheet" href="/assets/css/pages/inventory_&_manifest_single.css">
+        <link rel="stylesheet" href="/assets/css/pages/manifest_single.css">
+
+        <link rel="shortcut icon" href="/assets/brand/logo.svg" type="image/svg">
+        <link rel="manifest" href="/assets/brand/app.webmanifest">
+    </head>
+
+    <body>
+        <header>
+            <navbar id="main-navbar" data-component="navbar">
+                <div class="main-wrapper">
+                    <div class="main">
+                        <div class="start">
+                            <button class="search-btn" popovertarget="search-menu">
+                                <svg class="icon search-icon">
+                                    <use href="/assets/image/svg/icons.svg#search" />
+                                </svg>
+                            </button>
+                            <input class="search-input" type="search" id="nav-search-input">
+                        </div>
+                        <div class="center">
+                            <a href="/">
+                                <svg class="logo" id="nav-logo">
+                                    <use href="/assets/brand/logo.svg" />
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="end">
+                            <nav class="link__wrapper">
+                                <a class="link dec_bra dec_link" href="/pages/inventory/">INVENTORY</a>
+                                <a class="link dec_bra dec_link" href="/pages/manifest/">MANIFEST</a>
+                                <a class="link dec_bra dec_link" href="/pages/system.html">SYSTEM</a>
+                            </nav>
+                            <button class="menu-btn" id="menu-btn"></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu" id="menu">
+                    <div class="left">
+                        <nav class="link__wrapper">
+                            <a class="link" href="/pages/inventory/">INVENTORY</a>
+                            <a class="link" href="/pages/manifest/">MANIFEST</a>
+                            <a class="link" href="/pages/team/">PERSONNEL</a>
+                            <a class="link" href="/pages/system.html">SYSTEM</a>
+                        </nav>
+                    </div>
+                    <div class="right">
+                        <svg class="dec__logo">
+                            <use href="/assets/brand/logo.svg" />
+                        </svg>
+                    </div>
+                    <div class="bottom">
+                        <span class="dec_meta">ROOT<span class="d-md">_ACCESS</span>: ENABLED</span>
+                        <button class="dec_meta dec_bra dec_link" id="pre-btn"
+                            popovertarget="preference-menu">PREFERENCES</button>
+                    </div>
+                </div>
+            </navbar>
+        </header>
+
+
+        <main>
+            <section class="manifest__section">
+                <layout class="gap-2 manifest__layout">
+                    <div class="x-3 left">
+                        
+<div class="toc__wrapper">
+    <div class="header__wrapper">
+        <h5 class="title">ON THIS PAGE</h5>
+        <span class="dec_meta">IDX</span>
+    </div>
+    <div class="wrapper">
+    <nav class="toc" id="toc">
+    </nav>
+    </div>
+</div>
+
+                    </div>
+                    <article class="x-12 x-lg-8 x-xxl-6 main">
+                        <div class="thumbnail " style="--preview: url()">
+                           <img class="img" src="/assets/image/manifest/element-glow-effect-by-svg-filter/thumbnail.avif" alt="">
+                        </div>
+                        <h1 class="h2 heading">Element Glow Effect by SVG Filter</h1>
+                        <div class="content__wrapper" id="content-wrapper">
+<!-- FWS / SUPPLY — New Archive Entry -->
+
+
+
+
+
+<p>A performance-optimized SVG filter implementation to create a soft, customizable glow effect for UI elements without using heavy external libraries.</p>
+<h2>Overview</h2>
+<p>Standard CSS <code>box-shadow</code> or <code>filter: blur()</code> can sometimes be limiting or resource-heavy for complex shapes. This approach uses SVG <code>feGaussianBlur</code> to create a diffuse light effect and <code>feMerge</code> to layer it behind the original element, ensuring crisp edges while achieving a high-end glow.</p>
+<h2>Key Features</h2>
+<ul>
+<li><strong>Customizable Diffusion</strong>: Precise control over the glow size using <code>stdDeviation</code>.</li>
+<li><strong>Native Integration</strong>: Works seamlessly with HTML/CSS via the <code>filter: url()</code> property.</li>
+<li><strong>Zero Bloat</strong>: Minimum footprint by using built-in browser rendering engines.</li>
+<li><strong>Performance</strong>: High-performance, zero-bloat logic.</li>
+</ul>
+<h2>Technical Specifications</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Logic</strong></td>
+<td align="left">SVG 1.1 / Filter Effects</td>
+</tr>
+<tr>
+<td align="left"><strong>Styling</strong></td>
+<td align="left">Vanilla CSS</td>
+</tr>
+<tr>
+<td align="left"><strong>APIs</strong></td>
+<td align="left">SVG Filter API</td>
+</tr>
+<tr>
+<td align="left"><strong>Payload</strong></td>
+<td align="left">&lt; 0.5 KB</td>
+</tr>
+</tbody></table>
+<h2>Implementation</h2>
+<code data-code-lang="svg">&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; &gt;
+    &lt;defs&gt;
+        &lt;!-- filter: Defines a filter effect to be applied to an element. The id attribute specifies the unique identifier of the filter. The x, y, height, and width attributes specify the bounding box of the filter effect.
+         The color-interpolation-filters attribute specifies the color interpolation method to be used for the filter effect. --&gt;
+        
+        &lt;filter id=&quot;glow&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; height=&quot;200%&quot; width=&quot;200%&quot; color-interpolation-filters=&quot;sRGB&quot;&gt;
+
+            &lt;!-- feGaussianBlur: Applies a Gaussian blur to the input image. The stdDeviation attribute specifies the standard deviation of the Gaussian kernel, which controls the amount of blur. A larger value results in a stronger blur. --&gt;
+            
+            &lt;feGaussianBlur stdDeviation=&quot;100&quot; result=&quot;coloredBlur&quot; /&gt;
+
+            &lt;!-- feMerge: Merges multiple graphical elements into a single image. The order of the feMergeNode elements determines the stacking order of the merged elements. --&gt;
+            
+            &lt;feMerge&gt;
+                &lt;!-- feMergeNode: Specifies a node to be merged into the output image. --&gt;
+
+                &lt;feMergeNode in=&quot;coloredBlur&quot; /&gt;
+                &lt;feMergeNode in=&quot;SourceGraphic&quot; /&gt;
+            &lt;/feMerge&gt;
+        &lt;/filter&gt;
+    &lt;/defs&gt;
+&lt;/svg&gt;
+</code><code data-code-lang="css">.element {
+    filter: url(#glow);
+}
+</code> 
+                        </div>
+                    </article>
+                    <div class="x-12 x-lg-4 x-xxl-3 right">
+                        
+                    </div>
+                </layout>
+            </section>
+        </main>
+
+
+        <footer class="section" data-component="footer">
+            <layout class="footer__layout">
+                <div class="x-12 info__wrapper">
+                    <span class="dec_bra">FWS / SUPPLY</span>
+                    <span class="d-md">LAST_SYNC: 21.12.2025</span>
+                </div>
+
+                <div class="x-12 x-xxl-3 brand__space">
+                    <span class="h4">VANILLA_STANDARDS</span>
+                </div>
+
+                <div class="x-12 x-xxl-1 divider"></div>
+
+                <div class="x-12 x-xxl-8 link__block_wrapper">
+                    <div class="link__block">
+                        <span class="dec_meta">ROOT_DIRECTORY:</span>
+                        <a href="/pages/inventory/" class="link">INVENTORY</a>
+                        <a href="/pages/manifest/" class="link">MANIFEST</a>
+                        <a href="/pages/team/" class="link">PERSONNEL</a>
+                    </div>
+                    <div class="link__block">
+                        <span class="dec_meta">PROTOCOLS:</span>
+                        <a href="https://github.com/arif891/free_web_supply?tab=MIT-1-ov-file" target="_blank"
+                            class="link">MIT_LICENSE</a>
+                        <a href="" class="link">PRIVACY_LOG</a>
+                        <a href="" class="link">TERMS_OF_ACCESS</a>
+                    </div>
+                    <div class="link__block">
+                        <span class="dec_meta">CONNECT:</span>
+                        <a href="https://github.com/arif891/free_web_supply" target="_blank" class="link">GITHUB</a>
+                        <a href="" class="link">TERMINAL</a>
+                        <a href="" class="link">TWITTER / X</a>
+                    </div>
+                </div>
+
+                <div class="x-12 info__wrapper">
+                    <span>ⓒ 2026 FWS <span class="d-md">/ SUPPLY</span></span>
+                    <span>ALL_RIGHTS_RESERVED</span>
+                </div>
+            </layout>
+        </footer>
+
+        <div class="preference-menu" id="preference-menu" popover data-component="preferenceMenu">
+            <div class="header">
+              <div class="wrapper">
+                <h3 class="heading">PREFERENCES</h3>
+                <button class="dec_meta dec_bra dec_link close-btn" commandfor="preference-menu"
+                  command="hide-popover">CLOSE</button>
+              </div>
+            </div>
+            <div class="scroller" data-smooth-scroll="prevent">
+              <div class="item__wrapper motion">
+                <h5 class="title">Motion</h5>
+                <input class="switch" name="motion" type="checkbox" checked>
+              </div>
+              <div class="item__wrapper smooth-scroll">
+                <h5 class="title">Smooth Scroll</h5>
+                <input class="switch" name="smooth-scroll" type="checkbox" checked>
+              </div>
+              <div class="item__wrapper page-transition">
+                <h5 class="title">Page Transition</h5>
+                <input class="switch" name="page-transition" type="checkbox" checked>
+              </div>
+              <div class="item__wrapper show-loader">
+                <h5 class="title">Show Loader</h5>
+                <input class="switch" name="show-loader" type="checkbox" checked>
+              </div>
+              <div class="item__wrapper theme">
+                <h5 class="title">Theme</h5>
+                <div class="btn__wrapper">
+                  <button class="btn" data-theme-set="auto">
+                    <svg class="icon">
+                      <use href="/assets/image/svg/icons.svg#circle-half" />
+                    </svg>
+                  </button>
+                  <button class="btn" data-theme-set="light">
+                    <svg class="icon">
+                      <use href="/assets/image/svg/icons.svg#sun" />
+                    </svg>
+                  </button>
+                  <button class="btn" data-theme-set="dark">
+                    <svg class="icon">
+                      <use href="/assets/image/svg/icons.svg#moon" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="search-menu" id="search-menu" popover data-component="searchMenu">
+            <div class="header">
+                <div class="wrapper">
+                    <h3 class="heading">SEARCH</h3>
+                    <button class="dec_meta dec_bra dec_link close-btn" commandfor="search-menu"
+                        command="hide-popover">CLOSE</button>
+                </div>
+                <div class="input__wrapper">
+                    <input class="search-input" type="search" id="menu-search-input" placeholder="Search Items">
+                </div>
+            </div>
+            <div class="scroller" data-smooth-scroll="prevent">
+
+            </div>
+        </div>
+
+        <backdrop></backdrop>
+
+        <script src="/layx/layx.js" type="module"></script>
+
+        <script src="/assets/js/base.js" type="module"></script>
+        <script src="/assets/js/pages/inventory_&_manifest_single.js" type="module"></script>
+        <script src="/assets/js/pages/manifest_single.js" type="module"></script>
+    </body>
+
+</html>
