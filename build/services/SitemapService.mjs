@@ -9,8 +9,7 @@ class SitemapService {
         
         const allItems = [
             ...(info.inventory || []),
-            ...(info.manifest || []),
-            ...(info.asset || [])
+            ...(info.manifest || [])
         ];
 
         // Sort items by timestamp descending to find latest
