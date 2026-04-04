@@ -20,6 +20,7 @@ export const config = {
         info: {
             build: 'info.json'
         },
+        sitemap: 'sitemap.xml',
         default: {
             thumbnail: '/assets/image/base/default_thumbnail.avif'
         }

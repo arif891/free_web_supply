@@ -1,5 +1,6 @@
 import { infoService } from '../services/InfoService.mjs';
 import { contentService } from '../services/ContentService.mjs';
+import { sitemapService } from '../services/SitemapService.mjs';
 import { config } from '../config/index.mjs';
 import { genDefault, genInventorySection, genManifestSection, genAssetSection } from '../templates/index.mjs';
 
@@ -34,6 +35,7 @@ async function process() {
         await contentService.updateInventoryPage(fullInventoryHtml);
         await contentService.updateManifestPage(fullManifestHtml);
         await contentService.updateAssetPage(fullAssetHtml);
+        await sitemapService.update();
 
         await contentService.resetInput(genDefault());
 
