@@ -211,5 +211,39 @@
             "date": "April 2, 2026",
             "url": "/pages/manifest/element-glow-effect-by-svg-filter"
         }
+    ],
+    "asset": [
+        {
+            "heading": "Blue sky background with two side flowers",
+            "thumbnail": "/assets/image/asset/blue-sky-background-with-two-side-flowers.avif",
+            "type": "asset",
+            "category": "background",
+            "tags": [
+                "blue-sky",
+                "flowers",
+                "background"
+            ],
+            "id": 1,
+            "timestamp": 1775485975564,
+            "slug": "blue-sky-background-with-two-side-flowers",
+            "date": "April 6, 2026",
+            "url": "/pages/asset/blue-sky-background-with-two-side-flowers"
+        },
+        {
+            "heading": "Blue sky background with two side flowers",
+            "thumbnail": "/assets/image/asset/blue-sky-background-with-two-side-flowers_2.avif",
+            "type": "asset",
+            "category": "background",
+            "tags": [
+                "blue-sky",
+                "flowers",
+                "background"
+            ],
+            "id": 2,
+            "timestamp": 1775486157868,
+            "slug": "blue-sky-background-with-two-side-flowers",
+            "date": "April 6, 2026",
+            "url": "/pages/asset/blue-sky-background-with-two-side-flowers"
+        }
     ]
 }
