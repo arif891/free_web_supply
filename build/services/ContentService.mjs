@@ -33,7 +33,7 @@ class ContentService {
             timestamp: Date.now(),
             slug: createSlug(itemInfo.heading),
             date: new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }),
-            url: `/${outDir}${createSlug(itemInfo.heading)}`
+            url: itemInfo?.type === 'asset' ? `/pages/asset/single?id=${uid}` : `/${outDir}${createSlug(itemInfo.heading)}`
         };
 
         const fullHtml = htmlBuilder.buildPage(htmlFragment, finalItemInfo);

@@ -227,7 +227,7 @@
             "timestamp": 1775485975564,
             "slug": "blue-sky-background-with-two-side-flowers",
             "date": "April 6, 2026",
-            "url": "/pages/asset/blue-sky-background-with-two-side-flowers"
+            "url": "/pages/asset/single?id=1"
         },
         {
             "heading": "Blue sky background with two side flowers",
@@ -243,7 +243,7 @@
             "timestamp": 1775486157868,
             "slug": "blue-sky-background-with-two-side-flowers",
             "date": "April 6, 2026",
-            "url": "/pages/asset/blue-sky-background-with-two-side-flowers"
+            "url": "/pages/asset/single?id=2"
         }
     ]
 }
