@@ -6,33 +6,33 @@ class SearchManager {
         this.infoUrl = '/build/info/info.json';
         this.data = null;
         this.debounceTimer = null;
+
         this.init();
     }
 
     init() {
-        fetch(this.infoUrl)
-            .then(response => {
-                if (!response.ok) throw new Error(`Failed to load search data: ${response.status}`);
-                return response.json();
-            })
-            .then(data => {
-                // Flatten all section arrays (inventory, manifest, …) into one list
-                this.data = Object.values(data)
-                    .filter(Array.isArray)
-                    .flat();
-            })
-            .catch(err => {
-                console.error('[SearchManager]', err);
-            });
-
         this.input.addEventListener('input', () => {
             clearTimeout(this.debounceTimer);
             this.debounceTimer = setTimeout(() => this.search(), 250);
         });
     }
 
-    search() {
-        if (!this.data) return;
+    async loadData() {
+        try {
+            const response = await fetch(this.infoUrl);
+            if (!response.ok) throw new Error(`Failed to load search data: ${response.status}`);
+            const data = await response.json();
+            // Flatten all section arrays (inventory, manifest, …) into one list
+            this.data = Object.values(data)
+                .filter(Array.isArray)
+                .flat();
+        } catch (error) {
+            console.error('[SearchManager]', error);
+        }
+    }
+
+    async search() {
+        if (!this.data) await this.loadData();
 
         const query = this.input.value.trim();
 
