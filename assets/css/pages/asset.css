@@ -48,13 +48,12 @@ main {
                     background: linear-gradient(transparent, rgb(0 0 0 / .5));
 
                     .title {
-                        text-box: trim-both cap alphabetic;
                         display: -webkit-box;
                         -webkit-line-clamp: 2;
                         -webkit-box-orient: vertical;
                         overflow: clip;
                         text-transform: uppercase;
-                        padding-block: 2px;
+                        translate: 0 .24lh;
                     }
                 }
             }
