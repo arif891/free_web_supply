@@ -81,15 +81,15 @@ code {
         .lang {
             text-transform: uppercase;
         }
+    }
 
-        .copy {
-            &::before {
-                content: '[ COPY ]';
-            }
+    .copy {
+        &::before {
+            content: '[ COPY ]' !important;
+        }
 
-            &.copied::before {
-                content: '[ COPIED ]';
-            }
+        &.copied::before {
+            content: '[ COPIED ]' !important;
         }
     }
 }
@@ -353,9 +353,7 @@ code {
                 }
             }
 
-            .no-results {
-             
-            }
+            .no-results {}
         }
     }
 }
