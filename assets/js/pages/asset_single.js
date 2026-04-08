@@ -52,7 +52,6 @@ class AssetViewer {
         document.title = `${asset.heading} - FWS`;
 
         this.assetViewer.innerHTML = `
-       <div class="asset">
           <img class="image" src="${asset.thumbnail}" alt="${asset.heading}">
           <div class="wrapper">
             <div class="top">
@@ -72,7 +71,6 @@ ${asset.link ? `
               <h1 class="h5 title">${asset.heading}</h1>
             </div>
           </div>
-        </div>
        `;
     }
 }
