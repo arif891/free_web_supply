@@ -141,6 +141,23 @@
             "slug": "draw-svg-path-on-scroll",
             "date": "March 27, 2026",
             "url": "/pages/inventory/draw-svg-path-on-scroll"
+        },
+        {
+            "heading": "Animated Number Changer",
+            "thumbnail": "/assets/image/inventory/animated-number-changer/thumbnail.avif",
+            "type": "inventory",
+            "category": "transition",
+            "tags": [
+                "number",
+                "micro-interaction"
+            ],
+            "preview": "/assets/image/inventory/animated-number-changer/preview.avif",
+            "demo": "/pages/demo/animated-number-changer",
+            "id": 9,
+            "timestamp": 1775834569892,
+            "slug": "animated-number-changer",
+            "date": "April 10, 2026",
+            "url": "/pages/inventory/animated-number-changer"
         }
     ],
     "manifest": [
