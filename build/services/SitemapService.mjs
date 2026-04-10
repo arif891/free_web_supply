@@ -37,9 +37,16 @@ class SitemapService {
 
         // Inventory & Manifest Items
         for (const item of allItems) {
+            const itemDate = new Date(item.timestamp || latestTimestamp).toISOString().split('T')[0];
+            
             if (item.url) {
-                const itemDate = new Date(item.timestamp || latestTimestamp).toISOString().split('T')[0];
                 xml += `  <url>\n    <loc>${baseUrl}${item.url}</loc>\n    <lastmod>${itemDate}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n`;
+            }
+
+            if (item.demo) {
+                // Ensure demo URL starts with / if not empty and doesn't already
+                const demoUrl = item.demo.startsWith('/') ? item.demo : `/${item.demo}`;
+                xml += `  <url>\n    <loc>${baseUrl}${demoUrl}</loc>\n    <lastmod>${itemDate}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.5</priority>\n  </url>\n`;
             }
         }
 

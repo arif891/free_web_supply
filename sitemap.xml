@@ -31,10 +31,22 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://fws-supply.website/pages/demo/global-parallax-setup</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://fws-supply.website/pages/inventory/direction-aware-side-page-transition</loc>
     <lastmod>2026-02-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fws-supply.website/pages/demo/direction-aware-side-page-transition</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://fws-supply.website/pages/inventory/wipe-page-transition</loc>
@@ -43,10 +55,22 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://fws-supply.website/pages/demo/wipe-page-transition</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://fws-supply.website/pages/inventory/overlapping-page-transition</loc>
     <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fws-supply.website/pages/demo/overlapping-page-transition/</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://fws-supply.website/pages/inventory/parallax-image</loc>
@@ -55,10 +79,22 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://fws-supply.website/pages/demo/parallax-image</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://fws-supply.website/pages/inventory/cross-fade-page-transition</loc>
     <lastmod>2026-02-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fws-supply.website/pages/demo/cross-fade-page-transition</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://fws-supply.website/pages/inventory/horizontal-scroll-section</loc>
@@ -67,16 +103,34 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://fws-supply.website/pages/demo/horizontal-scroll-section</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://fws-supply.website/pages/inventory/draw-svg-path-on-scroll</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://fws-supply.website/pages/demo/draw-svg-path-on-scroll</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://fws-supply.website/pages/inventory/animated-number-changer</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fws-supply.website/pages/demo/animated-number-changer</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://fws-supply.website/pages/manifest/video-preview-on-hover-using-only-css</loc>
