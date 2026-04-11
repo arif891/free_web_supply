@@ -173,47 +173,47 @@ ${main}
         </main>
 
 
-        <footer class="section" data-component="footer">
-            <layout class="footer__layout">
-                <div class="x-12 info__wrapper">
-                    <span class="dec_bra">FWS / SUPPLY</span>
-                    <span class="d-md">LAST_SYNC: 21.12.2025</span>
-                </div>
+    <footer class="section" data-component="footer">
+      <layout class="footer__layout">
+        <div class="x-12 info__wrapper">
+          <span class="dec_bra">FWS / SUPPLY</span>
+          <span class="d-md">LAST_SYNC: 21.12.2025</span>
+        </div>
 
-                <div class="x-12 x-xxl-3 brand__space">
-                    <span class="h4">VANILLA_STANDARDS</span>
-                </div>
+        <div class="x-12 x-xxl-3 brand__space">
+          <span class="h4">VANILLA_STANDARDS</span>
+        </div>
 
-                <div class="x-12 x-xxl-1 divider"></div>
+        <div class="x-12 x-xxl-1 divider"></div>
 
-                <div class="x-12 x-xxl-8 link__block_wrapper">
-                    <div class="link__block">
-                        <span class="dec_meta">ROOT_DIRECTORY:</span>
-                        <a href="/pages/inventory/" class="link">INVENTORY</a>
-                        <a href="/pages/manifest/" class="link">MANIFEST</a>
-                        <a href="/pages/team/" class="link">PERSONNEL</a>
-                    </div>
-                    <div class="link__block">
-                        <span class="dec_meta">PROTOCOLS:</span>
-                        <a href="https://github.com/arif891/free_web_supply?tab=MIT-1-ov-file" target="_blank"
-                            class="link">MIT_LICENSE</a>
-                        <a href="" class="link">PRIVACY_LOG</a>
-                        <a href="" class="link">TERMS_OF_ACCESS</a>
-                    </div>
-                    <div class="link__block">
-                        <span class="dec_meta">CONNECT:</span>
-                        <a href="https://github.com/arif891/free_web_supply" target="_blank" class="link">GITHUB</a>
-                        <a href="" class="link">TERMINAL</a>
-                        <a href="" class="link">TWITTER / X</a>
-                    </div>
-                </div>
+        <div class="x-12 x-xxl-8 link__block_wrapper">
+          <div class="link__block">
+            <span class="dec_meta">ROOT_DIRECTORY:</span>
+            <a href="/pages/inventory" class="link">INVENTORY</a>
+            <a href="/pages/manifest" class="link">MANIFEST</a>
+            <a href="/pages/asset" class="link">ASSETS</a>
+          </div>
+          <div class="link__block">
+            <span class="dec_meta">PROTOCOLS:</span>
+            <a href="https://github.com/arif891/free_web_supply?tab=MIT-1-ov-file" target="_blank"
+              class="link">MIT_LICENSE</a>
+            <a href="" class="link">PRIVACY_LOG</a>
+            <a href="" class="link">TERMS_OF_ACCESS</a>
+          </div>
+          <div class="link__block">
+            <span class="dec_meta">CONNECT:</span>
+            <a href="https://github.com/arif891/free_web_supply" target="_blank" class="link">GITHUB</a>
+            <a href="https://bsky.app/profile/fws-supply.website" target="_blank" class="link">BLUESKY</a>
+            <a href="https://x.com/fws_supply" target="_blank" class="link">TWITTER / X</a>
+          </div>
+        </div>
 
-                <div class="x-12 info__wrapper">
-                    <span>ⓒ 2026 FWS <span class="d-md">/ SUPPLY</span></span>
-                    <span>ALL_RIGHTS_RESERVED</span>
-                </div>
-            </layout>
-        </footer>
+        <div class="x-12 info__wrapper">
+          <span>ⓒ 2026 FWS <span class="d-md">/ SUPPLY</span></span>
+          <span>ALL_RIGHTS_RESERVED</span>
+        </div>
+      </layout>
+    </footer>
 
         <div class="preference-menu" id="preference-menu" popover data-component="preferenceMenu">
             <div class="header">
