@@ -11,15 +11,15 @@ class HtmlBuilder {
 
         if (finalItemInfo?.type === 'inventory') {
             leftContent += genWidget('detail', finalItemInfo);
+        }
 
-            if (finalItemInfo?.demo) {
-                const actionInfo = {
-                    buttons: {
-                        'preview': finalItemInfo.demo,
-                    }
-                };
-                rightContent += genWidget('action', actionInfo);
-            }
+        if (finalItemInfo?.demo) {
+            const actionInfo = {
+                buttons: {
+                    'preview': finalItemInfo.demo,
+                }
+            };
+            rightContent += genWidget('action', actionInfo);
         }
 
         return genRoot(htmlFragment, leftContent, rightContent, finalItemInfo);
