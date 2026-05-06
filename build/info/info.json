@@ -158,6 +158,25 @@
             "slug": "animated-number-changer",
             "date": "April 10, 2026",
             "url": "/pages/inventory/animated-number-changer"
+        },
+        {
+            "heading": "Text Fill on Scroll",
+            "thumbnail": "/assets/image/inventory/text-fill-on-scroll/thumbnail.avif",
+            "type": "inventory",
+            "category": "animation",
+            "tags": [
+                "animation",
+                "scroll",
+                "view-timeline",
+                "css-only"
+            ],
+            "preview": "/assets/image/inventory/text-fill-on-scroll/preview.avif",
+            "demo": "/pages/demo/text-fill-on-scroll/index.html",
+            "id": 10,
+            "timestamp": 1778084309535,
+            "slug": "text-fill-on-scroll",
+            "date": "May 6, 2026",
+            "url": "/pages/inventory/text-fill-on-scroll"
         }
     ],
     "manifest": [

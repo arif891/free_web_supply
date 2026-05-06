@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Text fill on Scroll</title>
+
+        <link rel="stylesheet" href="/layx/main/typography/typography.css">
+
+
+        <style>
+            @property --_p {
+                syntax: '<percentage>';
+                inherits: false;
+                initial-value: 0%;
+            }
+
+            .wrapper {
+                view-timeline: --text-box;
+
+                .text {
+                    --edge-softness: 20%;
+                    --initial-color: rgb(255 255 255 / .25);
+                    --fill-color: rgb(255 255 255 / .95);
+
+                    display: inline;
+                    color: transparent;
+                    background-color: var(--initial-color);
+                    background-image: linear-gradient(135deg, var(--fill-color) calc(var(--_p) + var(--edge-softness) * -1), transparent var(--_p));
+                    background-repeat: no-repeat;
+                    background-clip: text;
+                    animation: textFill linear both;
+                    animation-timeline: --text-box;
+                    animation-range: contain contain 75%;
+                }
+            }
+
+
+            @keyframes textFill {
+                to {
+                    --_p: calc(100% + var(--edge-softness));
+                }
+            }
+
+
+
+            html {
+                scrollbar-width: thin;
+            }
+
+
+            body {
+                font-family: 'Red Hat Display', sans-serif;
+                font-weight: 500;
+                margin: 0;
+                background-image: url(/assets/image/demo/common/bg-5.avif);
+                background-attachment: fixed;
+                background-size: cover;
+                background-position: center;
+            }
+
+            .demo_block {
+                height: 100vh;
+                display: grid;
+                place-content: center;
+
+                h1 {
+                    font-size: 5vw;
+                    color: rgb(255 255 255 / .6);
+                }
+            }
+
+            .wrapper {
+                padding: 0 clamp(1rem, 3vw, 4rem);
+
+                .text {
+                    font-size: clamp(1.35rem, 3vw, 4rem);
+                    font-weight: 500;
+
+                    &.block {
+                      display: block;
+                    }
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="demo_block">
+            <h1>SCROLL DOWN</h1>
+        </div>
+
+        <div class="wrapper">
+            <h1 class="text">Creativity is not a finite resource to be managed, but a boundless energy that expands
+                the more we dare to use it. When we stop looking at the world as it is and start imagining it as it
+                could be, we begin to uncover the hidden patterns that connect us all.</h1>
+        </div>
+
+        <div class="demo_block">
+            <h1>CONTINUE</h1>
+        </div>
+
+        <div class="wrapper">
+            <h1 class="text block">Creativity is not a finite resource to be managed, but a boundless energy that expands
+                the more we dare to use it. When we stop looking at the world as it is and start imagining it as it
+                could be, we begin to uncover the hidden patterns that connect us all.</h1>
+        </div>
+
+        <div class="demo_block">
+            <h1>THE END</h1>
+        </div>
+
+        <script type="module">
+            import { SmoothScroll } from "../../../layx/others/smooth_scroll/smooth_scroll.js";
+            new SmoothScroll();
+        </script>
+    </body>
+
+</html>
