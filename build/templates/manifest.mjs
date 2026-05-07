@@ -19,7 +19,9 @@ function genManifestSection(items, total = 0, home = true) {
     <div class="x-12 header__wrapper">
       <h2 class="h4 sec__heading">DOCUMENTATION</h2>
     </div>
-    ${!home ? genManifestItems(items, 'x-12 x-md-6 x-xl-4') : ''}
+    ${!home ? `<div class="x-12 sub-x item__wrapper">
+      ${genManifestItems(items)}
+      </div>` : ''}
     ${home ? `
     <div class="x-12 x-xxl-4 left ">` : ''}
       ${home ? genManifestItems(items.filter(item => item.type === 'left'), 'x-12 x-xl-6') : ''}
