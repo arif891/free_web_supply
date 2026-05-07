@@ -1,9 +1,10 @@
-export { genAssetSection };
+export { genAssetSection, genAssetItems };
 
 function genAssetSection(items) {
+    if (items.length > 24) items.length = 24;
     return `
     <section class="asset__section" id="asset-section">
-      <layout class="asset__layout gap">
+      <layout class="asset__layout gap" id="asset-scroller">
         ${genAssetItems(items)}
       </layout>
     </section>
@@ -12,7 +13,7 @@ function genAssetSection(items) {
 
 function genAssetItems(items) {
     return items.map(item => `
-          <div class="x-12 x-md-6 x-lg-4 x-xxl-3 asset">
+          <div class="x-12 x-md-6 x-lg-4 x-xxl-3 asset" data-id="${item.id}">
             <img class="image" src="${item.thumbnail}" alt="${item.heading}" loading="lazy">
             <div class="wrapper">
               <div class="top">

@@ -1,10 +1,10 @@
-export { genInventorySection };
+export { genInventorySection, genInventoryItems };
 
 function genInventorySection(items, total = 0, home = true) {
     if (home) {
         if (items.length > 6) items.length = 6;
     } else {
-        if (items.length > 20) items.length = 20;
+        if (items.length > 9) items.length = 9;
     }
 
     return `
@@ -37,7 +37,7 @@ function genInventoryItems(items) {
     if (items.length > 1) items[1].cls = 'sp';
     if (items.length > 4) items[4].cls = 'sp';
     return items.map(item => `
-      <div class="x-12 x-md-6 x-xl-4 item ${item.cls || ''}">
+      <div class="x-12 x-md-6 x-xl-4 item ${item.cls || ''}" data-id="${item.id}">
         <div class="thumbnail ${item.preview ? `preview" style="--preview: url(${item.preview});"` : '"'}>
             <img class="img" src="${item.thumbnail}" alt="Thumbnail" loading="lazy">
         </div>

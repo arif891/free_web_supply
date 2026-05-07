@@ -1,18 +1,18 @@
-export { genManifestSection };
+export { genManifestSection, genManifestItems };
 
 function genManifestSection(items, total = 0, home = true) {
     if (home) {
         if (items.length > 4) items.length = 4;
         if (items.length > 0) items[0].type = 'left';
     } else {
-        if (items.length > 20) items.length = 20;
+        if (items.length > 8) items.length = 8;
         if (items.length > 0) items[0].cls = 'x-12 x-xl-6';
         if (items.length > 1) items[1].cls = 'x-12 x-md-6';
     }
 
     return `
 <section class="manifest__section" id="manifest-section">
-  <layout class="manifest__layout ${home ? '' : 'gap-x-4 gap-y-2'}" ${home ? 'data-vpt' : ''}>
+  <layout class="manifest__layout ${home ? '' : 'gap-x-4 gap-y-2'}" ${home ? 'data-vpt' : ''} id="manifest-scroller">
     <div class="x-12 info__wrapper">
       <span class="dec_bra">SYSTEM_MANIFEST</span><span class="d-md">RECORDS_FOUND: ${total.toString().padStart(2, '0')}</span>
     </div>
@@ -38,7 +38,7 @@ function genManifestSection(items, total = 0, home = true) {
 
 function genManifestItems(items, cls = '') {
     return items.map(item => `
-      <a href="${item.url}" class="${item.cls || cls} item">
+      <a href="${item.url}" class="${item.cls || cls} item" data-id="${item.id}">
         <img class="img" src="${item.thumbnail}" alt="Thumbnail" loading="lazy">
         <div class="wrapper">
           <h3 class="h4 title">${item.heading}</h3>
