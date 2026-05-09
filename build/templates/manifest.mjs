@@ -20,7 +20,7 @@ function genManifestSection(items, total = 0, home = true) {
       <h2 class="h4 sec__heading">DOCUMENTATION</h2>
     </div>
     ${!home ? `<div class="x-12 sub-x item__wrapper">
-      ${genManifestItems(items)}
+      ${genManifestItems(items, 'x-12 x-md-6 x-xl-4')}
       </div>` : ''}
     ${home ? `
     <div class="x-12 x-xxl-4 left ">` : ''}
