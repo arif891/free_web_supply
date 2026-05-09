@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheet Component Demo</title>
+
+    <link rel="stylesheet" href="/layx/components/sheet/sheet.css">
+
+    <link rel="stylesheet" href="/layx/main/typography/typography.css">
+
+    <style>
+      body {
+        font-family: 'Red Hat Display', sans-serif;
+        background-image: url(/assets/image/demo/common/bg-2.avif);
+        background-size: cover;
+        display: grid;
+        place-content: center;
+        gap: .75rem;
+        min-height: 100svh;
+        margin: 0;
+        color: #fff;
+      }
+
+      button {
+        font: inherit;
+        color: inherit;
+        padding: .5rem .75rem;
+        background: transparent;
+        border: 0;
+        background-color: rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+      }
+
+      sheet {
+        .wrapper {
+          background-color: rgb(0 0 0 / .3);
+          backdrop-filter: blur(1rem);
+          color: #fff;
+
+          .ex_block {
+            display: grid;
+            place-content: center;
+            min-height: 40vh;
+            min-width: 40vw;
+            position: relative;
+
+            &::before {
+              content: '';
+              position: absolute;
+              inset: 1rem 0 auto;
+              height: .25rem;
+              width: 2.5rem;
+              border-radius: 5rem;
+              margin-inline: auto;
+              background-color: rgba(255, 255, 255, 0.3);
+            }
+
+            [position=left] &,
+            [position=right] & {
+              &::before {
+                height: 2.5rem;
+                width: .25rem;
+                inset: 0 1rem 0 auto;
+                margin-block: auto;
+              }
+            }
+
+            [position=right] & {
+              &::before {
+                inset: 0 auto 0 1rem;
+              }
+            }
+
+            [position=top] & {
+              &::before {
+                inset: auto 0 1rem;
+              }
+            }
+
+            button {
+              position: absolute;
+              top: 0;
+              right: 0;
+              padding: 1rem;
+              background: unset;
+              border: 0;
+              font-size: 1.5rem;
+
+              [position=right] & {
+                left: 0;
+                right: auto;
+              }
+
+              [position=top] & {
+                top: unset;
+                bottom: 0;
+              }
+
+              @media (pointer: coarse) {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+
+      .snap {
+        timeline-scope: --sheet;
+
+        .wrapper {
+          width: clamp(250px, calc(100% - 1rem), 800px);
+          margin-inline: auto;
+          view-timeline: --sheet;
+
+          &::before {
+            content: '';
+            position: absolute;
+            inset: .75rem 0 auto;
+            height: .25rem;
+            width: 2.5rem;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 5rem;
+            margin-inline: auto;
+          }
+
+          [snap] {
+            padding: 1rem;
+
+            &:first-child {
+              border-bottom: 1px solid;
+            }
+
+            .img__wrapper {
+              display: grid;
+              grid-template-columns: 1fr 1fr 1fr;
+              gap: .5rem;
+
+              img {
+                max-height: 5vh;
+                object-fit: cover;
+                width: 100%;
+                -webkit-user-drag: none;
+
+                .second & {
+                  max-height: unset;
+                  height: 30vh;
+                }
+              }
+            }
+          }
+        }
+
+        backdrop {
+          position: fixed;
+          inset: 0;
+          opacity: 0;
+          background: var(--backdrop-bg, rgb(from var(--color, #000) r g b / .3));
+          transition: var(--backdrop-transition, .6s) allow-discrete;
+          backdrop-filter: blur(var(--blur));
+
+          [open] & {
+            visibility: visible;
+            opacity: 1;
+            pointer-events: all;
+          }
+        }
+
+        backdrop {
+          z-index: -1;
+          visibility: visible;
+
+          [open] & {
+            opacity: 1;
+          }
+
+          @supports (animation-timeline: --sheet) {
+            animation: tem linear both;
+            animation-timeline: --sheet;
+            animation-range: entry;
+
+            [open] & {
+              opacity: 0;
+            }
+          }
+        }
+      }
+
+      @keyframes tem {
+        to {
+          opacity: 1;
+        }
+      }
+
+      #scroll {
+
+        .wrapper {
+          width: clamp(250px, calc(100% - 1rem), 800px);
+          margin-inline: auto;
+          position: relative;
+          padding-top: 2.25rem;
+
+          &::before {
+            content: '';
+            position: absolute;
+            inset: 1rem 0 auto;
+            height: .25rem;
+            width: 2.5rem;
+            border-radius: 5rem;
+            margin-inline: auto;
+            background-color: rgba(255, 255, 255, 0.3);
+          }
+
+          .scroller {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            height: 50vh;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgb(255 255 255 / .3) transparent;
+            padding-inline: 1rem;
+          }
+
+          .item {
+            flex-shrink: 0;
+            height: 20vh;
+            background-color: rgba(255 255 255 / .3);
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <button data-target-sheet="bottom">Bottom</button>
+    <button data-target-sheet="left">Left</button>
+    <button data-target-sheet="right">Right</button>
+    <button data-target-sheet="top">Top</button>
+    <button data-target-sheet="snap">Snap</button>
+    <button data-target-sheet="scroll">Scroll</button>
+
+    <sheet id="bottom" data-drag-scroll="y">
+      <div class="wrapper">
+        <div class="ex_block">
+          <button close>✕</button>
+          <h1>BOTTOM</h1>
+        </div>
+      </div>
+      </div>
+    </sheet>
+
+    <sheet position="left" id="left" data-drag-scroll="x">
+      <div class="wrapper">
+        <div class="ex_block">
+          <button close>✕</button>
+          <h1>LEFT</h1>
+        </div>
+      </div>
+      </div>
+    </sheet>
+
+    <sheet position="right" id="right" data-drag-scroll="x">
+      <div class="wrapper">
+        <div class="ex_block">
+          <button close>✕</button>
+          <h1>RIGHT</h1>
+        </div>
+      </div>
+      </div>
+    </sheet>
+
+    <sheet position="top" id="top" data-drag-scroll="y">
+      <div class="wrapper">
+        <div class="ex_block">
+          <button close>✕</button>
+          <h1>TOP</h1>
+        </div>
+      </div>
+      </div>
+    </sheet>
+
+    <sheet id="snap" data-drag-scroll="y" class="snap">
+      <div class="wrapper">
+        <div class="first" snap>
+          <h4>FIRST</h4>
+          <div class="img__wrapper">
+            <img src="/assets/image/demo/common/1.webp" alt="">
+            <img src="/assets/image/demo/common/2.webp" alt="">
+            <img src="/assets/image/demo/common/3.webp" alt="">
+          </div>
+          <span style="text-align: center; display: block;margin-top: .5rem;">DRAG TOP</span>
+        </div>
+        <div class="second" snap>
+          <h4>SECOND</h4>
+          <div class="img__wrapper">
+            <img src="/assets/image/demo/common/4.webp" alt="">
+            <img src="/assets/image/demo/common/5.webp" alt="">
+            <img src="/assets/image/demo/common/6.webp" alt="">
+          </div>
+        </div>
+      </div>
+      <backdrop close></backdrop>
+    </sheet>
+
+    <sheet id="scroll" data-drag-scroll="y">
+      <div class="wrapper">
+        <div class="scroller">
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+        </div>
+      </div>
+    </sheet>
+
+  </body>
+
+  <script type="module">
+    import DragScroll from "../../../layx/others/drag_scroll/drag_scroll.js";
+    import "../../../layx/components/sheet/sheet.js";
+  </script>
+
+</html>
