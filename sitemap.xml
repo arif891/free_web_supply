@@ -2,25 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://fws-supply.website/</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://fws-supply.website/pages/inventory</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://fws-supply.website/pages/manifest</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://fws-supply.website/pages/asset</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -141,6 +141,18 @@
   <url>
     <loc>https://fws-supply.website/pages/demo/text-fill-on-scroll/index.html</loc>
     <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://fws-supply.website/pages/inventory/sheet-component</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fws-supply.website/pages/demo/sheet-component</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -25,7 +25,7 @@ class dynamicRender {
         try {
             const response = await fetch(this.config.infoURL);
             const data = await response.json();
-            this.items = data[this.config.type] || [];
+            this.items = data[this.config.type].reverse() || [];
             
             // Calculate initial offset based on items already in DOM
             const container = document.querySelector(this.config.container);

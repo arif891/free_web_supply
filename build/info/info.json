@@ -177,6 +177,23 @@
             "slug": "text-fill-on-scroll",
             "date": "May 6, 2026",
             "url": "/pages/inventory/text-fill-on-scroll"
+        },
+        {
+            "heading": "Sheet Component",
+            "thumbnail": "/assets/image/inventory/sheet-component/thumbnail.avif",
+            "type": "inventory",
+            "category": "component",
+            "tags": [
+                "sheet",
+                "drawer"
+            ],
+            "preview": "/assets/image/inventory/sheet-component/preview.avif",
+            "demo": "/pages/demo/sheet-component",
+            "id": 11,
+            "timestamp": 1778330561694,
+            "slug": "sheet-component",
+            "date": "May 9, 2026",
+            "url": "/pages/inventory/sheet-component"
         }
     ],
     "manifest": [
