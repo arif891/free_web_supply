@@ -1,75 +1,8 @@
 /* Polyfill for Safari anf Firefox */
-@import './polyfill.css'layer(components) supports(not (scroll-marker-group: after));
-
 @layer components {
     carousel, .carousel {
-        --min-height: 300px;
-        --offset: .75rem;
-        --indicator-bg: #fff;
-        --button-bg: rgb(0 0 0 / .3);
-        --button-gap: 1rem;
-        --button-size: 3rem;
-        --button-color: #fff;
-
-        display: grid;
-        gap: 1rem;
-        position: relative;
-
-        .scroller {
-            display: flex;
-            min-height: var(--min-height);
-            gap: var(--gap);
-            overflow: auto;
-            padding-inline: var(--edge-offset-x);
-            scrollbar-width: none;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            scroll-marker-group: after;
-            cursor: grab;
-            will-change: scroll-position;
-
-            [controls] & {
-                &::scroll-button(left) {
-                    content: "⟨"/ "Previous";
-                }
-
-                &::scroll-button(right) {
-                    content: "⟩"/ "Next";
-                }
-            }
-
-            .item {
-                flex-shrink: 0;
-                width: 100%;
-                user-select: none;
-                -webkit-user-drag: none;
-                scroll-snap-align: center;
-
-                &.auto {
-                    width: auto;
-                }
-
-                [snap~=left] & {
-                    scroll-snap-align: start;
-                }
-
-                [snap~=right] & {
-                    scroll-snap-align: end;
-                }
-
-                [snap~=none] & {
-                    scroll-snap-align: none;
-                }
-
-                &::scroll-marker {
-                    content: '';
-                }
-            }
-
-        }
-
         &[indicators] {
-            ::scroll-marker-group {
+            .scroll-marker-group {
                 display: flex;
                 min-height: 1rem;
                 max-width: calc(100% - var(--edge-offset-x, 0) * 2);
@@ -84,14 +17,14 @@
             }
 
             &:not([indicators~=top], [indicators~=bottom]) {
-                ::scroll-marker-group {
+                .scroll-marker-group {
                     position: absolute;
                     inset: auto 0 0;
                 }
             }
 
             &[indicators~=top] {
-                ::scroll-marker-group {
+                .scroll-marker-group {
                     grid-row: 1 / 2;
                     grid-column: 1 / 2;
                     align-self: end;
@@ -99,23 +32,24 @@
             }
 
             &[indicators~=right] {
-                ::scroll-marker-group {
+                .scroll-marker-group {
                     justify-content: end;
                 }
             }
 
             &[indicators~=left] {
-                ::scroll-marker-group {
+                .scroll-marker-group {
                     justify-content: start;
                 }
             }
 
-            ::scroll-marker {
+            .scroll-marker {
                 padding: 0;
                 height: var(--indicator-height, .2rem);
                 width: var(--indicator-width, 1.5rem);
-                box-sizing: content-box;
+                box-sizing: content-box !important;
                 border-block: 1rem solid transparent;
+                border-inline: 0;
                 border-radius: 0;
                 pointer-events: auto;
                 flex-shrink: 0;
@@ -123,16 +57,17 @@
                 background: var(--indicator-bg);
                 background-clip: padding-box;
                 transition: .3s;
+                cursor: pointer;
             }
 
-            ::scroll-marker:target-current {
+            .scroll-marker.active {
                 width: var(--indicator-active-width, 2.5rem);
                 opacity: 1;
             }
         }
 
         &[controls] {
-            ::scroll-button(*) {
+            .scroll-button {
                 display: grid;
                 place-content: center;
                 height: var(--button-size);
@@ -146,105 +81,89 @@
                 z-index: 2;
             }
 
-            ::scroll-button(*):disabled {
+            .scroll-button:disabled {
                 cursor: not-allowed;
                 opacity: .5;
             }
 
+            .scroll-button.left {
+                &::before {
+                    content: "⟨"/ "Previous";
+                }
+            }
+
+            .scroll-button.right {
+                &::before {
+                    content: "⟩"/ "Next";
+                }
+            }
+
             &:not([controls~=top], [controls~=bottom]) {
-                ::scroll-button(*) {
+                .scroll-button {
                     position: absolute;
                     top: 50%;
                     translate: 0 -50%;
                 }
 
-                ::scroll-button(left) {
+                .scroll-button.left {
                     left: max(calc(var(--edge-offset-x) / 4), var(--offset, .5rem));
                 }
 
-                ::scroll-button(right) {
+                .scroll-button.right {
                     right: max(calc(var(--edge-offset-x) / 4), var(--offset, .5rem));
                 }
             }
 
             &[controls~=top], &[controls~=bottom] {
-                ::scroll-button(*) {
+                .scroll-button {
                     grid-column: 1 / 2;
                     margin-inline: var(--edge-offset-x);
                     justify-self: end;
                 }
 
-                ::scroll-button(left) {
+                .scroll-button.left {
                     translate: calc(-100% - var(--button-gap, 0)) 0;
                 }
 
                 &[controls~=left] {
-                    ::scroll-button(*) {
+                    .scroll-button {
                         justify-self: start;
                     }
 
-                    ::scroll-button(left) {
+                    .scroll-button.left {
                         translate: 0 0;
                     }
 
-                    ::scroll-button(right) {
+                    .scroll-button.right {
                         translate: calc(100% + var(--button-gap, 0)) 0;
                     }
                 }
 
                 &[controls~=center] {
-                    ::scroll-button(*) {
+                    .scroll-button {
                         justify-self: center;
                     }
 
-                    ::scroll-button(left) {
+                    .scroll-button.left {
                         translate: calc(-50% - (var(--button-gap, 0) / 2)) 0;
                     }
 
-                    ::scroll-button(right) {
+                    .scroll-button.right {
                         translate: calc(50% + (var(--button-gap, 0) / 2)) 0;
                     }
                 }
             }
 
             &[controls~=top] {
-                ::scroll-button(*) {
+                .scroll-button {
                     grid-row: 1 / 2;
                     align-self: end;
                 }
             }
 
             &[controls~=bottom] {
-                ::scroll-button(*) {
+                .scroll-button {
                     grid-row: 2 / 3;
-                }
-            }
-
-        }
-
-        .content {
-            grid-row: 1 / 2;
-            grid-column: 1 / 2;
-            padding-inline: var(--edge-offset-x);
-
-            [controls]:not([controls~=left], [controls~=center]) & {
-                padding-right: calc(1rem + var(--edge-offset-x, 0) + var(--button-gap, 0) + var(--button-size, 0) * 2);
-            }
-
-            [controls~=left] & {
-                padding-left: calc(1rem + var(--edge-offset-x, 0) + var(--button-gap, 0) + var(--button-size, 0) * 2);
-            }
-
-            [controls~=center] & {
-                padding-bottom: calc(var(--button-size, 0) + 1rem);
-            }
-
-            &:nth-child(2) {
-                grid-row: 2 / 3;
-
-                [controls~=center] & {
-                    padding-bottom: 0;
-                    padding-top: calc(var(--button-size, 0) + 1rem);
                 }
             }
         }
