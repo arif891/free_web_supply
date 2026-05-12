@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <link rel="stylesheet" href="/layx/components/accordion/accordion.css">
+
+        <link rel="stylesheet" href="/layx/main/base/variable.css">
+        <link rel="stylesheet" href="/layx/main/base/base.css">
+        <link rel="stylesheet" href="/layx/main/typography/typography.css">
+        <link rel="stylesheet" href="/layx//main/container/container.css">
+
+        <style>
+            body {
+                background-image: url(/assets/image/demo/common/bg-9.avif);
+                background-size: cover;
+                background-position: center;
+                color: #fff;
+            }
+
+            .demo__container {
+                padding-top: 2.5rem;
+                padding-inline: .75rem;;
+                max-width: 55ch;
+                margin-inline: auto;
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+
+                [accordion] {
+                    --background: rgba(0, 0, 0, 0.3);
+                    --radius: .25rem;
+
+                    summary {
+                        font-size: 1.15rem;
+                    }
+
+                    &::details-content {
+                        opacity: .9;
+                    }
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <container class="demo__container">
+
+            <h3 style="color: #fff;">Accordion</h3>
+
+            <details accordion name="demo">
+
+                <summary>What is web design?</summary>
+
+                Web design involves creating the visual elements and layout of a website. This includes the
+                structure, color scheme, typography, images, and overall user interface (UI) to ensure an
+                appealing, functional, and user-friendly experience.
+            </details>
+
+            <details accordion name="demo">
+
+                <summary>What is responsive web design?</summary>
+
+                Mobile-first design prioritizes the mobile experience when building a website, ensuring it
+                works optimally on smaller screens before scaling up for larger devices. With the majority
+                of internet traffic now coming from mobile devices, it's essential to design for mobile
+                users first.
+            </details>
+
+            <details accordion name="demo">
+
+                <summary>Why is mobile-first design important?</summary>
+
+                Mobile-first design prioritizes the mobile experience when building a website, ensuring it
+                works optimally on smaller screens before scaling up for larger devices. With the majority
+                of internet traffic now coming from mobile devices, it's essential to design for mobile
+                users first.
+            </details>
+
+            <details accordion name="demo">
+
+                <summary>What is a website wireframe?</summary>
+
+                A wireframe is a basic blueprint of a website, outlining the layout and structure without any
+                design elements like color or images. It's used in the planning stage to map out where
+                different elements will appear on each page.
+            </details>
+    </body>
+
+</html>

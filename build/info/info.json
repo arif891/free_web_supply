@@ -212,6 +212,24 @@
             "slug": "carousel",
             "date": "May 12, 2026",
             "url": "/pages/inventory/carousel"
+        },
+        {
+            "heading": "Accordion",
+            "thumbnail": "/assets/image/inventory/accordion/thumbnail.avif",
+            "type": "inventory",
+            "category": "component",
+            "tags": [
+                "css",
+                "accessibility",
+                "performance"
+            ],
+            "preview": "/assets/image/inventory/accordion/preview.avif",
+            "demo": "/pages/demo/accordion",
+            "id": 13,
+            "timestamp": 1778607867858,
+            "slug": "progressive-accordion-engine",
+            "date": "May 12, 2026",
+            "url": "/pages/inventory/progressive-accordion-engine"
         }
     ],
     "manifest": [
