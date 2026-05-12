@@ -194,6 +194,24 @@
             "slug": "sheet-component",
             "date": "May 9, 2026",
             "url": "/pages/inventory/sheet-component"
+        },
+        {
+            "heading": "Carousel",
+            "thumbnail": "/assets/image/inventory/carousel/thumbnail.avif",
+            "type": "inventory",
+            "category": "component",
+            "tags": [
+                "css",
+                "js",
+                "interaction"
+            ],
+            "preview": "/assets/image/inventory/carousel/preview.avif",
+            "demo": "/pages/demo/carousel",
+            "id": 12,
+            "timestamp": 1778590859166,
+            "slug": "carousel",
+            "date": "May 12, 2026",
+            "url": "/pages/inventory/carousel"
         }
     ],
     "manifest": [
