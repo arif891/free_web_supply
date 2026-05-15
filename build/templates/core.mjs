@@ -286,7 +286,9 @@ ${main}
         <script src="/assets/js/base.js" type="module"></script>
         <script src="/assets/js/pages/inventory_&_manifest_single.js" type="module"></script>
         <script src="/assets/js/pages/${def.type}_single.js" type="module"></script>
-    </body>
+    
+    <script src="/_vercel/insights/script.js" type="module" fetchpriority="low"></script>
+</body>
 
 </html>
 `
