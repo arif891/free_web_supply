@@ -262,6 +262,19 @@
     <script src="/assets/js/pages/manifest.js" type="module"></script>
   
     <script src="/_vercel/insights/script.js" type="module" fetchpriority="low"></script>
+
+    <script type="speculationrules">
+{
+    "prerender": [
+        {
+            "where": {
+                "selector_matches": ".manifest__section .item"
+            }
+        }
+    ],
+    "prefetch": []
+}
+    </script>    
 </body>
 
 </html>

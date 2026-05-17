@@ -9,6 +9,16 @@
         },
         {
             "where": {
+                "selector_matches": ".inventory__section .item .action__btn"
+            }
+        },
+        {
+            "where": {
+                "selector_matches": ".manifest__section .item"
+            }
+        },
+        {
+            "where": {
                 "selector_matches": ".inventory__section .item:first-child .action__btn"
             },
             "eagerness": "eager"

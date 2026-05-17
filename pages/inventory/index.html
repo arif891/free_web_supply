@@ -335,6 +335,19 @@
     <script src="/assets/js/pages/inventory.js" type="module"></script>
   
     <script src="/_vercel/insights/script.js" type="module" fetchpriority="low"></script>
+
+    <script type="speculationrules">
+{
+    "prerender": [
+        {
+            "where": {
+                "selector_matches": ".inventory__section .item .action__btn"
+            }
+        }
+    ],
+    "prefetch": []
+}
+    </script>
 </body>
 
 </html>
