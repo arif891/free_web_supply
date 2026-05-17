@@ -17,6 +17,12 @@ function genAssetItems(items) {
             <img class="image" src="${item.thumbnail}" alt="${item.heading}" loading="lazy">
             <div class="wrapper">
               <div class="top">
+            <button class="link copy" title="Copy Link" data-id="${item.id}" data-action="copy">
+              <svg class="icon">
+                <use href="/assets/image/svg/icons.svg#link" />
+              </svg>
+            </button>
+
             ${item.link ? `
             <a class="link" href="${item.link}" title="View">
                   <svg class="icon">
