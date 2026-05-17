@@ -1,0 +1,24 @@
+{
+    "prerender": [
+        {
+            "urls": [
+                "/inventory",
+                "/manifest",
+                "/asset"
+            ]
+        },
+        {
+            "where": {
+                "selector_matches": ".inventory__section .item:first-child .action__btn"
+            },
+            "eagerness": "eager"
+        },
+        {
+            "where": {
+                "selector_matches": ".manifest__section .left .item:first-child"
+            },
+            "eagerness": "moderate"
+        }
+    ],
+    "prefetch": []
+}
