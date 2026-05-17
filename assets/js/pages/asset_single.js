@@ -84,7 +84,7 @@ new AssetViewer();
 
 
 document.addEventListener('click', (e) => {
-    const linkBase = 'https://fws-supply.website/asset/single?id=';
+    const linkBase = `${window.location.origin}/asset/single?id=`;
 
     const btn = e.target.closest('button[data-action="copy"]');
     if (!btn) return;
