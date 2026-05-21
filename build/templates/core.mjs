@@ -53,11 +53,12 @@ tags: vanilla css js;
 </info>
 
 <!-- 
-type: inventory | manifest; (inventory: provide unit, manifest: provide article)
+type: inventory | manifest | asset; (inventory: provide unit, manifest: provide article, asset: provide file)
 category: [category]; (Give a proper category name)
 tags: [tag1 tag2 tag3]; (Give some related tag name)
 preview: [url]; (Provide a animated preview image url)
 demo: [url]; (Provide a demo url)
+download: [url]; (Provide a file download url. Use relative path if it is in the same domain)
 -->
 `
 }
