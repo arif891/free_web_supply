@@ -350,6 +350,23 @@
             "slug": "big-flower-pack",
             "date": "May 21, 2026",
             "url": "/pages/asset/single?id=3"
+        },
+        {
+            "heading": "Semi-Transparent Flower Packs",
+            "thumbnail": "/assets/image/asset/semi_transparent_flower_pack.avif",
+            "type": "asset",
+            "category": "image",
+            "tags": [
+                "semi-transparent,",
+                "flower,",
+                "pack"
+            ],
+            "download": "/assets/public/raw/semi_transparent_yellow_flower_pack.zip",
+            "id": 4,
+            "timestamp": 1779426291825,
+            "slug": "semi-transparent-flower-packs",
+            "date": "May 22, 2026",
+            "url": "/pages/asset/single?id=4"
         }
     ]
 }
