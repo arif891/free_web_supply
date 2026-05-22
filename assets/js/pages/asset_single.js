@@ -66,7 +66,7 @@ ${asset.link ? `
                     <use href="/assets/image/svg/icons.svg#arrow-up-right" />
                   </svg>
             </a>` : ''}
-            <a class="link" href="${asset.download ?? asset.thumbnail}" download title="Download">
+            <a class="link" href="${asset.download ? (asset.download.startsWith('/') ? `https://raw.githubusercontent.com/arif891/free_web_supply/refs/heads/main${asset.download}` : asset.download) : asset.thumbnail}" download title="Download">
                   <svg class="icon">
                     <use href="/assets/image/svg/icons.svg#download" />
                   </svg>
