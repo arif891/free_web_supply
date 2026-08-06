@@ -61,6 +61,7 @@
                     li {
                         text-wrap: pretty;
                         color: var(--paragraph-color);
+                        line-height: 1.5;
                     }
                 }
 
